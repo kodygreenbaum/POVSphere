@@ -7,13 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F01858A1C878726008E710E /* ModeSelectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0185891C878726008E710E /* ModeSelectTableViewController.swift */; };
+		4F01858D1C878772008E710E /* ModeSelectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01858C1C878772008E710E /* ModeSelectTableViewCell.swift */; };
+		4F01858F1C878AB9008E710E /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01858E1C878AB9008E710E /* Mode.swift */; };
+		4F0185911C878D0A008E710E /* UtilityGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0185901C878D0A008E710E /* UtilityGlobal.swift */; };
 		4F824FF21C80E2290090D3F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F824FF11C80E2290090D3F5 /* AppDelegate.swift */; };
-		4F824FF41C80E2290090D3F5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F824FF31C80E2290090D3F5 /* ViewController.swift */; };
 		4F824FF71C80E2290090D3F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F824FF51C80E2290090D3F5 /* Main.storyboard */; };
 		4F824FF91C80E2290090D3F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F824FF81C80E2290090D3F5 /* Assets.xcassets */; };
 		4F824FFC1C80E2290090D3F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F824FFA1C80E2290090D3F5 /* LaunchScreen.storyboard */; };
 		4F8250071C80E22A0090D3F5 /* POVSphereTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8250061C80E22A0090D3F5 /* POVSphereTests.swift */; };
 		4F8250121C80E22A0090D3F5 /* POVSphereUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8250111C80E22A0090D3F5 /* POVSphereUITests.swift */; };
+		4FF96E811C87801100165FCD /* ConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF96E801C87801100165FCD /* ConnectViewController.swift */; };
+		4FF96E851C87805E00165FCD /* StaticModeRunningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF96E841C87805E00165FCD /* StaticModeRunningViewController.swift */; };
+		4FF96E871C8780BE00165FCD /* ArtModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF96E861C8780BE00165FCD /* ArtModeViewController.swift */; };
+		4FF96E891C87813000165FCD /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FF96E881C87812F00165FCD /* CoreBluetooth.framework */; };
+		4FF96E8D1C8781B600165FCD /* BLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF96E8C1C8781B600165FCD /* BLEManager.swift */; };
+		4FF96E8F1C8781D900165FCD /* BLEHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF96E8E1C8781D900165FCD /* BLEHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +43,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4F0185891C878726008E710E /* ModeSelectTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModeSelectTableViewController.swift; sourceTree = "<group>"; };
+		4F01858C1C878772008E710E /* ModeSelectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModeSelectTableViewCell.swift; sourceTree = "<group>"; };
+		4F01858E1C878AB9008E710E /* Mode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mode.swift; sourceTree = "<group>"; };
+		4F0185901C878D0A008E710E /* UtilityGlobal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilityGlobal.swift; sourceTree = "<group>"; };
 		4F824FEE1C80E2290090D3F5 /* POVSphere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = POVSphere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F824FF11C80E2290090D3F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4F824FF31C80E2290090D3F5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4F824FF61C80E2290090D3F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4F824FF81C80E2290090D3F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4F824FFB1C80E2290090D3F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +59,12 @@
 		4F82500D1C80E22A0090D3F5 /* POVSphereUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = POVSphereUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F8250111C80E22A0090D3F5 /* POVSphereUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POVSphereUITests.swift; sourceTree = "<group>"; };
 		4F8250131C80E22A0090D3F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4FF96E801C87801100165FCD /* ConnectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectViewController.swift; sourceTree = "<group>"; };
+		4FF96E841C87805E00165FCD /* StaticModeRunningViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticModeRunningViewController.swift; sourceTree = "<group>"; };
+		4FF96E861C8780BE00165FCD /* ArtModeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtModeViewController.swift; sourceTree = "<group>"; };
+		4FF96E881C87812F00165FCD /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		4FF96E8C1C8781B600165FCD /* BLEManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEManager.swift; sourceTree = "<group>"; };
+		4FF96E8E1C8781D900165FCD /* BLEHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FF96E891C87813000165FCD /* CoreBluetooth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +93,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F01858B1C87874E008E710E /* ModeSelectTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4F0185891C878726008E710E /* ModeSelectTableViewController.swift */,
+				4F01858C1C878772008E710E /* ModeSelectTableViewCell.swift */,
+			);
+			name = ModeSelectTableViewController;
+			sourceTree = "<group>";
+		};
 		4F824FE51C80E2290090D3F5 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +109,7 @@
 				4F8250051C80E22A0090D3F5 /* POVSphereTests */,
 				4F8250101C80E22A0090D3F5 /* POVSphereUITests */,
 				4F824FEF1C80E2290090D3F5 /* Products */,
+				4FF96E8A1C87814600165FCD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,12 +126,12 @@
 		4F824FF01C80E2290090D3F5 /* POVSphere */ = {
 			isa = PBXGroup;
 			children = (
-				4F824FF11C80E2290090D3F5 /* AppDelegate.swift */,
-				4F824FF31C80E2290090D3F5 /* ViewController.swift */,
 				4F824FF51C80E2290090D3F5 /* Main.storyboard */,
-				4F824FF81C80E2290090D3F5 /* Assets.xcassets */,
-				4F824FFA1C80E2290090D3F5 /* LaunchScreen.storyboard */,
-				4F824FFD1C80E2290090D3F5 /* Info.plist */,
+				4F0185901C878D0A008E710E /* UtilityGlobal.swift */,
+				4FF96E7E1C877F6500165FCD /* ViewControllers */,
+				4FF96E7F1C877F6C00165FCD /* Model */,
+				4FF96E8B1C87816F00165FCD /* BLE */,
+				4FF96E7D1C877F2200165FCD /* AppDelegateAssetsEtc */,
 			);
 			path = POVSphere;
 			sourceTree = "<group>";
@@ -123,6 +152,53 @@
 				4F8250131C80E22A0090D3F5 /* Info.plist */,
 			);
 			path = POVSphereUITests;
+			sourceTree = "<group>";
+		};
+		4FF96E7D1C877F2200165FCD /* AppDelegateAssetsEtc */ = {
+			isa = PBXGroup;
+			children = (
+				4F824FF11C80E2290090D3F5 /* AppDelegate.swift */,
+				4F824FF81C80E2290090D3F5 /* Assets.xcassets */,
+				4F824FFA1C80E2290090D3F5 /* LaunchScreen.storyboard */,
+				4F824FFD1C80E2290090D3F5 /* Info.plist */,
+			);
+			name = AppDelegateAssetsEtc;
+			sourceTree = "<group>";
+		};
+		4FF96E7E1C877F6500165FCD /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4FF96E801C87801100165FCD /* ConnectViewController.swift */,
+				4F01858B1C87874E008E710E /* ModeSelectTableViewController */,
+				4FF96E841C87805E00165FCD /* StaticModeRunningViewController.swift */,
+				4FF96E861C8780BE00165FCD /* ArtModeViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		4FF96E7F1C877F6C00165FCD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4F01858E1C878AB9008E710E /* Mode.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		4FF96E8A1C87814600165FCD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4FF96E881C87812F00165FCD /* CoreBluetooth.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4FF96E8B1C87816F00165FCD /* BLE */ = {
+			isa = PBXGroup;
+			children = (
+				4FF96E8C1C8781B600165FCD /* BLEManager.swift */,
+				4FF96E8E1C8781D900165FCD /* BLEHandler.swift */,
+			);
+			name = BLE;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +335,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F824FF41C80E2290090D3F5 /* ViewController.swift in Sources */,
+				4F01858D1C878772008E710E /* ModeSelectTableViewCell.swift in Sources */,
 				4F824FF21C80E2290090D3F5 /* AppDelegate.swift in Sources */,
+				4FF96E8D1C8781B600165FCD /* BLEManager.swift in Sources */,
+				4FF96E851C87805E00165FCD /* StaticModeRunningViewController.swift in Sources */,
+				4FF96E8F1C8781D900165FCD /* BLEHandler.swift in Sources */,
+				4FF96E811C87801100165FCD /* ConnectViewController.swift in Sources */,
+				4F01858A1C878726008E710E /* ModeSelectTableViewController.swift in Sources */,
+				4F0185911C878D0A008E710E /* UtilityGlobal.swift in Sources */,
+				4FF96E871C8780BE00165FCD /* ArtModeViewController.swift in Sources */,
+				4F01858F1C878AB9008E710E /* Mode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,6 +573,7 @@
 				4F8250181C80E22A0090D3F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4F8250191C80E22A0090D3F5 /* Build configuration list for PBXNativeTarget "POVSphereTests" */ = {
 			isa = XCConfigurationList;
@@ -497,6 +582,7 @@
 				4F82501B1C80E22A0090D3F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4F82501C1C80E22A0090D3F5 /* Build configuration list for PBXNativeTarget "POVSphereUITests" */ = {
 			isa = XCConfigurationList;
@@ -505,6 +591,7 @@
 				4F82501E1C80E22A0090D3F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
