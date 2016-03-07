@@ -11,6 +11,7 @@ import CoreBluetooth
 
 var periph: CBPeripheral!
 var service: CBService!
+var writeChar: CBCharacteristic!
 
 class BLEHandler: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     override init () {
@@ -60,5 +61,67 @@ class BLEHandler: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
             peripheral.discoverServices(nil)
         }
     }
+    
+    func peripheral(peripheral: CBPeripheral, didDiscoverServices error: NSError?) {
+        for service in peripheral.services! {
+            //prints device name and service UUID to terminal
+            print("P: \(peripheral.name) - Discovered services: \(service.UUID)")
+            // if there is an error
+            if error != nil {
+                //do nothing
+            } else {
+                //if no error when finding services, cast to CBService and runs through a for loop
+                for service in peripheral.services as [CBService]!{
+                    //discovers the characteristics for each service found
+                    peripheral.discoverCharacteristics(nil, forService: service)
+                }
+            }
+        }
+    }
+    
+    func peripheral(peripheral: CBPeripheral, didDiscoverCharacteristicsForService service: CBService, error: NSError?) {
+        //if there is an error
+        if error != nil {
+            //do nothing
+        } else {
+            //if no error in finding characteristics, cast to CBCharacteristic and runs through a for loop
+            for characteristic in service.characteristics as [CBCharacteristic]! {
+                print(characteristic.UUID)
+                //string of UUID of characteristics
+                switch characteristic.UUID.UUIDString {
+                    
+                case "CBB1": // Change to actual characteristic UUID from firmware
+                    //prints to terminal
+                    print("Found characteristic CBB1") // Change to actual UUID
+                    writeChar = characteristic
+                    
+                default:
+                    print("Characteristic not found")
+                    
+                }//switch
+            }//for
+        }//else
+    }
+
+   /*
+    * When we want to ensure writes went through. Perhaps we want to restart the
+    * Byte array transmission if it fails?
+    */
+    func peripheral(peripheral: CBPeripheral, didWriteValueForCharacteristic characteristic: CBCharacteristic, error: NSError?) {
+        
+        if ((error) != nil) {
+            
+        }
+    }
+    
+    func centralManager(central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: NSError?) {
+        NSOperationQueue.mainQueue().addOperationWithBlock ({ () -> Void in
+            let found: Int = 2
+            let dict:[NSObject:AnyObject]? = ["status": found]
+            NSNotificationCenter.defaultCenter().postNotificationName("processBLE", object: self, userInfo: dict)
+        })
+    }
+    
+    
     
 }

@@ -10,6 +10,10 @@ import UIKit
 
 class ModeSelectTableViewCell: UITableViewCell {
 
+    // MARK: Outlets and Actions
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

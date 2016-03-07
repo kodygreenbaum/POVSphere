@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4F01858A1C878726008E710E /* ModeSelectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0185891C878726008E710E /* ModeSelectTableViewController.swift */; };
 		4F01858D1C878772008E710E /* ModeSelectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01858C1C878772008E710E /* ModeSelectTableViewCell.swift */; };
 		4F01858F1C878AB9008E710E /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01858E1C878AB9008E710E /* Mode.swift */; };
 		4F0185911C878D0A008E710E /* UtilityGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0185901C878D0A008E710E /* UtilityGlobal.swift */; };
+		4F2303A71C8E1068009C5F71 /* ModeSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2303A61C8E1068009C5F71 /* ModeSelectViewController.swift */; };
 		4F824FF21C80E2290090D3F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F824FF11C80E2290090D3F5 /* AppDelegate.swift */; };
 		4F824FF71C80E2290090D3F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F824FF51C80E2290090D3F5 /* Main.storyboard */; };
 		4F824FF91C80E2290090D3F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F824FF81C80E2290090D3F5 /* Assets.xcassets */; };
@@ -43,10 +43,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4F0185891C878726008E710E /* ModeSelectTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModeSelectTableViewController.swift; sourceTree = "<group>"; };
 		4F01858C1C878772008E710E /* ModeSelectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModeSelectTableViewCell.swift; sourceTree = "<group>"; };
 		4F01858E1C878AB9008E710E /* Mode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mode.swift; sourceTree = "<group>"; };
 		4F0185901C878D0A008E710E /* UtilityGlobal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilityGlobal.swift; sourceTree = "<group>"; };
+		4F2303A61C8E1068009C5F71 /* ModeSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModeSelectViewController.swift; sourceTree = "<group>"; };
 		4F824FEE1C80E2290090D3F5 /* POVSphere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = POVSphere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F824FF11C80E2290090D3F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4F824FF61C80E2290090D3F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -96,7 +96,7 @@
 		4F01858B1C87874E008E710E /* ModeSelectTableViewController */ = {
 			isa = PBXGroup;
 			children = (
-				4F0185891C878726008E710E /* ModeSelectTableViewController.swift */,
+				4F2303A61C8E1068009C5F71 /* ModeSelectViewController.swift */,
 				4F01858C1C878772008E710E /* ModeSelectTableViewCell.swift */,
 			);
 			name = ModeSelectTableViewController;
@@ -341,8 +341,8 @@
 				4FF96E851C87805E00165FCD /* StaticModeRunningViewController.swift in Sources */,
 				4FF96E8F1C8781D900165FCD /* BLEHandler.swift in Sources */,
 				4FF96E811C87801100165FCD /* ConnectViewController.swift in Sources */,
-				4F01858A1C878726008E710E /* ModeSelectTableViewController.swift in Sources */,
 				4F0185911C878D0A008E710E /* UtilityGlobal.swift in Sources */,
+				4F2303A71C8E1068009C5F71 /* ModeSelectViewController.swift in Sources */,
 				4FF96E871C8780BE00165FCD /* ArtModeViewController.swift in Sources */,
 				4F01858F1C878AB9008E710E /* Mode.swift in Sources */,
 			);

@@ -10,15 +10,22 @@ import UIKit
 
 class StaticModeRunningViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    var mode : Mode!
+    private var _index : Int = 0
+    
+    var index : Int {
+        get {return _index}
+        set(newValue) { _index = newValue }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.nameLabel.text = self.mode
+        .name
+        
+        
     }
     
 
