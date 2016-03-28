@@ -9,6 +9,7 @@
 import UIKit
 
 private let reuseIdentifier = "StaticCell"
+private let reuseIdentifierNoIcon = "StaticCellNoIcon"
 
 class StaticModeSelectViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
 
@@ -64,10 +65,17 @@ class StaticModeSelectViewController: UIViewController, UICollectionViewDelegate
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell : StaticModeCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! StaticModeCollectionViewCell
-        cell.imageView.image = UIImage(named: staticModes[indexPath.item].name)!
         
-        return cell
+        if((UIImage(named: staticModes[indexPath.item].name)) != nil) {
+            let cell : StaticModeCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! StaticModeCollectionViewCell
+            cell.imageView.image = UIImage(named: staticModes[indexPath.item].name)!
+            return cell
+        } else {
+            let cell : StaticModeNoIconCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifierNoIcon, forIndexPath: indexPath) as! StaticModeNoIconCollectionViewCell
+            cell.name.text = staticModes[indexPath.item].name
+        
+            return cell
+        }
     }
     
     // MARK: UICollectionViewDelegate

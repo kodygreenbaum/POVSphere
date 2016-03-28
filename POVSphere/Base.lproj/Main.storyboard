@@ -16,6 +16,7 @@
             <string>CooperHewitt-Light</string>
             <string>CooperHewitt-Light</string>
             <string>CooperHewitt-Light</string>
+            <string>CooperHewitt-Light</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -162,18 +163,8 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GreenGradientBackground" translatesAutoresizingMaskIntoConstraints="NO" id="jR3-Uu-4GB">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dkX-LJ-lyT">
-                                <rect key="frame" x="223" y="28" width="154" height="30"/>
-                                <fontDescription key="fontDescription" name="CooperHewitt-Light" family="Cooper Hewitt" pointSize="18"/>
-                                <state key="normal" title="save as static mode">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="saveAsStaticModeButtonPressed:" destination="Y9b-vb-Xni" eventType="touchUpInside" id="dxl-bz-HN1"/>
-                                </connections>
-                            </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qmv-gi-KwB">
-                                <rect key="frame" x="227.5" y="28" width="51" height="30"/>
+                                <rect key="frame" x="227" y="518.5" width="51" height="30"/>
                                 <fontDescription key="fontDescription" name="CooperHewitt-Light" family="Cooper Hewitt" pointSize="18"/>
                                 <state key="normal" title="cancel">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -183,7 +174,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rj7-ik-Ps3">
-                                <rect key="frame" x="329.5" y="28" width="37" height="30"/>
+                                <rect key="frame" x="329" y="518.5" width="37" height="30"/>
                                 <fontDescription key="fontDescription" name="CooperHewitt-Light" family="Cooper Hewitt" pointSize="18"/>
                                 <state key="normal" title="save">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -193,7 +184,7 @@
                                 </connections>
                             </button>
                             <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ECg-GN-u6C">
-                                <rect key="frame" x="164" y="66" width="416" height="30"/>
+                                <rect key="frame" x="164" y="556.5" width="416" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -201,7 +192,7 @@
                                 </connections>
                             </textField>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Mode Name: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FEd-am-BIY">
-                                <rect key="frame" x="20" y="70" width="136" height="21"/>
+                                <rect key="frame" x="20" y="562" width="136" height="18"/>
                                 <fontDescription key="fontDescription" name="CooperHewitt-Light" family="Cooper Hewitt" pointSize="18"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -217,6 +208,16 @@
                                     <action selector="finishButtonPressed:" destination="bsh-bX-l8L" eventType="touchUpInside" id="SkW-4s-JRG"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dkX-LJ-lyT">
+                                <rect key="frame" x="223" y="556.5" width="154" height="30"/>
+                                <fontDescription key="fontDescription" name="CooperHewitt-Light" family="Cooper Hewitt" pointSize="18"/>
+                                <state key="normal" title="save as static mode">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveAsStaticModeButtonPressed:" destination="Y9b-vb-Xni" eventType="touchUpInside" id="dxl-bz-HN1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -224,33 +225,36 @@
                             <constraint firstItem="ECg-GN-u6C" firstAttribute="leading" secondItem="jR3-Uu-4GB" secondAttribute="trailing" constant="-360" id="1Qd-Qu-GZJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ECg-GN-u6C" secondAttribute="trailing" id="487-fH-WRb"/>
                             <constraint firstItem="jR3-Uu-4GB" firstAttribute="leading" secondItem="ULk-82-CJP" secondAttribute="leadingMargin" constant="-20" id="4Jc-FU-YeK"/>
-                            <constraint firstItem="Rj7-ik-Ps3" firstAttribute="top" secondItem="Llo-fu-CI0" secondAttribute="bottom" constant="8" id="538-sL-7mB"/>
-                            <constraint firstItem="qmv-gi-KwB" firstAttribute="top" secondItem="Llo-fu-CI0" secondAttribute="bottom" constant="8" id="91l-CM-JUo"/>
+                            <constraint firstItem="dkX-LJ-lyT" firstAttribute="centerY" secondItem="FEd-am-BIY" secondAttribute="centerY" id="Gy9-dF-ACL"/>
                             <constraint firstItem="jR3-Uu-4GB" firstAttribute="top" secondItem="Llo-fu-CI0" secondAttribute="bottom" constant="-20" id="J3r-tW-D9r"/>
                             <constraint firstAttribute="leadingMargin" secondItem="ym9-On-H63" secondAttribute="leading" id="JAx-p9-Cn6"/>
+                            <constraint firstItem="ECg-GN-u6C" firstAttribute="top" secondItem="Rj7-ik-Ps3" secondAttribute="bottom" constant="8" id="KO3-cU-Y4n"/>
                             <constraint firstItem="ym9-On-H63" firstAttribute="top" secondItem="Llo-fu-CI0" secondAttribute="bottom" constant="8" id="OD9-jG-vmo"/>
                             <constraint firstItem="Rj7-ik-Ps3" firstAttribute="centerX" secondItem="jR3-Uu-4GB" secondAttribute="centerX" constant="48" id="PbS-wl-NhI"/>
                             <constraint firstItem="qmv-gi-KwB" firstAttribute="centerX" secondItem="jR3-Uu-4GB" secondAttribute="centerX" constant="-47" id="TUb-V2-uf7"/>
                             <constraint firstItem="ECg-GN-u6C" firstAttribute="centerY" secondItem="FEd-am-BIY" secondAttribute="centerY" id="Tae-sI-jq6"/>
                             <constraint firstItem="ECg-GN-u6C" firstAttribute="leading" secondItem="FEd-am-BIY" secondAttribute="trailing" constant="8" id="VDb-U5-urW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jR3-Uu-4GB" secondAttribute="trailing" constant="-20" id="Vvl-C8-qkD"/>
-                            <constraint firstItem="FEd-am-BIY" firstAttribute="top" secondItem="dkX-LJ-lyT" secondAttribute="bottom" constant="12" id="eMI-87-Fcp"/>
+                            <constraint firstItem="ECg-GN-u6C" firstAttribute="top" secondItem="qmv-gi-KwB" secondAttribute="bottom" constant="8" id="X43-nd-RY2"/>
                             <constraint firstItem="gRX-lj-iGa" firstAttribute="top" secondItem="jR3-Uu-4GB" secondAttribute="bottom" id="eev-54-0xl"/>
                             <constraint firstItem="dkX-LJ-lyT" firstAttribute="centerX" secondItem="ULk-82-CJP" secondAttribute="centerX" id="kdU-tB-DZ7"/>
-                            <constraint firstItem="ECg-GN-u6C" firstAttribute="top" secondItem="dkX-LJ-lyT" secondAttribute="bottom" constant="8" id="nbq-E0-3Hq"/>
+                            <constraint firstItem="gRX-lj-iGa" firstAttribute="top" secondItem="FEd-am-BIY" secondAttribute="bottom" constant="20" id="qWc-T5-ty1"/>
                             <constraint firstItem="dkX-LJ-lyT" firstAttribute="top" secondItem="Llo-fu-CI0" secondAttribute="bottom" constant="8" id="zOq-nm-QKq"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="1Qd-Qu-GZJ"/>
+                                <exclude reference="zOq-nm-QKq"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="cancelButton" destination="qmv-gi-KwB" id="be8-Vb-WQO"/>
+                        <outlet property="containerView" destination="ULk-82-CJP" id="Y06-e9-cKa"/>
                         <outlet property="newModeNameLabel" destination="FEd-am-BIY" id="4d4-kn-FlD"/>
                         <outlet property="saveButton" destination="Rj7-ik-Ps3" id="v5P-jf-Sdl"/>
                         <outlet property="saveStaticButton" destination="dkX-LJ-lyT" id="dEa-zv-nIC"/>
+                        <outlet property="saveStaticVerticalConstraint" destination="qWc-T5-ty1" id="C2U-3U-8lh"/>
                         <outlet property="textField" destination="ECg-GN-u6C" id="WR8-D9-drA"/>
                     </connections>
                 </viewController>
@@ -279,27 +283,34 @@
                                     <size key="itemSize" width="150" height="150"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="20" minY="10" maxX="20" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="30" minY="10" maxX="30" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DynamicCell" id="ZS7-ay-sd8" customClass="DynamicModeCollectionViewCell" customModule="POVSphere" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="10" width="150" height="150"/>
+                                        <rect key="frame" x="30" y="10" width="150" height="150"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hnp-IT-LOU">
-                                                    <rect key="frame" x="8" y="8" width="134" height="134"/>
+                                                    <rect key="frame" x="18" y="18" width="114" height="114"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BlankSquareRounded" translatesAutoresizingMaskIntoConstraints="NO" id="cvF-SL-O3a">
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
-                                            <constraint firstAttribute="trailingMargin" secondItem="Hnp-IT-LOU" secondAttribute="trailing" id="70C-rq-1AT"/>
-                                            <constraint firstAttribute="topMargin" secondItem="Hnp-IT-LOU" secondAttribute="top" id="C9g-57-Zg7"/>
-                                            <constraint firstAttribute="leadingMargin" secondItem="Hnp-IT-LOU" secondAttribute="leading" id="Qrk-yK-Rrl"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="Hnp-IT-LOU" secondAttribute="bottom" id="hOn-yh-cBx"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="cvF-SL-O3a" secondAttribute="bottom" constant="-8" id="2mi-3o-gbg"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="Hnp-IT-LOU" secondAttribute="trailing" constant="10" id="70C-rq-1AT"/>
+                                            <constraint firstAttribute="topMargin" secondItem="Hnp-IT-LOU" secondAttribute="top" constant="-10" id="C9g-57-Zg7"/>
+                                            <constraint firstAttribute="leadingMargin" secondItem="Hnp-IT-LOU" secondAttribute="leading" constant="-10" id="Qrk-yK-Rrl"/>
+                                            <constraint firstItem="cvF-SL-O3a" firstAttribute="top" secondItem="ZS7-ay-sd8" secondAttribute="topMargin" constant="-8" id="Y5M-4R-HBb"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="Hnp-IT-LOU" secondAttribute="bottom" constant="10" id="hOn-yh-cBx"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="cvF-SL-O3a" secondAttribute="trailing" constant="-8" id="kD3-wR-aOe"/>
+                                            <constraint firstItem="cvF-SL-O3a" firstAttribute="leading" secondItem="ZS7-ay-sd8" secondAttribute="leadingMargin" constant="-8" id="xZc-Jv-h74"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="imageView" destination="Hnp-IT-LOU" id="B5H-cw-cnM"/>
@@ -388,30 +399,72 @@
                                     <size key="itemSize" width="150" height="150"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="20" minY="10" maxX="20" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="30" minY="10" maxX="30" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="StaticCell" id="azE-yR-p5K" customClass="StaticModeCollectionViewCell" customModule="POVSphere" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="10" width="150" height="150"/>
+                                        <rect key="frame" x="30" y="10" width="150" height="150"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="M5I-iC-ucC">
-                                                    <rect key="frame" x="8" y="8" width="134" height="134"/>
+                                                    <rect key="frame" x="18" y="18" width="114" height="114"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BlankSquareRounded" translatesAutoresizingMaskIntoConstraints="NO" id="ift-xV-x2c">
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
-                                            <constraint firstAttribute="topMargin" secondItem="M5I-iC-ucC" secondAttribute="top" id="H4E-vF-gyo"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="M5I-iC-ucC" secondAttribute="bottom" id="Pf4-3d-geS"/>
-                                            <constraint firstAttribute="leadingMargin" secondItem="M5I-iC-ucC" secondAttribute="leading" id="ohc-si-57Y"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="M5I-iC-ucC" secondAttribute="trailing" id="tm6-Fc-OGJ"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="ift-xV-x2c" secondAttribute="bottom" constant="-8" id="8bE-Yh-tQL"/>
+                                            <constraint firstAttribute="leadingMargin" secondItem="ift-xV-x2c" secondAttribute="leading" constant="8" id="BwC-p4-TMq"/>
+                                            <constraint firstAttribute="topMargin" secondItem="M5I-iC-ucC" secondAttribute="top" constant="-10" id="H4E-vF-gyo"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="M5I-iC-ucC" secondAttribute="bottom" constant="10" id="Pf4-3d-geS"/>
+                                            <constraint firstAttribute="topMargin" secondItem="ift-xV-x2c" secondAttribute="top" constant="8" id="Xa6-CK-RaF"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="ift-xV-x2c" secondAttribute="trailing" constant="-8" id="cZj-vR-egy"/>
+                                            <constraint firstAttribute="leadingMargin" secondItem="M5I-iC-ucC" secondAttribute="leading" constant="-10" id="ohc-si-57Y"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="M5I-iC-ucC" secondAttribute="trailing" constant="10" id="tm6-Fc-OGJ"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="imageView" destination="M5I-iC-ucC" id="1oM-8R-KP0"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="StaticCellNoIcon" id="k1O-hh-osy" customClass="StaticModeNoIconCollectionViewCell" customModule="POVSphere" customModuleProvider="target">
+                                        <rect key="frame" x="225" y="10" width="150" height="150"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="abt-9V-ldG">
+                                                    <rect key="frame" x="45.5" y="62.5" width="59.5" height="24"/>
+                                                    <fontDescription key="fontDescription" name="CooperHewitt-Light" family="Cooper Hewitt" pointSize="24"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BlankSquareRounded" translatesAutoresizingMaskIntoConstraints="NO" id="WgC-L3-fmW">
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="WgC-L3-fmW" firstAttribute="leading" secondItem="k1O-hh-osy" secondAttribute="leadingMargin" constant="-8" id="53I-nm-Ota"/>
+                                            <constraint firstItem="abt-9V-ldG" firstAttribute="centerY" secondItem="k1O-hh-osy" secondAttribute="centerY" id="6mS-xB-y06"/>
+                                            <constraint firstItem="abt-9V-ldG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="k1O-hh-osy" secondAttribute="leadingMargin" constant="8" id="9iJ-kp-xAb"/>
+                                            <constraint firstItem="abt-9V-ldG" firstAttribute="centerX" secondItem="k1O-hh-osy" secondAttribute="centerX" id="MzB-YX-6z6"/>
+                                            <constraint firstItem="WgC-L3-fmW" firstAttribute="top" secondItem="k1O-hh-osy" secondAttribute="topMargin" constant="-8" id="QV0-Js-7XF"/>
+                                            <constraint firstItem="abt-9V-ldG" firstAttribute="top" relation="greaterThanOrEqual" secondItem="k1O-hh-osy" secondAttribute="topMargin" constant="8" id="SCw-ER-hIZ"/>
+                                            <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="abt-9V-ldG" secondAttribute="bottom" constant="8" id="U8h-Sq-JH6"/>
+                                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="abt-9V-ldG" secondAttribute="trailing" constant="8" id="ZQP-Qb-xzw"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="WgC-L3-fmW" secondAttribute="bottom" constant="-8" id="elj-YT-l0x"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="WgC-L3-fmW" secondAttribute="trailing" constant="-8" id="hSM-MN-6xR"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="name" destination="abt-9V-ldG" id="mLA-Hr-lJd"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -480,6 +533,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="BlankSquareRounded" width="200" height="200"/>
         <image name="GlobeSmall" width="30" height="30"/>
         <image name="GreenGradientBackground" width="2592" height="1728"/>
         <image name="PaintSmall" width="30" height="30"/>

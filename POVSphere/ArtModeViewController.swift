@@ -10,11 +10,14 @@ import UIKit
 
 class ArtModeViewController: UIViewController, UITextFieldDelegate {
     
+    @IBOutlet var containerView: UIView!
     @IBOutlet weak var saveStaticButton: UIButton!
     @IBOutlet weak var newModeNameLabel: UILabel!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
+    
+    @IBOutlet weak var saveStaticVerticalConstraint: NSLayoutConstraint!
     
     @IBAction func doneButtonPressed(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -41,8 +44,11 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
             self.presentViewController(alert, animated: true, completion: nil)
             
         } else {
-            let newMode : Mode = Mode(name: self.textField.text!)
-            let pres : ModeSelectViewController = self.presentingViewController as! ModeSelectViewController
+            let newMode : Mode = Mode(name: self.textField.text!.lowercaseString)
+            let nav : UINavigationController = self.presentingViewController as! UINavigationController
+            let tab : UITabBarController = nav.viewControllers[0] as! UITabBarController
+            
+            let pres : StaticModeSelectViewController = tab.viewControllers![0] as! StaticModeSelectViewController
             pres.staticModes.append(newMode)
             self.saveButton.hidden = true
             self.cancelButton.hidden = true
@@ -50,6 +56,11 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
             self.textField.hidden = true
             self.newModeNameLabel.hidden = true
             saveStaticButton.hidden = false
+            textField.resignFirstResponder()
+            self.saveStaticVerticalConstraint.constant = 20
+            UIView.animateWithDuration(NSTimeInterval(0.25), animations: {
+                self.containerView.layoutIfNeeded()
+            })
             
             // Present Alert View
             let alert =  UIAlertController(title: NSLocalizedString("Great Success!", comment: "Saved New Mode"), message:NSLocalizedString(newMode.name + " was saved.", comment: "Mode Saved") , preferredStyle: .Alert)
@@ -69,6 +80,11 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
         self.newModeNameLabel.hidden = true
         saveStaticButton.hidden = false
         textField.resignFirstResponder()
+        self.saveStaticVerticalConstraint.constant = 20
+        UIView.animateWithDuration(NSTimeInterval(0.25), animations: {
+            self.containerView.layoutIfNeeded()
+        })
+
     }
     
     
@@ -81,11 +97,26 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
     // MARK: TextField Delegate Methods
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        self.saveStaticVerticalConstraint.constant = 20
+        UIView.animateWithDuration(NSTimeInterval(0.25), animations: {
+            self.containerView.layoutIfNeeded()
+        })
         return true
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
+        self.saveStaticVerticalConstraint.constant = 20
+        UIView.animateWithDuration(NSTimeInterval(0.25), animations: {
+            self.containerView.layoutIfNeeded()
+        })
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        self.saveStaticVerticalConstraint.constant = 212
+        UIView.animateWithDuration(NSTimeInterval(0.25), animations: {
+            self.containerView.layoutIfNeeded()
+        })
     }
 
     /*
