@@ -44,6 +44,11 @@ class ConnectViewController: UIViewController {
     // MARK: View LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Force Portrait
+        let value = UIInterfaceOrientation.Portrait.rawValue
+        UIDevice.currentDevice().setValue(value, forKey: "orientation")
+        
         bleManager = BLEManager()
         bleManager.bleHandler.centralManagerDidUpdateState(bleManager.centralManager)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "processBLE:", name: "processBLE", object: nil)
@@ -147,6 +152,15 @@ class ConnectViewController: UIViewController {
                 print("ConnectViewController processBLE Default Case Reached")
             }
         }
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
+    }
+    
+    // Stay in Portrait
+    override func shouldAutorotate() -> Bool {
+        return true
     }
     
 }

@@ -124,9 +124,13 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
     }
 
     
-    // Stay in Landscape
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.LandscapeLeft
+    }
+    
+    // Rotate to Landscape
     override func shouldAutorotate() -> Bool {
-        return false
+        return true
     }
     
     /*

@@ -17,6 +17,7 @@
             <string>CooperHewitt-Light</string>
             <string>CooperHewitt-Light</string>
             <string>CooperHewitt-Light</string>
+            <string>CooperHewitt-Light</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -163,8 +164,25 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GreenGradientBackground" translatesAutoresizingMaskIntoConstraints="NO" id="jR3-Uu-4GB">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="quw-oD-SEz">
+                                <rect key="frame" x="20" y="78" width="560" height="432"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dkX-LJ-lyT">
+                                <rect key="frame" x="223" y="540" width="154" height="30"/>
+                                <fontDescription key="fontDescription" name="CooperHewitt-Light" family="Cooper Hewitt" pointSize="18"/>
+                                <state key="normal" title="save as static mode">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveAsStaticModeButtonPressed:" destination="Y9b-vb-Xni" eventType="touchUpInside" id="dxl-bz-HN1"/>
+                                </connections>
+                            </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qmv-gi-KwB">
-                                <rect key="frame" x="227" y="518.5" width="51" height="30"/>
+                                <rect key="frame" x="227" y="518" width="51" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="IGr-Kk-15l"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="CooperHewitt-Light" family="Cooper Hewitt" pointSize="18"/>
                                 <state key="normal" title="cancel">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -174,7 +192,10 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rj7-ik-Ps3">
-                                <rect key="frame" x="329" y="518.5" width="37" height="30"/>
+                                <rect key="frame" x="329" y="518" width="37" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ekG-Hh-gH2"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="CooperHewitt-Light" family="Cooper Hewitt" pointSize="18"/>
                                 <state key="normal" title="save">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -184,7 +205,7 @@
                                 </connections>
                             </button>
                             <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ECg-GN-u6C">
-                                <rect key="frame" x="164" y="556.5" width="416" height="30"/>
+                                <rect key="frame" x="184" y="556" width="376" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -192,59 +213,69 @@
                                 </connections>
                             </textField>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Mode Name: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FEd-am-BIY">
-                                <rect key="frame" x="20" y="562" width="136" height="18"/>
+                                <rect key="frame" x="40" y="562" width="136" height="18"/>
                                 <fontDescription key="fontDescription" name="CooperHewitt-Light" family="Cooper Hewitt" pointSize="18"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ym9-On-H63">
-                                <rect key="frame" x="20" y="28" width="39" height="30"/>
+                                <rect key="frame" x="20" y="32" width="39" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="nW8-lJ-sPg"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="CooperHewitt-Light" family="Cooper Hewitt" pointSize="18"/>
                                 <state key="normal" title="done">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="doneButtonPressed:" destination="Y9b-vb-Xni" eventType="touchUpInside" id="RqA-Vp-kbP"/>
-                                    <action selector="finishButtonPressed:" destination="bsh-bX-l8L" eventType="touchUpInside" id="SkW-4s-JRG"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dkX-LJ-lyT">
-                                <rect key="frame" x="223" y="556.5" width="154" height="30"/>
-                                <fontDescription key="fontDescription" name="CooperHewitt-Light" family="Cooper Hewitt" pointSize="18"/>
-                                <state key="normal" title="save as static mode">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F0L-Mu-vpM">
+                                <rect key="frame" x="201" y="25" width="198" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="32J-RP-hvd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="CooperHewitt-Light" family="Cooper Hewitt" pointSize="42"/>
+                                <state key="normal" title="paint mode">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="saveAsStaticModeButtonPressed:" destination="Y9b-vb-Xni" eventType="touchUpInside" id="dxl-bz-HN1"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="leadingMargin" secondItem="FEd-am-BIY" secondAttribute="leading" id="0dN-v6-kob"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="FEd-am-BIY" secondAttribute="leading" constant="-20" id="0dN-v6-kob"/>
                             <constraint firstItem="ECg-GN-u6C" firstAttribute="leading" secondItem="jR3-Uu-4GB" secondAttribute="trailing" constant="-360" id="1Qd-Qu-GZJ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ECg-GN-u6C" secondAttribute="trailing" id="487-fH-WRb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ECg-GN-u6C" secondAttribute="trailing" constant="20" id="487-fH-WRb"/>
                             <constraint firstItem="jR3-Uu-4GB" firstAttribute="leading" secondItem="ULk-82-CJP" secondAttribute="leadingMargin" constant="-20" id="4Jc-FU-YeK"/>
-                            <constraint firstItem="dkX-LJ-lyT" firstAttribute="centerY" secondItem="FEd-am-BIY" secondAttribute="centerY" id="Gy9-dF-ACL"/>
+                            <constraint firstItem="gRX-lj-iGa" firstAttribute="top" secondItem="qmv-gi-KwB" secondAttribute="bottom" constant="52" id="FU8-7J-vQi"/>
+                            <constraint firstItem="gRX-lj-iGa" firstAttribute="top" secondItem="quw-oD-SEz" secondAttribute="bottom" constant="90" id="HB7-19-lyh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="quw-oD-SEz" secondAttribute="trailing" id="HVD-xb-an0"/>
                             <constraint firstItem="jR3-Uu-4GB" firstAttribute="top" secondItem="Llo-fu-CI0" secondAttribute="bottom" constant="-20" id="J3r-tW-D9r"/>
                             <constraint firstAttribute="leadingMargin" secondItem="ym9-On-H63" secondAttribute="leading" id="JAx-p9-Cn6"/>
-                            <constraint firstItem="ECg-GN-u6C" firstAttribute="top" secondItem="Rj7-ik-Ps3" secondAttribute="bottom" constant="8" id="KO3-cU-Y4n"/>
-                            <constraint firstItem="ym9-On-H63" firstAttribute="top" secondItem="Llo-fu-CI0" secondAttribute="bottom" constant="8" id="OD9-jG-vmo"/>
+                            <constraint firstItem="gRX-lj-iGa" firstAttribute="top" secondItem="dkX-LJ-lyT" secondAttribute="bottom" constant="30" id="JLy-YO-TNe"/>
+                            <constraint firstItem="ym9-On-H63" firstAttribute="top" secondItem="Llo-fu-CI0" secondAttribute="bottom" constant="12" id="OD9-jG-vmo"/>
                             <constraint firstItem="Rj7-ik-Ps3" firstAttribute="centerX" secondItem="jR3-Uu-4GB" secondAttribute="centerX" constant="48" id="PbS-wl-NhI"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="quw-oD-SEz" secondAttribute="leading" id="SmL-K4-jk3"/>
                             <constraint firstItem="qmv-gi-KwB" firstAttribute="centerX" secondItem="jR3-Uu-4GB" secondAttribute="centerX" constant="-47" id="TUb-V2-uf7"/>
                             <constraint firstItem="ECg-GN-u6C" firstAttribute="centerY" secondItem="FEd-am-BIY" secondAttribute="centerY" id="Tae-sI-jq6"/>
                             <constraint firstItem="ECg-GN-u6C" firstAttribute="leading" secondItem="FEd-am-BIY" secondAttribute="trailing" constant="8" id="VDb-U5-urW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jR3-Uu-4GB" secondAttribute="trailing" constant="-20" id="Vvl-C8-qkD"/>
-                            <constraint firstItem="ECg-GN-u6C" firstAttribute="top" secondItem="qmv-gi-KwB" secondAttribute="bottom" constant="8" id="X43-nd-RY2"/>
+                            <constraint firstItem="quw-oD-SEz" firstAttribute="top" secondItem="ym9-On-H63" secondAttribute="bottom" constant="16" id="cIS-FE-12b"/>
+                            <constraint firstItem="F0L-Mu-vpM" firstAttribute="centerY" secondItem="ym9-On-H63" secondAttribute="centerY" id="eFg-IH-3kV"/>
                             <constraint firstItem="gRX-lj-iGa" firstAttribute="top" secondItem="jR3-Uu-4GB" secondAttribute="bottom" id="eev-54-0xl"/>
                             <constraint firstItem="dkX-LJ-lyT" firstAttribute="centerX" secondItem="ULk-82-CJP" secondAttribute="centerX" id="kdU-tB-DZ7"/>
+                            <constraint firstItem="quw-oD-SEz" firstAttribute="centerY" secondItem="jR3-Uu-4GB" secondAttribute="centerY" id="oZR-KZ-xji"/>
                             <constraint firstItem="gRX-lj-iGa" firstAttribute="top" secondItem="FEd-am-BIY" secondAttribute="bottom" constant="20" id="qWc-T5-ty1"/>
+                            <constraint firstItem="Rj7-ik-Ps3" firstAttribute="centerY" secondItem="qmv-gi-KwB" secondAttribute="centerY" id="qu5-U3-hHy"/>
+                            <constraint firstItem="F0L-Mu-vpM" firstAttribute="centerX" secondItem="jR3-Uu-4GB" secondAttribute="centerX" id="snL-V6-nFX"/>
                             <constraint firstItem="dkX-LJ-lyT" firstAttribute="top" secondItem="Llo-fu-CI0" secondAttribute="bottom" constant="8" id="zOq-nm-QKq"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="1Qd-Qu-GZJ"/>
+                                <exclude reference="oZR-KZ-xji"/>
                                 <exclude reference="zOq-nm-QKq"/>
+                                <exclude reference="1Qd-Qu-GZJ"/>
                             </mask>
                         </variation>
                     </view>
