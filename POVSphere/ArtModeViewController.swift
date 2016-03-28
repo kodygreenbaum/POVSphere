@@ -91,6 +91,10 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Force Landscape
+        let value = UIInterfaceOrientation.LandscapeLeft.rawValue
+        UIDevice.currentDevice().setValue(value, forKey: "orientation")
+        
     }
 
     
@@ -119,6 +123,12 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
         })
     }
 
+    
+    // Stay in Landscape
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
+    
     /*
     // MARK: - Navigation
 
