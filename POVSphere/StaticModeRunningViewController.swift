@@ -20,6 +20,11 @@ class StaticModeRunningViewController: UIViewController {
 
     @IBOutlet weak var nameLabel: UILabel!
     
+    @IBAction func finishButtonPressed(sender: AnyObject) {
+    
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.nameLabel.text = self.mode

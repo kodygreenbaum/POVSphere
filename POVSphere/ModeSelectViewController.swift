@@ -25,12 +25,12 @@ class ModeSelectViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         populateModeArrays()
-        
     }
     
     // Refresh tableview in case new static mode was saved
     // During dynamic art mode
     override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = true
         self.tableview.reloadData()
     }
     

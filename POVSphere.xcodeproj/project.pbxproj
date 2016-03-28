@@ -13,6 +13,7 @@
 		4F2303A71C8E1068009C5F71 /* ModeSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2303A61C8E1068009C5F71 /* ModeSelectViewController.swift */; };
 		4F2303A91C8E3F5A009C5F71 /* StaticModeSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2303A81C8E3F5A009C5F71 /* StaticModeSelectViewController.swift */; };
 		4F2303AB1C8E3F66009C5F71 /* DynamicModeSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2303AA1C8E3F66009C5F71 /* DynamicModeSelectViewController.swift */; };
+		4F4712451CA5FF200076D68A /* CooperHewitt-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4F4712441CA5FECD0076D68A /* CooperHewitt-Light.otf */; };
 		4F824FF21C80E2290090D3F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F824FF11C80E2290090D3F5 /* AppDelegate.swift */; };
 		4F824FF71C80E2290090D3F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F824FF51C80E2290090D3F5 /* Main.storyboard */; };
 		4F824FF91C80E2290090D3F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F824FF81C80E2290090D3F5 /* Assets.xcassets */; };
@@ -53,6 +54,7 @@
 		4F2303A61C8E1068009C5F71 /* ModeSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModeSelectViewController.swift; sourceTree = "<group>"; };
 		4F2303A81C8E3F5A009C5F71 /* StaticModeSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticModeSelectViewController.swift; sourceTree = "<group>"; };
 		4F2303AA1C8E3F66009C5F71 /* DynamicModeSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicModeSelectViewController.swift; sourceTree = "<group>"; };
+		4F4712441CA5FECD0076D68A /* CooperHewitt-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CooperHewitt-Light.otf"; sourceTree = "<group>"; };
 		4F824FEE1C80E2290090D3F5 /* POVSphere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = POVSphere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F824FF11C80E2290090D3F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4F824FF61C80E2290090D3F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 		4FF96E7D1C877F2200165FCD /* AppDelegateAssetsEtc */ = {
 			isa = PBXGroup;
 			children = (
+				4F4712441CA5FECD0076D68A /* CooperHewitt-Light.otf */,
 				4F824FF11C80E2290090D3F5 /* AppDelegate.swift */,
 				4F824FF81C80E2290090D3F5 /* Assets.xcassets */,
 				4F824FFA1C80E2290090D3F5 /* LaunchScreen.storyboard */,
@@ -352,6 +355,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F4712451CA5FF200076D68A /* CooperHewitt-Light.otf in Resources */,
 				4F824FFC1C80E2290090D3F5 /* LaunchScreen.storyboard in Resources */,
 				4F824FF91C80E2290090D3F5 /* Assets.xcassets in Resources */,
 				4F824FF71C80E2290090D3F5 /* Main.storyboard in Resources */,

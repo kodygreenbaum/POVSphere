@@ -9,13 +9,16 @@
 import UIKit
 
 class ArtModeViewController: UIViewController, UITextFieldDelegate {
-
-   
+    
     @IBOutlet weak var saveStaticButton: UIButton!
     @IBOutlet weak var newModeNameLabel: UILabel!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
+    
+    @IBAction func doneButtonPressed(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
     @IBAction func saveAsStaticModeButtonPressed(sender: AnyObject) {
         self.textField.text = ""
@@ -65,6 +68,7 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
         self.textField.hidden = true
         self.newModeNameLabel.hidden = true
         saveStaticButton.hidden = false
+        textField.resignFirstResponder()
     }
     
     

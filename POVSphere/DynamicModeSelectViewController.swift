@@ -10,19 +10,28 @@ import UIKit
 
 private let reuseIdentifier = "DynamicCell"
 
-class DynamicModeSelectViewController: UIViewController {
+class DynamicModeSelectViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
 
     var dynamicModes : [Mode] = [Mode]()
+    var selectedMode : Mode!
     
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.collectionView.backgroundColor = UIColor.clearColor()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = true
+        if (dynamicModes.count < 1) {
+           populateDynamicModeArray()
+        }
+        collectionView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -43,25 +52,35 @@ class DynamicModeSelectViewController: UIViewController {
     // MARK: UICollectionViewDataSource
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
     
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 0
+        return self.dynamicModes.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell : DynamicModeCollectionViewCell! = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as? DynamicModeCollectionViewCell
+        let cell : DynamicModeCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! DynamicModeCollectionViewCell
+        cell.imageView.image = UIImage(named: dynamicModes[indexPath.item].name)!
         
-        // Configure the cell
         
         return cell
     }
     
     // MARK: UICollectionViewDelegate
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        self.selectedMode = dynamicModes[indexPath.item]
+        switch (self.selectedMode.name) {
+            case "paint":
+                self.performSegueWithIdentifier("paint", sender: self)
+            break;
+
+            default:
+            break;
+         }
+    }
     
     /*
     // Uncomment this method to specify if the specified item should be highlighted during tracking
@@ -104,18 +123,19 @@ class DynamicModeSelectViewController: UIViewController {
         // if UserDefaults empty, hardcode fill arrays here
         // remember to set one of the modes as the default
         
+        dynamicModes.append(Mode(name: "paint"))
         
     }
     
     
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if (segue.identifier == "art") {
+            //let destination : ArtModeViewController = segue.destinationViewController as! ArtModeViewController
+        }
     }
-    */
+    
 
 }

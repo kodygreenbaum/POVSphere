@@ -13,6 +13,9 @@ private let reuseIdentifier = "StaticCell"
 class StaticModeSelectViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
 
     var staticModes : [Mode] = [Mode]()
+    var selectedMode : Mode!
+    var selectedIndex : Int!
+
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -27,7 +30,10 @@ class StaticModeSelectViewController: UIViewController, UICollectionViewDelegate
     }
     
     override func viewWillAppear(animated: Bool) {
-        self.populateStaticModeArray()
+        self.navigationController?.navigationBarHidden = true
+        if (staticModes.count < 1) {
+            self.populateStaticModeArray()
+        }
         collectionView.reloadData()
     }
     
@@ -49,13 +55,11 @@ class StaticModeSelectViewController: UIViewController, UICollectionViewDelegate
     // MARK: UICollectionViewDataSource
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
         return self.staticModes.count
     }
     
@@ -67,6 +71,12 @@ class StaticModeSelectViewController: UIViewController, UICollectionViewDelegate
     }
     
     // MARK: UICollectionViewDelegate
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        self.selectedMode = staticModes[indexPath.item]
+        self.selectedIndex = indexPath.item
+        self.performSegueWithIdentifier("static", sender: self)
+    }
     
     /*
     // Uncomment this method to specify if the specified item should be highlighted during tracking
@@ -109,20 +119,23 @@ class StaticModeSelectViewController: UIViewController, UICollectionViewDelegate
         
         // if UserDefaults empty, hardcode fill arrays here
         // remember to set one of the modes as the default
-        staticModes.append(Mode(name: "Globe"))
-        staticModes.append(Mode(name: "Weather"))
-        staticModes.append(Mode(name: "AlarmClock"))
+        staticModes.append(Mode(name: "globe"))
+        staticModes.append(Mode(name: "weather"))
+        staticModes.append(Mode(name: "alarm clock"))
     }
     
     
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if (segue.identifier == "static") {
+            let destination : StaticModeRunningViewController = segue.destinationViewController as! StaticModeRunningViewController
+                destination.mode = self.selectedMode
+                destination.index = self.selectedIndex
+        }
     }
-    */
+    
 
 }

@@ -10,6 +10,6 @@ import UIKit
 
 class DynamicModeCollectionViewCell: UICollectionViewCell {
     
-    // MARK: Outlets and Actions
+    @IBOutlet weak var imageView: UIImageView!
     
 }
