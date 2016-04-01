@@ -1,0 +1,6 @@
+framework module Pods_POVSphere {
+  umbrella header "Pods-POVSphere-umbrella.h"
+
+  export *
+  module * { export * }
+}

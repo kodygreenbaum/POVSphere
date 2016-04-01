@@ -1,1 +1,10 @@
+PODS:
+  - ColorSlider (2.3)
+
+DEPENDENCIES:
+  - ColorSlider (~> 2.3)
+
+SPEC CHECKSUMS:
+  ColorSlider: b0428146f232d19f6647ce6382ae2db10909f64e
+
 COCOAPODS: 0.39.0
