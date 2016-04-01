@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import ColorSlider
 
 class ArtModeViewController: UIViewController, UITextFieldDelegate {
+    
+    let colorSlider = ColorSlider()
     
     @IBOutlet var containerView: UIView!
     @IBOutlet weak var saveStaticButton: UIButton!
@@ -16,6 +19,8 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var sliderContainerView: UIView!
+    @IBOutlet weak var selectedColorview: UIView!
     
     @IBOutlet weak var saveStaticVerticalConstraint: NSLayoutConstraint!
     
@@ -58,6 +63,7 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
             saveStaticButton.hidden = false
             textField.resignFirstResponder()
             self.saveStaticVerticalConstraint.constant = 20
+            self.newModeNameLabel.textColor = UIColor.blackColor()
             UIView.animateWithDuration(NSTimeInterval(0.25), animations: {
                 self.containerView.layoutIfNeeded()
             })
@@ -80,6 +86,7 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
         self.newModeNameLabel.hidden = true
         saveStaticButton.hidden = false
         textField.resignFirstResponder()
+        self.newModeNameLabel.textColor = UIColor.blackColor()
         self.saveStaticVerticalConstraint.constant = 20
         UIView.animateWithDuration(NSTimeInterval(0.25), animations: {
             self.containerView.layoutIfNeeded()
@@ -94,6 +101,14 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
         // Force Landscape
         let value = UIInterfaceOrientation.LandscapeLeft.rawValue
         UIDevice.currentDevice().setValue(value, forKey: "orientation")
+        colorSlider.frame = CGRectMake(0, 0, 12, 150)
+        sliderContainerView.addSubview(colorSlider)
+        colorSlider.previewEnabled = true
+        colorSlider.addTarget(self, action: "changedColor:", forControlEvents: .ValueChanged)
+        selectedColorview.backgroundColor = colorSlider.color
+        self.selectedColorview.layer.borderWidth = 1
+        //self.selectedColorview.layer.borderColor = UIColor.blackColor().CGColor
+        
         
     }
 
@@ -101,6 +116,7 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
     // MARK: TextField Delegate Methods
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        self.newModeNameLabel.textColor = UIColor.blackColor()
         self.saveStaticVerticalConstraint.constant = 20
         UIView.animateWithDuration(NSTimeInterval(0.25), animations: {
             self.containerView.layoutIfNeeded()
@@ -110,6 +126,7 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
+        self.newModeNameLabel.textColor = UIColor.blackColor()
         self.saveStaticVerticalConstraint.constant = 20
         UIView.animateWithDuration(NSTimeInterval(0.25), animations: {
             self.containerView.layoutIfNeeded()
@@ -117,6 +134,7 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
+        self.newModeNameLabel.textColor = UIColor.whiteColor()
         self.saveStaticVerticalConstraint.constant = 212
         UIView.animateWithDuration(NSTimeInterval(0.25), animations: {
             self.containerView.layoutIfNeeded()
@@ -131,6 +149,15 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
     // Rotate to Landscape
     override func shouldAutorotate() -> Bool {
         return true
+    }
+    
+    // MARK: - Color Slider Functions
+    func changedColor(slider: ColorSlider) {
+        // Do something when color changes
+        
+        selectedColorview.backgroundColor = slider.color
+        // var color = slider.color
+        // ...
     }
     
     /*
