@@ -18,6 +18,7 @@
             <string>CooperHewitt-Light</string>
             <string>CooperHewitt-Light</string>
             <string>CooperHewitt-Light</string>
+            <string>CooperHewitt-Light</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -216,7 +217,7 @@
                                 </connections>
                             </button>
                             <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ECg-GN-u6C">
-                                <rect key="frame" x="204" y="556" width="336" height="30"/>
+                                <rect key="frame" x="228" y="556" width="312" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -224,7 +225,7 @@
                                 </connections>
                             </textField>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Mode Name: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FEd-am-BIY">
-                                <rect key="frame" x="60" y="562" width="136" height="18"/>
+                                <rect key="frame" x="84" y="562" width="136" height="18"/>
                                 <fontDescription key="fontDescription" name="CooperHewitt-Light" family="Cooper Hewitt" pointSize="18"/>
                                 <color key="textColor" red="0.3372839822" green="0.88273278060000004" blue="0.58235739659999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -242,7 +243,7 @@
                                     <action selector="doneButtonPressed:" destination="Y9b-vb-Xni" eventType="touchUpInside" id="RqA-Vp-kbP"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PMV-Rv-LoC">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PMV-Rv-LoC">
                                 <rect key="frame" x="510" y="40" width="70" height="30"/>
                                 <fontDescription key="fontDescription" name="CooperHewitt-Light" family="Cooper Hewitt" pointSize="18"/>
                                 <state key="normal" title="undo last">
@@ -253,7 +254,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dkX-LJ-lyT">
-                                <rect key="frame" x="20" y="550" width="37" height="30"/>
+                                <rect key="frame" x="543" y="550" width="37" height="30"/>
                                 <fontDescription key="fontDescription" name="CooperHewitt-Light" family="Cooper Hewitt" pointSize="18"/>
                                 <state key="normal" title="save">
                                     <color key="titleColor" red="0.3372839822" green="0.88273278060000004" blue="0.58235739659999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -262,10 +263,20 @@
                                     <action selector="saveAsStaticModeButtonPressed:" destination="Y9b-vb-Xni" eventType="touchUpInside" id="dxl-bz-HN1"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0tb-DB-gRC">
+                                <rect key="frame" x="20" y="550" width="38" height="30"/>
+                                <fontDescription key="fontDescription" name="CooperHewitt-Light" family="Cooper Hewitt" pointSize="18"/>
+                                <state key="normal" title="clear">
+                                    <color key="titleColor" red="0.3372839822" green="0.88273278060000004" blue="0.58235739659999997" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="clearButtonPressed:" destination="Y9b-vb-Xni" eventType="touchUpInside" id="UAH-aA-J4v"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="leadingMargin" secondItem="FEd-am-BIY" secondAttribute="leading" constant="-40" id="0dN-v6-kob"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="FEd-am-BIY" secondAttribute="leading" constant="-64" id="0dN-v6-kob"/>
                             <constraint firstItem="AFa-P8-OlX" firstAttribute="bottom" secondItem="quw-oD-SEz" secondAttribute="bottom" id="0eb-40-VZM"/>
                             <constraint firstItem="ECg-GN-u6C" firstAttribute="leading" secondItem="jR3-Uu-4GB" secondAttribute="trailing" constant="-360" id="1Qd-Qu-GZJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ECg-GN-u6C" secondAttribute="trailing" constant="40" id="487-fH-WRb"/>
@@ -275,6 +286,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="quw-oD-SEz" secondAttribute="trailing" constant="24" id="HVD-xb-an0"/>
                             <constraint firstItem="jR3-Uu-4GB" firstAttribute="top" secondItem="Llo-fu-CI0" secondAttribute="bottom" constant="-20" id="J3r-tW-D9r"/>
                             <constraint firstAttribute="leadingMargin" secondItem="ym9-On-H63" secondAttribute="leading" id="JAx-p9-Cn6"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="0tb-DB-gRC" secondAttribute="leading" id="K7M-jb-OdD"/>
                             <constraint firstItem="QeE-Qt-ujQ" firstAttribute="trailing" secondItem="quw-oD-SEz" secondAttribute="trailing" id="KJE-HM-v7c"/>
                             <constraint firstItem="ym9-On-H63" firstAttribute="top" secondItem="Llo-fu-CI0" secondAttribute="bottom" constant="20" id="OD9-jG-vmo"/>
                             <constraint firstItem="uey-Hl-QAW" firstAttribute="centerX" secondItem="ijc-gO-EHY" secondAttribute="centerX" id="OH6-cg-oJ2"/>
@@ -289,6 +301,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="quw-oD-SEz" secondAttribute="trailing" constant="-20" id="WXR-fH-Fsg"/>
                             <constraint firstItem="QeE-Qt-ujQ" firstAttribute="bottom" secondItem="quw-oD-SEz" secondAttribute="bottom" id="YX3-J2-Ci8"/>
                             <constraint firstItem="QeE-Qt-ujQ" firstAttribute="leading" secondItem="quw-oD-SEz" secondAttribute="leading" id="ZFD-dZ-sXI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dkX-LJ-lyT" secondAttribute="trailing" id="ale-qw-ihR"/>
                             <constraint firstItem="gRX-lj-iGa" firstAttribute="top" secondItem="jR3-Uu-4GB" secondAttribute="bottom" id="eev-54-0xl"/>
                             <constraint firstItem="uey-Hl-QAW" firstAttribute="centerY" secondItem="quw-oD-SEz" secondAttribute="centerY" constant="-20" id="j9i-ks-zMH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="uey-Hl-QAW" secondAttribute="trailing" id="jLW-cw-jKO"/>
@@ -302,17 +315,17 @@
                             <constraint firstItem="Rj7-ik-Ps3" firstAttribute="centerY" secondItem="qmv-gi-KwB" secondAttribute="centerY" id="qu5-U3-hHy"/>
                             <constraint firstItem="gRX-lj-iGa" firstAttribute="top" secondItem="dkX-LJ-lyT" secondAttribute="bottom" constant="20" id="rya-QV-UYL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PMV-Rv-LoC" secondAttribute="trailing" id="wJz-sw-XRC"/>
+                            <constraint firstItem="gRX-lj-iGa" firstAttribute="top" secondItem="0tb-DB-gRC" secondAttribute="bottom" constant="20" id="wY0-DL-pnd"/>
                             <constraint firstItem="AFa-P8-OlX" firstAttribute="top" secondItem="quw-oD-SEz" secondAttribute="top" id="wei-lu-O1v"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="dkX-LJ-lyT" secondAttribute="leading" id="wp3-Gf-VGN"/>
                             <constraint firstItem="dkX-LJ-lyT" firstAttribute="top" secondItem="Llo-fu-CI0" secondAttribute="bottom" constant="8" id="zOq-nm-QKq"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="HVD-xb-an0"/>
                                 <exclude reference="oZR-KZ-xji"/>
-                                <exclude reference="zOq-nm-QKq"/>
                                 <exclude reference="1Qd-Qu-GZJ"/>
                                 <exclude reference="o5n-tj-MEA"/>
+                                <exclude reference="zOq-nm-QKq"/>
                             </mask>
                         </variation>
                     </view>

@@ -36,6 +36,12 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var saveStaticVerticalConstraint: NSLayoutConstraint!
     
+    @IBAction func clearButtonPressed(sender: AnyObject) {
+        self.mainImageView.image = nil
+        self.tempImageView.image = nil
+        undoButton.hidden = true
+    }
+    
     @IBAction func doneButtonPressed(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
