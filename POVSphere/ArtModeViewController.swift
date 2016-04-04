@@ -13,19 +13,36 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
     
     let colorSlider = ColorSlider()
     
+    var lastPoint = CGPoint.zero
+    var red: CGFloat = 1.0
+    var green: CGFloat = 0.0
+    var blue: CGFloat = 0.0
+    var brushWidth: CGFloat = 5.0
+    var opacity: CGFloat = 1.0
+    var swiped = false
+    var textfieldEditing = false
+    
     @IBOutlet var containerView: UIView!
     @IBOutlet weak var saveStaticButton: UIButton!
     @IBOutlet weak var newModeNameLabel: UILabel!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var undoButton: UIButton!
     @IBOutlet weak var sliderContainerView: UIView!
     @IBOutlet weak var selectedColorview: UIView!
+    @IBOutlet weak var mainImageView: UIImageView!
+    @IBOutlet weak var tempImageView: UIImageView!
     
     @IBOutlet weak var saveStaticVerticalConstraint: NSLayoutConstraint!
     
     @IBAction func doneButtonPressed(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func undoButtonPressed(sender: AnyObject) {
+        tempImageView.image = nil
+        undoButton.hidden = true
     }
     
     @IBAction func saveAsStaticModeButtonPressed(sender: AnyObject) {
@@ -63,7 +80,6 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
             saveStaticButton.hidden = false
             textField.resignFirstResponder()
             self.saveStaticVerticalConstraint.constant = 20
-            self.newModeNameLabel.textColor = UIColor.blackColor()
             UIView.animateWithDuration(NSTimeInterval(0.25), animations: {
                 self.containerView.layoutIfNeeded()
             })
@@ -86,7 +102,6 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
         self.newModeNameLabel.hidden = true
         saveStaticButton.hidden = false
         textField.resignFirstResponder()
-        self.newModeNameLabel.textColor = UIColor.blackColor()
         self.saveStaticVerticalConstraint.constant = 20
         UIView.animateWithDuration(NSTimeInterval(0.25), animations: {
             self.containerView.layoutIfNeeded()
@@ -116,29 +131,21 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
     // MARK: TextField Delegate Methods
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        self.newModeNameLabel.textColor = UIColor.blackColor()
         self.saveStaticVerticalConstraint.constant = 20
         UIView.animateWithDuration(NSTimeInterval(0.25), animations: {
             self.containerView.layoutIfNeeded()
         })
+        textfieldEditing = false
         return true
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        self.view.endEditing(true)
-        self.newModeNameLabel.textColor = UIColor.blackColor()
-        self.saveStaticVerticalConstraint.constant = 20
-        UIView.animateWithDuration(NSTimeInterval(0.25), animations: {
-            self.containerView.layoutIfNeeded()
-        })
-    }
     
     func textFieldDidBeginEditing(textField: UITextField) {
-        self.newModeNameLabel.textColor = UIColor.whiteColor()
         self.saveStaticVerticalConstraint.constant = 212
         UIView.animateWithDuration(NSTimeInterval(0.25), animations: {
             self.containerView.layoutIfNeeded()
         })
+        textfieldEditing = true
     }
 
     
@@ -153,12 +160,97 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Color Slider Functions
     func changedColor(slider: ColorSlider) {
-        // Do something when color changes
+        if let myCIColor = slider.color.coreImageColor {
+            red = myCIColor.red
+            green = myCIColor.green
+            blue = myCIColor.blue
+        }
         
         selectedColorview.backgroundColor = slider.color
         // var color = slider.color
-        // ...
     }
+    
+    // MARK: Methods For Drawing
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
+        // For dismissing keyboard
+        if(textfieldEditing) {
+            self.view.endEditing(true)
+            self.saveStaticVerticalConstraint.constant = 20
+            UIView.animateWithDuration(NSTimeInterval(0.25), animations: {
+                self.containerView.layoutIfNeeded()
+            })
+            textfieldEditing = false
+            if let touch = touches.first {
+                lastPoint = touch.locationInView(self.view)
+            }
+            
+        // For Drawing
+        } else if let touch = touches.first {
+            //Make tap falls within canvas
+            let point = touch.locationInView(self.view)
+            if(CGRectContainsPoint(self.mainImageView.bounds, point)) {
+                lastPoint = touch.locationInView(self.view)
+                // Merge tempImageView into mainImageView
+                UIGraphicsBeginImageContext(mainImageView.frame.size)
+                mainImageView.image?.drawInRect(CGRect(x: 0, y: 0, width: mainImageView.frame.size.width, height: mainImageView.frame.size.height), blendMode: CGBlendMode.Normal, alpha: 1.0)
+                tempImageView.image?.drawInRect(CGRect(x: 0, y: 0, width: mainImageView.frame.size.width, height: mainImageView.frame.size.height), blendMode: CGBlendMode.Normal, alpha: opacity)
+                mainImageView.image = UIGraphicsGetImageFromCurrentImageContext()
+                UIGraphicsEndImageContext()
+            
+                tempImageView.image = nil
+            
+                swiped = false
+            }
+ 
+        }
+    }
+    
+    func drawLineFrom(fromPoint: CGPoint, toPoint: CGPoint) {
+        
+        UIGraphicsBeginImageContext(view.frame.size)
+        let context = UIGraphicsGetCurrentContext()
+        tempImageView.image?.drawInRect(CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
+        
+        CGContextMoveToPoint(context, fromPoint.x, fromPoint.y)
+        CGContextAddLineToPoint(context, toPoint.x, toPoint.y)
+        
+        CGContextSetLineCap(context, CGLineCap.Round)
+        CGContextSetLineWidth(context, brushWidth)
+        CGContextSetRGBStrokeColor(context, red, green, blue, 1.0)
+        CGContextSetBlendMode(context, CGBlendMode.Normal)
+        
+        CGContextStrokePath(context)
+        
+        tempImageView.image = UIGraphicsGetImageFromCurrentImageContext()
+        tempImageView.alpha = opacity
+        UIGraphicsEndImageContext()
+        
+        undoButton.hidden = false
+    }
+    
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        if(!textfieldEditing) {
+            if let touch = touches.first {
+                let point = touch.locationInView(self.view)
+                if(CGRectContainsPoint(self.mainImageView.bounds, point)) {
+                    swiped = true
+                    let currentPoint = touch.locationInView(view)
+                    drawLineFrom(lastPoint, toPoint: currentPoint)
+        
+                    lastPoint = currentPoint
+                }
+            }
+        }
+    }
+    
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        if !swiped && !textfieldEditing {
+            // Draw a Single Point
+            drawLineFrom(lastPoint, toPoint: lastPoint)
+        }
+    }
+    
     
     /*
     // MARK: - Navigation

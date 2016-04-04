@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit.UIColor
 import CoreBluetooth
 
 
@@ -39,4 +40,10 @@ func delay(delay:Double, closure:()->()) {
             Int64(delay * Double(NSEC_PER_SEC))
         ),
         dispatch_get_main_queue(), closure)
+}
+
+extension UIColor {
+    var coreImageColor: CoreImage.CIColor? {
+        return CoreImage.CIColor(color: self)  // The resulting Core Image color, or nil
+    }
 }

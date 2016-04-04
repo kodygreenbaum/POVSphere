@@ -20,6 +20,39 @@ class StaticModeSelectViewController: UIViewController, UICollectionViewDelegate
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet var longPress: UILongPressGestureRecognizer!
+    
+    @IBAction func handleSwipe(sender: AnyObject) {
+        self.tabBarController!.selectedIndex = 1
+    }
+    
+    @IBAction func handleLongPress(sender: AnyObject) {
+        
+        if(longPress.state == .Began) {
+            let ind = collectionView.indexPathForItemAtPoint(longPress.locationInView(collectionView))
+            if(ind?.item > 2) {
+                let alertController = UIAlertController(title: "Delete Your Art", message:
+                    "Would you like to delete your masterpiece?", preferredStyle: UIAlertControllerStyle.Alert)
+                let cancelAction = UIAlertAction(
+                    title: "No",
+                    style: UIAlertActionStyle.Default) { (action) in
+                }
+                let confirmAction = UIAlertAction(
+                    title: "Yes",
+                    style: UIAlertActionStyle.Destructive) { (action) in
+                        self.staticModes.removeAtIndex((ind?.item)!)
+                        self.collectionView.reloadData()
+                }
+                
+                alertController.addAction(confirmAction)
+                alertController.addAction(cancelAction)
+                
+                self.presentViewController(alertController, animated: true, completion: nil)
+                
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.backgroundColor = UIColor.clearColor()

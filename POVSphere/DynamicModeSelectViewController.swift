@@ -17,6 +17,10 @@ class DynamicModeSelectViewController: UIViewController, UICollectionViewDelegat
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBAction func handleSwipe(sender: AnyObject) {
+        self.tabBarController!.selectedIndex = 0
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.backgroundColor = UIColor.clearColor()
