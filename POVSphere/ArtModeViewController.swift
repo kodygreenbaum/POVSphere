@@ -115,6 +115,49 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
 
     }
     
+  
+    @IBAction func nabDatDataPressed(sender: AnyObject) {
+        
+        let inputCGImage : CGImageRef = (mainImageView.image?.CGImage)!
+        let width : Int = CGImageGetWidth(inputCGImage)
+
+        let height : Int = CGImageGetHeight(inputCGImage);
+
+        let bytesPerPixel = 4;
+        let bytesPerRow = bytesPerPixel * width;
+        let bitsPerComponent = 8;
+        
+        let pixels : UnsafeMutablePointer<Void> = calloc(height * width, sizeof(UInt32));
+        
+        
+        let colorSpaceRef : CGColorSpaceRef = CGColorSpaceCreateDeviceRGB()!;
+        let contextRef : CGContextRef = CGBitmapContextCreate(pixels, width, height, bitsPerComponent, bytesPerRow, colorSpaceRef, CGImageAlphaInfo.PremultipliedLast.rawValue | CGBitmapInfo.ByteOrder32Big.rawValue)!;
+        
+        CGContextDrawImage(contextRef, CGRectMake(0, 0, CGFloat(width), CGFloat(height)), inputCGImage);
+    
+        
+        // Run processor intensive calculation on background thread
+        var currentPixel : UnsafeMutablePointer<UInt32> = UnsafeMutablePointer<UInt32>(pixels)
+        backgroundThread(0.0,
+            background: {
+            for (var j = 0; j < height; j++) {
+                for (var i = 0; i < width; i++) {
+                    
+                    let color : UInt32 = currentPixel.memory
+                    
+                    // Access the pixels as follows
+                    print(self.redValue(color));
+                    print(self.greenValue(color));
+                    print(self.blueValue(color));
+                    
+                    currentPixel++;
+                }
+                print("\n");
+            }
+        }, completion: nil)
+        free(pixels)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -255,6 +298,24 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
             // Draw a Single Point
             drawLineFrom(lastPoint, toPoint: lastPoint)
         }
+    }
+    
+    // MARK: Helpers for Pixel Color Value Calculations
+    
+    func mask8(value : UInt32) -> UInt32 {
+        return value & UInt32(0xFF)
+    }
+    
+    func redValue(value : UInt32) -> UInt32 {
+        return mask8(value)
+    }
+    
+    func greenValue(value : UInt32) -> UInt32 {
+        return mask8(value >> 8)
+    }
+    
+    func blueValue(value : UInt32) -> UInt32 {
+        return mask8(value >> 16)
     }
     
     

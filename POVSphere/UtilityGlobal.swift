@@ -42,6 +42,23 @@ func delay(delay:Double, closure:()->()) {
         dispatch_get_main_queue(), closure)
 }
 
+/**
+ Wrapper method for GCD's dispatch_async method...
+ Puts the contained code into a background thread... used for processor intensive
+ autonomy stuff.
+ */
+func backgroundThread(delay: Double = 0.0, background: (() -> Void)? = nil, completion: (() -> Void)? = nil) {
+    dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)) {
+        if(background != nil){ background!(); }
+        
+        let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
+        dispatch_after(popTime, dispatch_get_main_queue()) {
+            if(completion != nil){ completion!(); }
+        }
+    }
+}
+
+
 extension UIColor {
     var coreImageColor: CoreImage.CIColor? {
         return CoreImage.CIColor(color: self)  // The resulting Core Image color, or nil

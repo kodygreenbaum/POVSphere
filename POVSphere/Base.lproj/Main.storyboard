@@ -273,6 +273,13 @@
                                     <action selector="clearButtonPressed:" destination="Y9b-vb-Xni" eventType="touchUpInside" id="UAH-aA-J4v"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pkM-5D-ANY">
+                                <rect key="frame" x="237" y="465" width="126" height="30"/>
+                                <state key="normal" title="NabDatImageData"/>
+                                <connections>
+                                    <action selector="nabDatDataPressed:" destination="Y9b-vb-Xni" eventType="touchUpInside" id="mY1-au-h2P"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -281,6 +288,7 @@
                             <constraint firstItem="ECg-GN-u6C" firstAttribute="leading" secondItem="jR3-Uu-4GB" secondAttribute="trailing" constant="-360" id="1Qd-Qu-GZJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ECg-GN-u6C" secondAttribute="trailing" constant="40" id="487-fH-WRb"/>
                             <constraint firstItem="jR3-Uu-4GB" firstAttribute="leading" secondItem="ULk-82-CJP" secondAttribute="leadingMargin" constant="-20" id="4Jc-FU-YeK"/>
+                            <constraint firstItem="pkM-5D-ANY" firstAttribute="centerX" secondItem="AFa-P8-OlX" secondAttribute="centerX" id="5jL-TG-x1c"/>
                             <constraint firstItem="AFa-P8-OlX" firstAttribute="leading" secondItem="quw-oD-SEz" secondAttribute="leading" id="6R6-7g-Voz"/>
                             <constraint firstItem="gRX-lj-iGa" firstAttribute="top" secondItem="quw-oD-SEz" secondAttribute="bottom" id="HB7-19-lyh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="quw-oD-SEz" secondAttribute="trailing" constant="24" id="HVD-xb-an0"/>
@@ -303,6 +311,7 @@
                             <constraint firstItem="QeE-Qt-ujQ" firstAttribute="leading" secondItem="quw-oD-SEz" secondAttribute="leading" id="ZFD-dZ-sXI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dkX-LJ-lyT" secondAttribute="trailing" id="ale-qw-ihR"/>
                             <constraint firstItem="gRX-lj-iGa" firstAttribute="top" secondItem="jR3-Uu-4GB" secondAttribute="bottom" id="eev-54-0xl"/>
+                            <constraint firstItem="qmv-gi-KwB" firstAttribute="top" secondItem="pkM-5D-ANY" secondAttribute="bottom" constant="23" id="gm3-PD-EwL"/>
                             <constraint firstItem="uey-Hl-QAW" firstAttribute="centerY" secondItem="quw-oD-SEz" secondAttribute="centerY" constant="-20" id="j9i-ks-zMH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="uey-Hl-QAW" secondAttribute="trailing" id="jLW-cw-jKO"/>
                             <constraint firstItem="ECg-GN-u6C" firstAttribute="top" secondItem="qmv-gi-KwB" secondAttribute="bottom" constant="8" id="jYE-Z9-1LD"/>
