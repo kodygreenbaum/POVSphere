@@ -17,10 +17,13 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
     var red: CGFloat = 1.0
     var green: CGFloat = 0.0
     var blue: CGFloat = 0.0
-    var brushWidth: CGFloat = 5.0
+    var brushWidth: CGFloat = 60.0
     var opacity: CGFloat = 1.0
     var swiped = false
     var textfieldEditing = false
+    
+    let xpix = 333
+    let ypix = 130
     
     @IBOutlet var containerView: UIView!
     @IBOutlet weak var saveStaticButton: UIButton!
@@ -117,45 +120,9 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
     
   
     @IBAction func nabDatDataPressed(sender: AnyObject) {
-        
-        let inputCGImage : CGImageRef = (mainImageView.image?.CGImage)!
-        let width : Int = CGImageGetWidth(inputCGImage)
-
-        let height : Int = CGImageGetHeight(inputCGImage);
-
-        let bytesPerPixel = 4;
-        let bytesPerRow = bytesPerPixel * width;
-        let bitsPerComponent = 8;
-        
-        let pixels : UnsafeMutablePointer<Void> = calloc(height * width, sizeof(UInt32));
-        
-        
-        let colorSpaceRef : CGColorSpaceRef = CGColorSpaceCreateDeviceRGB()!;
-        let contextRef : CGContextRef = CGBitmapContextCreate(pixels, width, height, bitsPerComponent, bytesPerRow, colorSpaceRef, CGImageAlphaInfo.PremultipliedLast.rawValue | CGBitmapInfo.ByteOrder32Big.rawValue)!;
-        
-        CGContextDrawImage(contextRef, CGRectMake(0, 0, CGFloat(width), CGFloat(height)), inputCGImage);
-    
-        
-        // Run processor intensive calculation on background thread
-        var currentPixel : UnsafeMutablePointer<UInt32> = UnsafeMutablePointer<UInt32>(pixels)
-        backgroundThread(0.0,
-            background: {
-            for (var j = 0; j < height; j++) {
-                for (var i = 0; i < width; i++) {
-                    
-                    let color : UInt32 = currentPixel.memory
-                    
-                    // Access the pixels as follows
-                    print(self.redValue(color));
-                    print(self.greenValue(color));
-                    print(self.blueValue(color));
-                    
-                    currentPixel++;
-                }
-                print("\n");
-            }
-        }, completion: nil)
-        free(pixels)
+        var globeArray = [[UInt32]](count: xpix, repeatedValue: [UInt32](count: ypix, repeatedValue: 0))
+        globeArray = mapPixelsToGlobe(xpix, yPixels: ypix)
+        // Send Array as bitmap over bluetooth
     }
     
     
@@ -298,6 +265,86 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
             // Draw a Single Point
             drawLineFrom(lastPoint, toPoint: lastPoint)
         }
+    }
+    
+    func mapPixelsToGlobe(xPixels : Int, yPixels : Int) -> [[UInt32]] {
+        
+        
+        let inputCGImage : CGImageRef = (mainImageView.image?.CGImage)!
+        let width : Int = CGImageGetWidth(inputCGImage)
+        let height : Int = CGImageGetHeight(inputCGImage);
+        
+        let bytesPerPixel = 4;
+        let bytesPerRow = bytesPerPixel * width;
+        let bitsPerComponent = 8;
+        
+        let pixels : UnsafeMutablePointer<Void> = calloc(height * width, sizeof(UInt32));
+        
+        
+        let colorSpaceRef : CGColorSpaceRef = CGColorSpaceCreateDeviceRGB()!;
+        let contextRef : CGContextRef = CGBitmapContextCreate(pixels, width, height, bitsPerComponent, bytesPerRow, colorSpaceRef, CGImageAlphaInfo.PremultipliedLast.rawValue | CGBitmapInfo.ByteOrder32Big.rawValue)!;
+        
+        CGContextDrawImage(contextRef, CGRectMake(0, 0, CGFloat(width), CGFloat(height)), inputCGImage);
+        
+        
+        // Run processor intensive calculation on background thread
+        var currentPixel : UnsafeMutablePointer<UInt32> = UnsafeMutablePointer<UInt32>(pixels)
+        
+        let xRatio = width/xPixels
+        let yRatio = height/yPixels
+        
+        var globeArray = [[UInt32]](count: xPixels, repeatedValue: [UInt32](count: yPixels, repeatedValue: 0))
+        var imagePixelArray = [[UInt32]](count: width, repeatedValue: [UInt32](count: height, repeatedValue: 0))
+        
+        // Populate 2-D Array of image's pixels
+        //backgroundThread(0.0,
+        //    background: {
+            for (var b = 0; b < height; b++) {
+                for (var a = 0; a < width; a++) {
+                    let color : UInt32 = currentPixel.memory
+                    imagePixelArray[a][b] = color
+                    currentPixel++;
+                }
+            }
+            // Now we have 2-d Array of image's pixels...
+            var globeXIndex = 0
+            var globeYIndex = 0
+            // Loop over every xRatio by yRatio section of Image's Pixels
+            // Find Most Occurring Pixel Color
+            // Save it to globeArray
+            for (var j = 0; j < height; j+=yRatio) {
+                for (var i = 0; i < width; i+=xRatio) {
+                    if(globeXIndex < xPixels && globeYIndex < yPixels) {
+                        var s = [UInt32: Int]()
+                        for (var jj = 0; jj < xRatio; jj++) {
+                            for (var ii = 0; ii < yRatio; ii++) {
+                                let clr : UInt32 = imagePixelArray[i + ii][j + jj]
+                                if let val = s[clr] {
+                                    s[clr] = val + 1
+                                } else {
+                                    s.updateValue(1, forKey: clr)
+                                }
+                            }
+                        }
+                        
+                        let max = s.values.maxElement()
+                        
+                        for(color, count) in s {
+                            if (count == max) {
+                                globeArray[globeXIndex][globeYIndex] = color
+                            }
+                        }
+                        globeXIndex++
+                    }
+                }
+                globeXIndex = 0
+                globeYIndex++
+            }
+                
+       //     }, completion: { })
+        free(pixels)
+        
+        return globeArray
     }
     
     // MARK: Helpers for Pixel Color Value Calculations
