@@ -21,7 +21,7 @@ struct Constants {
 
 // MARK: Global Vars
 var bleManager: BLEManager!
-var deviceName : String = "POV-Sphere"
+var deviceName : String = "LED_SPHERE"
 var deviceFound: Bool! = false
 
 
