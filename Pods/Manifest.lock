@@ -1,10 +1,14 @@
 PODS:
-  - ColorSlider (2.3)
+  - ColorSlider (2.4)
 
 DEPENDENCIES:
-  - ColorSlider (~> 2.3)
+  - ColorSlider (from `/Users/KodyGreenbaum/Desktop/POVSphere/Pods/ColorSlider`)
+
+EXTERNAL SOURCES:
+  ColorSlider:
+    :path: "/Users/KodyGreenbaum/Desktop/POVSphere/Pods/ColorSlider"
 
 SPEC CHECKSUMS:
-  ColorSlider: b0428146f232d19f6647ce6382ae2db10909f64e
+  ColorSlider: f376728ce79d5bf9d4caed9d2943c459b34bb113
 
 COCOAPODS: 0.39.0

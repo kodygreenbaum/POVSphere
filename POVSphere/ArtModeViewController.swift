@@ -8,16 +8,17 @@
 
 import UIKit
 import ColorSlider
+import CoreBluetooth
 
 class ArtModeViewController: UIViewController, UITextFieldDelegate {
     
     let colorSlider = ColorSlider()
-    
     var lastPoint = CGPoint.zero
+    var hue: CGFloat = 1.0
     var red: CGFloat = 1.0
     var green: CGFloat = 0.0
     var blue: CGFloat = 0.0
-    var brushWidth: CGFloat = 60.0
+    var brushWidth: CGFloat = 8.0
     var opacity: CGFloat = 1.0
     var swiped = false
     var textfieldEditing = false
@@ -36,6 +37,10 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var selectedColorview: UIView!
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var tempImageView: UIImageView!
+    @IBOutlet weak var redLabel: UILabel!
+    @IBOutlet weak var greenLabel: UILabel!
+    @IBOutlet weak var blueLabel: UILabel!
+    @IBOutlet weak var charValueLabel: UILabel!
     
     @IBOutlet weak var saveStaticVerticalConstraint: NSLayoutConstraint!
     
@@ -43,6 +48,7 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
         self.mainImageView.image = nil
         self.tempImageView.image = nil
         undoButton.hidden = true
+        //charValueLabel.text = String(periph.readValueForCharacteristic(rpmChar))
     }
     
     @IBAction func doneButtonPressed(sender: AnyObject) {
@@ -125,6 +131,14 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
         // Send Array as bitmap over bluetooth
     }
     
+    @IBAction func sendColorButtonPressed(sender: AnyObject) {
+        var color: UInt32 = 0
+        color = hexValue(colorSlider.color)
+        
+        if let data: NSData? = NSData(bytes: &color, length: 4) {
+            periph.writeValue(data!, forCharacteristic: writeChar, type: CBCharacteristicWriteType.WithResponse)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -132,7 +146,7 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
         // Force Landscape
         let value = UIInterfaceOrientation.LandscapeLeft.rawValue
         UIDevice.currentDevice().setValue(value, forKey: "orientation")
-        colorSlider.frame = CGRectMake(0, 0, 12, 150)
+        colorSlider.frame = CGRectMake(0, 0, 20, 150)
         sliderContainerView.addSubview(colorSlider)
         colorSlider.previewEnabled = true
         colorSlider.addTarget(self, action: "changedColor:", forControlEvents: .ValueChanged)
@@ -180,9 +194,12 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
             red = myCIColor.red
             green = myCIColor.green
             blue = myCIColor.blue
+            redLabel.text = String(red)
+            greenLabel.text = String(green)
+            blueLabel.text = String(blue)
+            selectedColorview.backgroundColor = slider.color
         }
         
-        selectedColorview.backgroundColor = slider.color
         // var color = slider.color
     }
     
@@ -365,6 +382,16 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
         return mask8(value >> 16)
     }
     
+    func hexValue (color : UIColor) -> UInt32 {
+        var red: CGFloat = 0, green: CGFloat = 0, blue: CGFloat = 0, alpha: CGFloat = 0
+        if color.getRed(&red, green: &green, blue: &blue, alpha: &alpha) {
+            var colorAsUInt : UInt32 = 0
+            colorAsUInt += UInt32(red * 255.0) << 16 + UInt32(green * 255.0) << 8 + UInt32(blue * 255.0)
+            return colorAsUInt
+        } else {
+            return 0
+        }
+    }
     
     /*
     // MARK: - Navigation

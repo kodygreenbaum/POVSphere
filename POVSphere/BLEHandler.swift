@@ -12,6 +12,7 @@ import CoreBluetooth
 var periph: CBPeripheral!
 var service: CBService!
 var writeChar: CBCharacteristic!
+var rpmChar: CBCharacteristic!
 
 class BLEHandler: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     override init () {
@@ -90,10 +91,13 @@ class BLEHandler: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
                 //string of UUID of characteristics
                 switch characteristic.UUID.UUIDString {
                     
-                case "CBB1": // Change to actual characteristic UUID from firmware
-                    //prints to terminal
-                    print("Found characteristic CBB1") // Change to actual UUID
+                case "00000000-0000-1000-8000-00805F9B34F1":
                     writeChar = characteristic
+                    print("Found Write Characteristic")
+                case "00000000-0000-1000-8000-00805F9B34FB":
+                    rpmChar = characteristic
+                    print("Found RPM Characteristic")
+                    peripheral.setNotifyValue(true, forCharacteristic: writeChar)
                     
                 default:
                     print("Characteristic not found")
@@ -122,6 +126,12 @@ class BLEHandler: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         })
     }
     
+    func peripheral(peripheral: CBPeripheral, didUpdateValueForCharacteristic characteristic: CBCharacteristic, error: NSError?) {
+        NSNotificationCenter.defaultCenter().postNotificationName("characteristicUpdated", object: self, userInfo: nil)
+        
+        print("\(rpmChar.value!)")
+    }
+
     
     
 }

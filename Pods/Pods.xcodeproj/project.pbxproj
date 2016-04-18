@@ -10,7 +10,6 @@
 		0A13A102D3A857A30D10F635383A7B49 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE437620300D81EED04DF8C0301AF9D9 /* Foundation.framework */; };
 		132D93FFDB5C575895D700125A970C34 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE437620300D81EED04DF8C0301AF9D9 /* Foundation.framework */; };
 		420FE761B60D934D1002609ED202DE46 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4BD53A6A7A69AD90D7E2D222320D03 /* Pods-dummy.m */; };
-		4F1DCD97C2058F9C7B102175E0032CC8 /* ColorSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D42C75A3C4D966844D0A4117C5AFA61 /* ColorSlider.swift */; };
 		5A9A24411887A8A87D1A50FAE35C381B /* Pods-POVSphere-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 070A51810238DF457CE42076DE115D49 /* Pods-POVSphere-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5FC13AE584AACD4FB1585935A4EA1DF7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE437620300D81EED04DF8C0301AF9D9 /* Foundation.framework */; };
 		61534CB4A914F973134391CCF377CAE1 /* Pods-POVSphereUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 856FDBD18291963DB21C7C08FBED7F53 /* Pods-POVSphereUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -18,11 +17,12 @@
 		8EF5D2A2A2EF871FD7018773701B3E3C /* Pods-POVSphereUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 992934C08C872349A278A611C6E59340 /* Pods-POVSphereUITests-dummy.m */; };
 		98C0C4372E3D0882422731A4655AD1F6 /* Pods-POVSphereTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 936A5A991DA3C654287E547BC9F08942 /* Pods-POVSphereTests-dummy.m */; };
 		ADF256CDD9C0A48EF205F5279DE61198 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED04AE2201316F6590E7AD9952706C7B /* UIKit.framework */; };
-		B0163451A68730CC263448E3F4AD4E76 /* ColorSlider-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A766EB3A99B01E87FED6202385989166 /* ColorSlider-dummy.m */; };
-		B4A524FF2DE1410E9D216A4E9158E179 /* ColorSlider-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 28D9FFF62E7645F320CCAF597D9B5D8A /* ColorSlider-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B25F40F955D9A0A712821CA616CD144F /* ColorSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3B5A73AA6532214ECE795E3F09C36C /* ColorSlider.swift */; };
+		B4A524FF2DE1410E9D216A4E9158E179 /* ColorSlider-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 155C038D1FF4F041B60B7EB8B9405C3A /* ColorSlider-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CBFD107243FF08504BDFC06FEA91D1F8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE437620300D81EED04DF8C0301AF9D9 /* Foundation.framework */; };
 		D1F44D1DE2C9699791AC304021518DCD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DD25CA4A497622D5ABF4C433D79E4DE /* QuartzCore.framework */; };
 		D6D747453665D03BCB1A2B23F56163C5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AE7FD0E16F3FACCFE19068F1E872D9F /* CoreGraphics.framework */; };
+		E4005594FA2D852B05C1276AFCEED9F1 /* ColorSlider-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1845158F23DB4815E885C6DD1A7F7A91 /* ColorSlider-dummy.m */; };
 		E5CEE59749C06E985027049204021B0F /* Pods-POVSphere-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A6280A770970915286D64FC5CD4A2C3C /* Pods-POVSphere-dummy.m */; };
 		E65E095235D52816F729702EB6D0910E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE437620300D81EED04DF8C0301AF9D9 /* Foundation.framework */; };
 		FB58F5B185D0DFA666C9A78F8749ACFF /* Pods-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E1C7369B8B02EA38E40B7C4E92AE40C9 /* Pods-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -63,10 +63,12 @@
 		03E58F770FD1A003F3D84BD13A1D6C68 /* Pods-POVSphereUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-POVSphereUITests-acknowledgements.plist"; sourceTree = "<group>"; };
 		070A51810238DF457CE42076DE115D49 /* Pods-POVSphere-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-POVSphere-umbrella.h"; sourceTree = "<group>"; };
 		0DD25CA4A497622D5ABF4C433D79E4DE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
-		1622C7A00C3A80B657BC716A2C2BAACD /* ColorSlider-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ColorSlider-prefix.pch"; sourceTree = "<group>"; };
+		13653AA65BFAAB3A273642E8F55A6062 /* ColorSlider.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ColorSlider.xcconfig; sourceTree = "<group>"; };
+		155C038D1FF4F041B60B7EB8B9405C3A /* ColorSlider-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ColorSlider-umbrella.h"; sourceTree = "<group>"; };
+		1845158F23DB4815E885C6DD1A7F7A91 /* ColorSlider-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ColorSlider-dummy.m"; sourceTree = "<group>"; };
 		2003A6AD76DD45A2252AFF99D1547130 /* ColorSlider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ColorSlider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2548824F1A8F6AB4E15F6F00B2AEE956 /* Pods_POVSphere.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_POVSphere.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		28D9FFF62E7645F320CCAF597D9B5D8A /* ColorSlider-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ColorSlider-umbrella.h"; sourceTree = "<group>"; };
+		29054FEE26A2B7D0445137DDE8AEF0FD /* ColorSlider.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = ColorSlider.modulemap; sourceTree = "<group>"; };
 		2CF2E5FDB3514D2BFC9CAE687A3C544B /* Pods-POVSphereTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-POVSphereTests.modulemap"; sourceTree = "<group>"; };
 		390A4BDD847E0990B1E225DB052EDFA5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
 		3A32DC46508058DA9BFDBBD844D8D3FF /* Pods_POVSphereTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_POVSphereTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,7 +82,6 @@
 		527242212B1D6BF70FA71A9B0032A5F0 /* Pods-POVSphereTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-POVSphereTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		53F47BC0393B7A08AAC430FFBF4A243A /* Pods-POVSphere-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-POVSphere-acknowledgements.plist"; sourceTree = "<group>"; };
 		5826C69EB8751071973F85F787A1B943 /* Pods-POVSphereUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-POVSphereUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		5D42C75A3C4D966844D0A4117C5AFA61 /* ColorSlider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ColorSlider.swift; path = Source/ColorSlider.swift; sourceTree = "<group>"; };
 		6024282123495D6F464B4AD2DF5F6316 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
 		65CDAD190902EE6FB80C54F0C006B1E5 /* Pods-POVSphereTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-POVSphereTests-umbrella.h"; sourceTree = "<group>"; };
 		69BB174AEC88F9D4C9B89DFE517DBFCC /* Pods-POVSphere.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-POVSphere.release.xcconfig"; sourceTree = "<group>"; };
@@ -98,7 +99,6 @@
 		992934C08C872349A278A611C6E59340 /* Pods-POVSphereUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-POVSphereUITests-dummy.m"; sourceTree = "<group>"; };
 		A5A92C6041E8A73295E84337AD12F99D /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
 		A6280A770970915286D64FC5CD4A2C3C /* Pods-POVSphere-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-POVSphere-dummy.m"; sourceTree = "<group>"; };
-		A766EB3A99B01E87FED6202385989166 /* ColorSlider-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ColorSlider-dummy.m"; sourceTree = "<group>"; };
 		A77A5F4BDBEE806AFD274D1B50FD31EE /* Pods-POVSphereUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-POVSphereUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B53D04E0A2CE3EFA1481034CD0F2FD06 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -106,16 +106,16 @@
 		C78D96F00431B2C4397DA0A4D71CD7EE /* Pods.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Pods.modulemap; sourceTree = "<group>"; };
 		CE437620300D81EED04DF8C0301AF9D9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		D0D1C66DBA43DE5B5370DF2C07810B76 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DA24A58951C9D89DE96463E7A62E22AD /* ColorSlider.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = ColorSlider.modulemap; sourceTree = "<group>"; };
+		D217204EACC52F39237454606C5D1AE8 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D32309235CB3C801C62FF1398E2D6553 /* ColorSlider-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ColorSlider-prefix.pch"; sourceTree = "<group>"; };
 		DFEB5EF82EAB3827470112F1ED4F3141 /* Pods-POVSphere-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-POVSphere-frameworks.sh"; sourceTree = "<group>"; };
 		E1C7369B8B02EA38E40B7C4E92AE40C9 /* Pods-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-umbrella.h"; sourceTree = "<group>"; };
 		E2C05BFF29B67AA4020E76F4A0E11ABC /* Pods_POVSphereUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_POVSphereUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E569CBE8E109AF7B77AA4360174E6713 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E61F902EA4DF2E97AD0A5BA521FE6526 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED04AE2201316F6590E7AD9952706C7B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		EF3B5A73AA6532214ECE795E3F09C36C /* ColorSlider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ColorSlider.swift; sourceTree = "<group>"; };
 		F3AA14C8AC9C098A5BA0B5F27AB616DB /* Pods-POVSphereUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-POVSphereUITests.modulemap"; sourceTree = "<group>"; };
 		F79A2FF5B818E3EA84C7069214BAB0EB /* Pods-POVSphereTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-POVSphereTests.release.xcconfig"; sourceTree = "<group>"; };
-		FB37F43F8CD0C155449D2670568BF93C /* ColorSlider.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ColorSlider.xcconfig; sourceTree = "<group>"; };
 		FE730F787866A0C367B1890691ED50AC /* Pods-POVSphereUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-POVSphereUITests-resources.sh"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -186,6 +186,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		15AEF6D148E673063FDC22855D7D92D5 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				EF3B5A73AA6532214ECE795E3F09C36C /* ColorSlider.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 		26051F3FAC6E9188E3CE99BB6972FFF4 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -233,24 +241,25 @@
 			path = "Target Support Files/Pods";
 			sourceTree = "<group>";
 		};
-		328399E7662C51ACB73706490BEF56C3 /* ColorSlider */ = {
+		3397378278D755F357B7675BF0235B93 /* ColorSlider */ = {
 			isa = PBXGroup;
 			children = (
-				5D42C75A3C4D966844D0A4117C5AFA61 /* ColorSlider.swift */,
-				5A3EAD2998CD821A2782B47469414664 /* Support Files */,
+				15AEF6D148E673063FDC22855D7D92D5 /* Source */,
+				44C1D2DE140238623C82983D003B5160 /* Support Files */,
 			);
-			path = ColorSlider;
-			sourceTree = "<group>";
+			name = ColorSlider;
+			path = /Users/KodyGreenbaum/Desktop/POVSphere/Pods/ColorSlider;
+			sourceTree = "<absolute>";
 		};
-		5A3EAD2998CD821A2782B47469414664 /* Support Files */ = {
+		44C1D2DE140238623C82983D003B5160 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				DA24A58951C9D89DE96463E7A62E22AD /* ColorSlider.modulemap */,
-				FB37F43F8CD0C155449D2670568BF93C /* ColorSlider.xcconfig */,
-				A766EB3A99B01E87FED6202385989166 /* ColorSlider-dummy.m */,
-				1622C7A00C3A80B657BC716A2C2BAACD /* ColorSlider-prefix.pch */,
-				28D9FFF62E7645F320CCAF597D9B5D8A /* ColorSlider-umbrella.h */,
-				E61F902EA4DF2E97AD0A5BA521FE6526 /* Info.plist */,
+				29054FEE26A2B7D0445137DDE8AEF0FD /* ColorSlider.modulemap */,
+				13653AA65BFAAB3A273642E8F55A6062 /* ColorSlider.xcconfig */,
+				1845158F23DB4815E885C6DD1A7F7A91 /* ColorSlider-dummy.m */,
+				D32309235CB3C801C62FF1398E2D6553 /* ColorSlider-prefix.pch */,
+				155C038D1FF4F041B60B7EB8B9405C3A /* ColorSlider-umbrella.h */,
+				D217204EACC52F39237454606C5D1AE8 /* Info.plist */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/ColorSlider";
@@ -260,19 +269,11 @@
 			isa = PBXGroup;
 			children = (
 				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
+				A95D2F45CB883BD7CA71E1D22C877D6D /* Development Pods */,
 				14B8B9B15ECBE87983FF987239AB2D7B /* Frameworks */,
-				8548036EFD31360557F0077868A1E49E /* Pods */,
 				15775FADDBE283F14E990510319B3083 /* Products */,
 				26051F3FAC6E9188E3CE99BB6972FFF4 /* Targets Support Files */,
 			);
-			sourceTree = "<group>";
-		};
-		8548036EFD31360557F0077868A1E49E /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				328399E7662C51ACB73706490BEF56C3 /* ColorSlider */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		9AE35BC77DC33B3100F2BBAE9A1D8BE4 /* Pods-POVSphere */ = {
@@ -302,6 +303,14 @@
 				ED04AE2201316F6590E7AD9952706C7B /* UIKit.framework */,
 			);
 			name = iOS;
+			sourceTree = "<group>";
+		};
+		A95D2F45CB883BD7CA71E1D22C877D6D /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3397378278D755F357B7675BF0235B93 /* ColorSlider */,
+			);
+			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 		C3EE183D7B5801033B2F416F88EB6AEB /* Pods-POVSphereUITests */ = {
@@ -444,7 +453,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 64CE90444505A3CC90214FF1A1A85200 /* Build configuration list for PBXNativeTarget "ColorSlider" */;
 			buildPhases = (
-				7A5F6389D9C6EBA3B9A48A40D14DA145 /* Sources */,
+				B731BC92D88C90CB55E67A38842EF3D2 /* Sources */,
 				68B32223A7A15B39CFF1F4174049F501 /* Frameworks */,
 				7F8FBE4E6072803FFEFAC89290A02801 /* Headers */,
 			);
@@ -512,12 +521,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7A5F6389D9C6EBA3B9A48A40D14DA145 /* Sources */ = {
+		B731BC92D88C90CB55E67A38842EF3D2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0163451A68730CC263448E3F4AD4E76 /* ColorSlider-dummy.m in Sources */,
-				4F1DCD97C2058F9C7B102175E0032CC8 /* ColorSlider.swift in Sources */,
+				E4005594FA2D852B05C1276AFCEED9F1 /* ColorSlider-dummy.m in Sources */,
+				B25F40F955D9A0A712821CA616CD144F /* ColorSlider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -756,7 +765,7 @@
 		};
 		78AF98BDF2AA6D9DDD7E7ADD66DD7E11 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FB37F43F8CD0C155449D2670568BF93C /* ColorSlider.xcconfig */;
+			baseConfigurationReference = 13653AA65BFAAB3A273642E8F55A6062 /* ColorSlider.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -875,7 +884,7 @@
 		};
 		E23C1371938EE56C5B76FB41DCE568CF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FB37F43F8CD0C155449D2670568BF93C /* ColorSlider.xcconfig */;
+			baseConfigurationReference = 13653AA65BFAAB3A273642E8F55A6062 /* ColorSlider.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;

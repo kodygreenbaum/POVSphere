@@ -80,7 +80,7 @@ class ConnectViewController: UIViewController {
                 self.loadingIndicator.alpha = 0.0
                 self.loadingIndicator.stopAnimating()
                 UIView.animateWithDuration(NSTimeInterval(0.6), animations: {
-                    self.connectButton.alpha = 0.0
+                    self.connectButton.alpha = 1.0
                 })
                 self.searching = false
                 bleManager.centralManager.stopScan()

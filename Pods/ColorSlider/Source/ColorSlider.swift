@@ -33,7 +33,7 @@ import CoreGraphics
 @IBDesignable public class ColorSlider: UIControl {
 	
 	public var color: UIColor {
-		return UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: 1)
+		return colorForHue(hue)
 	}
 	
 	// MARK: Customization
@@ -67,9 +67,12 @@ import CoreGraphics
 	
     // MARK: Internal
     private var drawLayer: CAGradientLayer = CAGradientLayer()
-    private var hue: CGFloat = 0
 	private var saturation: CGFloat = 1
     private var brightness: CGFloat = 1
+    private var hue : CGFloat = 0
+    private let hueRange : CGFloat = 1.0/14.0
+    private var white : Bool = false
+    private var black : Bool = false
 	
 	// MARK: Preview view
 	private var previewView: UIView = UIView()
@@ -171,6 +174,8 @@ import CoreGraphics
 				hue = 1 - max(0, min(1, (locationInView.x / frame.width)))
 			}
             brightness = 1
+            black = false
+            white = false
 			
         } else {
             // Modify saturation and brightness for the current hue
@@ -187,6 +192,14 @@ import CoreGraphics
 				saturation = verticalPercent
 				brightness = 1 - horizontalPercent
 			}
+            if(brightness < 0.5) {
+                black = true
+                white = false
+            }
+            else {
+                white = true
+                black = false
+            }
         }
     }
 	
@@ -239,7 +252,7 @@ import CoreGraphics
 		// Update the preview view
 		let previewFrame = CGRect(x: x, y: y, width: previewDimension, height: previewDimension)
 		previewView.frame = previewFrame
-		previewView.backgroundColor = color
+		previewView.backgroundColor = self.color
     }
 	
     private func removePreview() {
@@ -265,4 +278,49 @@ import CoreGraphics
 		
 		return CGAffineTransformConcat(scaleTransform, translationTransform)
     }
+    
+    private func colorForHue (hue : CGFloat) -> UIColor {
+        
+        if(white) {
+            return UIColor.whiteColor()
+        } else if(black) {
+            return UIColor.blackColor()
+        }
+        
+        switch (hue) {
+        case 0...hueRange:
+            return UIColor.init(hue: 0, saturation: 1, brightness: 1, alpha: 1)
+        case hueRange...(hueRange * 2):
+            return UIColor.init(hue: hueRange, saturation: 1, brightness: 1, alpha: 1)
+        case (hueRange * 2)...(hueRange * 3):
+            return UIColor.init(hue: (hueRange * 2), saturation: 1, brightness: 1, alpha: 1)
+        case (hueRange * 3)...(hueRange * 4):
+            return UIColor.init(hue: (hueRange * 3), saturation: 1, brightness: 1, alpha: 1)
+        case (hueRange * 4)...(hueRange * 5):
+            return UIColor.init(hue: (hueRange * 4), saturation: 1, brightness: 1, alpha: 1)
+        case (hueRange * 5)...(hueRange * 6):
+            return UIColor.init(hue: (hueRange * 5), saturation: 1, brightness: 1, alpha: 1)
+        case (hueRange * 6)...(hueRange * 7):
+            return UIColor.init(hue: (hueRange * 6), saturation: 1, brightness: 1, alpha: 1)
+        case (hueRange * 7)...(hueRange * 8):
+            return UIColor.init(hue: (hueRange * 7), saturation: 1, brightness: 1, alpha: 1)
+        case (hueRange * 8)...(hueRange * 9):
+            return UIColor.init(hue: (hueRange * 8), saturation: 1, brightness: 1, alpha: 1)
+        case (hueRange * 9)...(hueRange * 10):
+            return UIColor.init(hue: (hueRange * 9), saturation: 1, brightness: 1, alpha: 1)
+        case (hueRange * 10)...(hueRange * 11):
+            return UIColor.init(hue: (hueRange * 10), saturation: 1, brightness: 1, alpha: 1)
+        case (hueRange * 11)...(hueRange * 12):
+            return UIColor.init(hue: (hueRange * 11), saturation: 1, brightness: 1, alpha: 1)
+        case (hueRange * 12)...(hueRange * 13):
+            return UIColor.init(hue: (hueRange * 12), saturation: 1, brightness: 1, alpha: 1)
+        case (hueRange * 13)...(hueRange * 14):
+            return UIColor.init(hue: (hueRange * 13), saturation: 1, brightness: 1, alpha: 1)
+            
+        default:
+            return UIColor.init(hue: 1.0, saturation: 1, brightness: 1, alpha: 1)
+        }
+    }
+
+    
 }
