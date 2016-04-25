@@ -84,7 +84,7 @@ class ConnectViewController: UIViewController {
                 })
                 self.searching = false
                 bleManager.centralManager.stopScan()
-                let alert =  UIAlertController(title: NSLocalizedString("No Device Found", comment: "No Device Found"), message:NSLocalizedString("Check that your Device is turned on and nearby, and that you have entered its ID # correctly. Then try again!", comment: "Device must be found before connecting.") , preferredStyle: .Alert)
+                let alert =  UIAlertController(title: NSLocalizedString("No Device Found", comment: "No Device Found"), message:NSLocalizedString("Check that your Device is turned on and nearby and then try again!", comment: "Device must be found before connecting.") , preferredStyle: .Alert)
                 
                 let okAction =  UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
                     self.navigationController?.popViewControllerAnimated(true)

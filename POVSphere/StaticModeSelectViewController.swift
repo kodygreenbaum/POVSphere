@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreBluetooth
 
 private let reuseIdentifier = "StaticCell"
 private let reuseIdentifierNoIcon = "StaticCellNoIcon"
@@ -160,9 +161,10 @@ class StaticModeSelectViewController: UIViewController, UICollectionViewDelegate
         
         // if UserDefaults empty, hardcode fill arrays here
         // remember to set one of the modes as the default
-        staticModes.append(Mode(name: "globe"))
-        staticModes.append(Mode(name: "weather"))
-        staticModes.append(Mode(name: "alarm clock"))
+        staticModes.append(Mode(name: "globe", modeByte: 2))
+        staticModes.append(Mode(name: "wisco", modeByte: 4))
+        staticModes.append(Mode(name: "weather", modeByte: 5))
+        staticModes.append(Mode(name: "alarm clock", modeByte: 6))
     }
     
     
@@ -175,6 +177,12 @@ class StaticModeSelectViewController: UIViewController, UICollectionViewDelegate
             let destination : StaticModeRunningViewController = segue.destinationViewController as! StaticModeRunningViewController
                 destination.mode = self.selectedMode
                 destination.index = self.selectedIndex
+            // Write to Globe to start mode
+            if let data: NSData? = NSData(bytes: &self.selectedMode.modeByte, length: 1) {
+                if(modeChar != nil) {
+                    periph.writeValue(data!, forCharacteristic: modeChar, type: CBCharacteristicWriteType.WithResponse)
+                }
+            }
         }
     }
     

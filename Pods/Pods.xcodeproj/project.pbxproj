@@ -474,6 +474,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
+				TargetAttributes = {
+					ABB83F43E307A391F10B3E7EE3BA4DB7 = {
+						DevelopmentTeam = 2D7FSJNP7E;
+					};
+				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -767,6 +772,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 13653AA65BFAAB3A273642E8F55A6062 /* ColorSlider.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -782,6 +788,7 @@
 				MODULEMAP_FILE = "Target Support Files/ColorSlider/ColorSlider.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = ColorSlider;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -886,6 +893,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 13653AA65BFAAB3A273642E8F55A6062 /* ColorSlider.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -901,6 +909,7 @@
 				MODULEMAP_FILE = "Target Support Files/ColorSlider/ColorSlider.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = ColorSlider;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";

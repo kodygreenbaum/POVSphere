@@ -81,7 +81,7 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
             self.presentViewController(alert, animated: true, completion: nil)
             
         } else {
-            let newMode : Mode = Mode(name: self.textField.text!.lowercaseString)
+            let newMode : Mode = Mode(name: self.textField.text!.lowercaseString, modeByte: 7)
             let nav : UINavigationController = self.presentingViewController as! UINavigationController
             let tab : UITabBarController = nav.viewControllers[0] as! UITabBarController
             

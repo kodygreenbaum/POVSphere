@@ -13,6 +13,7 @@ var periph: CBPeripheral!
 var service: CBService!
 var writeChar: CBCharacteristic!
 var rpmChar: CBCharacteristic!
+var modeChar: CBCharacteristic!
 
 class BLEHandler: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     override init () {
@@ -98,7 +99,9 @@ class BLEHandler: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
                     rpmChar = characteristic
                     print("Found RPM Characteristic")
                     peripheral.setNotifyValue(true, forCharacteristic: writeChar)
-                    
+                case "00000000-0000-1000-8000-00805F9B34F2":
+                    modeChar = characteristic
+                    print("Found Mode Characteristic")
                 default:
                     print("Characteristic not found")
                     
