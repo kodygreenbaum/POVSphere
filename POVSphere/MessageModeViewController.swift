@@ -11,6 +11,8 @@ import CoreBluetooth
 
 class MessageModeViewController: UIViewController, UITextFieldDelegate {
     
+    private var _rotation : Int8 = 0
+    
     @IBOutlet weak var firstTextField: UITextField!
     @IBOutlet weak var secondTextField: UITextField!
     @IBOutlet weak var thirdTextField: UITextField!
@@ -36,6 +38,30 @@ class MessageModeViewController: UIViewController, UITextFieldDelegate {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    @IBAction func swipeRight(sender: AnyObject) {
+        if(_rotation >= -5) {
+            _rotation = _rotation - 1
+            if let data: NSData? = NSData(bytes: &_rotation, length: 1) {
+                if(speedChar != nil) {
+                    periph.writeValue(data!, forCharacteristic: speedChar, type: CBCharacteristicWriteType.WithResponse)
+                }
+            }
+        }
+    }
+    
+    @IBAction func swipeLeft(sender: AnyObject) {
+        if(_rotation <= 5) {
+            _rotation = _rotation + 1
+            if let data: NSData? = NSData(bytes: &_rotation, length: 1) {
+                if(speedChar != nil) {
+                    periph.writeValue(data!, forCharacteristic: speedChar, type: CBCharacteristicWriteType.WithResponse)
+                }
+            }
+        }
+        
+    }
+
+    
     // MARK: TextField Delegate Methods
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -60,7 +86,6 @@ class MessageModeViewController: UIViewController, UITextFieldDelegate {
         if let data: NSData? = textField.text!.dataUsingEncoding(NSUTF8StringEncoding) {
             switch textField {
             case firstTextField:
-                
                 if(textOneChar != nil) {
                     periph.writeValue(data!, forCharacteristic: textOneChar, type: CBCharacteristicWriteType.WithResponse)
                 }

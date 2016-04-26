@@ -553,7 +553,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f3h-gB-XNv">
-                                <rect key="frame" x="10" y="10" width="39" height="30"/>
+                                <rect key="frame" x="30" y="30" width="39" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="aVk-TR-wlY"/>
                                 </constraints>
@@ -566,47 +566,51 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="FIRST LINE" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dYR-kn-Nmt">
-                                <rect key="frame" x="20" y="67" width="560" height="30"/>
+                                <rect key="frame" x="20" y="100" width="560" height="30"/>
                                 <fontDescription key="fontDescription" name="CooperHewitt-Light" family="Cooper Hewitt" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="SECOND LINE" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sqQ-3m-kRL">
-                                <rect key="frame" x="20" y="117" width="560" height="30"/>
+                                <rect key="frame" x="20" y="160" width="560" height="30"/>
                                 <fontDescription key="fontDescription" name="CooperHewitt-Light" family="Cooper Hewitt" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="THIRD LINE" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5E9-e4-Mhn">
-                                <rect key="frame" x="20" y="167" width="560" height="30"/>
+                                <rect key="frame" x="20" y="220" width="560" height="30"/>
                                 <fontDescription key="fontDescription" name="CooperHewitt-Light" family="Cooper Hewitt" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="FOURTH LINE" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t2w-EK-D4O">
-                                <rect key="frame" x="20" y="217" width="560" height="30"/>
+                                <rect key="frame" x="20" y="280" width="560" height="30"/>
                                 <fontDescription key="fontDescription" name="CooperHewitt-Light" family="Cooper Hewitt" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="dYR-kn-Nmt" firstAttribute="top" secondItem="5AI-mf-d9b" secondAttribute="bottom" constant="47" id="2uj-6T-UjF"/>
-                            <constraint firstItem="t2w-EK-D4O" firstAttribute="top" secondItem="5E9-e4-Mhn" secondAttribute="bottom" constant="20" id="B3o-Tg-6ev"/>
+                            <constraint firstItem="dYR-kn-Nmt" firstAttribute="top" secondItem="5AI-mf-d9b" secondAttribute="bottom" constant="80" id="2uj-6T-UjF"/>
+                            <constraint firstItem="t2w-EK-D4O" firstAttribute="top" secondItem="5E9-e4-Mhn" secondAttribute="bottom" constant="30" id="B3o-Tg-6ev"/>
                             <constraint firstItem="iCy-KD-M35" firstAttribute="top" secondItem="5AI-mf-d9b" secondAttribute="bottom" constant="-20" id="F84-6I-K0W"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5E9-e4-Mhn" secondAttribute="trailing" id="IWu-g9-gcJ"/>
                             <constraint firstAttribute="leadingMargin" secondItem="sqQ-3m-kRL" secondAttribute="leading" id="JMU-A4-PT3"/>
                             <constraint firstAttribute="leadingMargin" secondItem="t2w-EK-D4O" secondAttribute="leading" id="LVu-iO-QcH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="sqQ-3m-kRL" secondAttribute="trailing" id="LbX-y0-OTh"/>
                             <constraint firstItem="Lbt-LH-xAf" firstAttribute="top" secondItem="iCy-KD-M35" secondAttribute="bottom" id="LlV-IR-tI5"/>
-                            <constraint firstItem="f3h-gB-XNv" firstAttribute="top" secondItem="5AI-mf-d9b" secondAttribute="bottom" constant="-10" id="LtO-we-W7A"/>
+                            <constraint firstItem="f3h-gB-XNv" firstAttribute="top" secondItem="5AI-mf-d9b" secondAttribute="bottom" constant="10" id="LtO-we-W7A"/>
                             <constraint firstAttribute="trailingMargin" secondItem="iCy-KD-M35" secondAttribute="trailing" constant="-20" id="Pjj-RZ-uzE"/>
-                            <constraint firstItem="f3h-gB-XNv" firstAttribute="leading" secondItem="m2k-7l-Vmh" secondAttribute="leadingMargin" constant="-10" id="TH1-3h-Kqw"/>
+                            <constraint firstItem="f3h-gB-XNv" firstAttribute="leading" secondItem="m2k-7l-Vmh" secondAttribute="leadingMargin" constant="10" id="TH1-3h-Kqw"/>
                             <constraint firstAttribute="leadingMargin" secondItem="5E9-e4-Mhn" secondAttribute="leading" id="fQW-s0-V4L"/>
                             <constraint firstAttribute="leadingMargin" secondItem="dYR-kn-Nmt" secondAttribute="leading" id="fd9-eY-ndN"/>
-                            <constraint firstItem="5E9-e4-Mhn" firstAttribute="top" secondItem="sqQ-3m-kRL" secondAttribute="bottom" constant="20" id="fiU-TS-N8H"/>
-                            <constraint firstItem="sqQ-3m-kRL" firstAttribute="top" secondItem="dYR-kn-Nmt" secondAttribute="bottom" constant="20" id="gz7-dD-5zU"/>
+                            <constraint firstItem="5E9-e4-Mhn" firstAttribute="top" secondItem="sqQ-3m-kRL" secondAttribute="bottom" constant="30" id="fiU-TS-N8H"/>
+                            <constraint firstItem="sqQ-3m-kRL" firstAttribute="top" secondItem="dYR-kn-Nmt" secondAttribute="bottom" constant="30" id="gz7-dD-5zU"/>
                             <constraint firstItem="iCy-KD-M35" firstAttribute="leading" secondItem="m2k-7l-Vmh" secondAttribute="leadingMargin" constant="-20" id="jRk-tH-mdb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dYR-kn-Nmt" secondAttribute="trailing" id="nSj-nw-FBz"/>
                             <constraint firstAttribute="trailingMargin" secondItem="t2w-EK-D4O" secondAttribute="trailing" id="o4o-Od-EEN"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="DaI-kg-knY" appends="YES" id="trF-Dl-aM2"/>
+                            <outletCollection property="gestureRecognizers" destination="Qwd-lm-dId" appends="YES" id="Y9o-h1-RBS"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="firstTextField" destination="dYR-kn-Nmt" id="DN9-zv-qCu"/>
@@ -616,6 +620,16 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rFR-li-79T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="DaI-kg-knY">
+                    <connections>
+                        <action selector="swipeRight:" destination="W7R-iD-WKc" id="oYS-YW-YTb"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="Qwd-lm-dId">
+                    <connections>
+                        <action selector="swipeLeft:" destination="W7R-iD-WKc" id="Cf3-jA-OZL"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2927" y="649"/>
         </scene>
