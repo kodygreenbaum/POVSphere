@@ -24,6 +24,7 @@ class DynamicModeSelectViewController: UIViewController, UICollectionViewDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.backgroundColor = UIColor.clearColor()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "processBLE:", name: "processBLE", object: nil)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -131,6 +132,25 @@ class DynamicModeSelectViewController: UIViewController, UICollectionViewDelegat
         
     }
     
+    
+    func processBLE(notice:NSNotification) {
+        if let userDict = notice.userInfo{
+            let resp = userDict["status"] as! Int
+            if (resp == 2) {
+                let alert = UIAlertController(title: NSLocalizedString("Device Disconnected", comment: "Device Disconnected"), message:NSLocalizedString("Device connection was lost.", comment: "Device connection was lost.") , preferredStyle: .Alert)
+                
+                let okAction =  UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                    let welcomeVC = self.storyboard!.instantiateViewControllerWithIdentifier("normal")
+                    UIApplication.sharedApplication().keyWindow?.rootViewController = welcomeVC
+                })
+                
+                alert.addAction(okAction)
+                
+                presentViewController(alert, animated: true, completion: nil)
+            }
+        }
+    }
     
     
     // MARK: - Navigation

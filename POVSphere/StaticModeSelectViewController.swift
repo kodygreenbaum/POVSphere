@@ -17,7 +17,6 @@ class StaticModeSelectViewController: UIViewController, UICollectionViewDelegate
     var staticModes : [Mode] = [Mode]()
     var selectedMode : Mode!
     var selectedIndex : Int!
-
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -25,6 +24,10 @@ class StaticModeSelectViewController: UIViewController, UICollectionViewDelegate
     
     @IBAction func handleSwipe(sender: AnyObject) {
         self.tabBarController!.selectedIndex = 1
+    }
+    
+    @IBAction func disconnectButtonPressed(sender: AnyObject) {
+        bleManager.centralManager.cancelPeripheralConnection(periph)
     }
     
     @IBAction func handleLongPress(sender: AnyObject) {
@@ -57,6 +60,7 @@ class StaticModeSelectViewController: UIViewController, UICollectionViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.backgroundColor = UIColor.clearColor()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "processBLE:", name: "processBLE", object: nil)
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -167,6 +171,25 @@ class StaticModeSelectViewController: UIViewController, UICollectionViewDelegate
         staticModes.append(Mode(name: "alarm clock", modeByte: 6))
     }
     
+    
+    func processBLE(notice:NSNotification) {
+        if let userDict = notice.userInfo{
+            let resp = userDict["status"] as! Int
+            if (resp == 2) {
+                let alert = UIAlertController(title: NSLocalizedString("Device Disconnected", comment: "Device Disconnected"), message:NSLocalizedString("Device connection was lost.", comment: "Device connection was lost.") , preferredStyle: .Alert)
+                
+                let okAction =  UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                    let welcomeVC = self.storyboard!.instantiateViewControllerWithIdentifier("normal")
+                    UIApplication.sharedApplication().keyWindow?.rootViewController = welcomeVC
+                })
+                
+                alert.addAction(okAction)
+                
+                presentViewController(alert, animated: true, completion: nil)
+            }
+        }
+    }
     
     
     // MARK: - Navigation

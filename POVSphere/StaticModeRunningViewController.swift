@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import CoreBluetooth
 
 class StaticModeRunningViewController: UIViewController {
 
     var mode : Mode!
     private var _index : Int = 0
+    private var _rotation : Int8 = 0
     
     var index : Int {
         get {return _index}
@@ -25,15 +27,58 @@ class StaticModeRunningViewController: UIViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    
+    @IBAction func swipeRight(sender: AnyObject) {
+        if(_rotation >= -5) {
+            _rotation = _rotation - 1
+            if let data: NSData? = NSData(bytes: &_rotation, length: 1) {
+                if(speedChar != nil) {
+                    periph.writeValue(data!, forCharacteristic: speedChar, type: CBCharacteristicWriteType.WithResponse)
+                }
+            }
+        }
+    }
+    
+    @IBAction func swipeLeft(sender: AnyObject) {
+        if(_rotation <= 5) {
+            _rotation = _rotation + 1
+            if let data: NSData? = NSData(bytes: &_rotation, length: 1) {
+                if(speedChar != nil) {
+                    periph.writeValue(data!, forCharacteristic: speedChar, type: CBCharacteristicWriteType.WithResponse)
+                }
+            }
+        }
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.nameLabel.text = self.mode
         .name
         
-        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "processBLE:", name: "processBLE", object: nil)
     }
     
 
+    func processBLE(notice:NSNotification) {
+        if let userDict = notice.userInfo{
+            let resp = userDict["status"] as! Int
+            if (resp == 2) {
+                let alert = UIAlertController(title: NSLocalizedString("Device Disconnected", comment: "Device Disconnected"), message:NSLocalizedString("Device connection was lost.", comment: "Device connection was lost.") , preferredStyle: .Alert)
+                
+                let okAction =  UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                    let welcomeVC = self.storyboard!.instantiateViewControllerWithIdentifier("normal")
+                    UIApplication.sharedApplication().keyWindow?.rootViewController = welcomeVC
+                })
+                
+                alert.addAction(okAction)
+                
+                presentViewController(alert, animated: true, completion: nil)
+            }
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

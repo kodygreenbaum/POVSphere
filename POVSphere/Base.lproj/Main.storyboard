@@ -19,13 +19,15 @@
             <string>CooperHewitt-Light</string>
             <string>CooperHewitt-Light</string>
             <string>CooperHewitt-Light</string>
+            <string>CooperHewitt-Light</string>
+            <string>CooperHewitt-Light</string>
         </mutableArray>
     </customFonts>
     <scenes>
         <!--Connect View Controller-->
         <scene sceneID="VIE-lA-0YQ">
             <objects>
-                <viewController id="kbn-qQ-VCi" customClass="ConnectViewController" customModule="POVSphere" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="normal" id="kbn-qQ-VCi" customClass="ConnectViewController" customModule="POVSphere" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fTP-Ad-jvu"/>
                         <viewControllerLayoutGuide type="bottom" id="qPg-Qq-MzZ"/>
@@ -112,6 +114,7 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GreenGradientBackground" translatesAutoresizingMaskIntoConstraints="NO" id="cUh-47-baC">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <gestureRecognizers/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hl1-Gz-eIc">
                                 <rect key="frame" x="201" y="69.5" width="198.5" height="42"/>
@@ -141,12 +144,26 @@
                             <constraint firstItem="hl1-Gz-eIc" firstAttribute="centerX" secondItem="cUh-47-baC" secondAttribute="centerX" id="roU-56-mTS"/>
                             <constraint firstAttribute="leadingMargin" secondItem="iMo-qD-heU" secondAttribute="leading" id="zUn-Te-Thw"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="UAp-Iq-zui" appends="YES" id="Y8x-4n-fGn"/>
+                            <outletCollection property="gestureRecognizers" destination="LhM-5i-qUW" appends="YES" id="foP-Ra-Jhp"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="nameLabel" destination="hl1-Gz-eIc" id="pSb-zn-bfZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q0d-Y0-KRX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="LhM-5i-qUW">
+                    <connections>
+                        <action selector="swipeRight:" destination="bsh-bX-l8L" id="YyO-0e-sC5"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="UAp-Iq-zui">
+                    <connections>
+                        <action selector="swipeLeft:" destination="bsh-bX-l8L" id="FVK-ug-iRQ"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2927" y="-71"/>
         </scene>
@@ -504,6 +521,7 @@
                     <connections>
                         <outlet property="collectionView" destination="TI3-EG-Obo" id="aL1-x9-imS"/>
                         <segue destination="Y9b-vb-Xni" kind="presentation" identifier="paint" id="MvI-xQ-vOy"/>
+                        <segue destination="W7R-iD-WKc" kind="presentation" identifier="messageMode" id="Fdo-Nx-5v2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y2U-7l-1hS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -514,6 +532,50 @@
                 </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2236" y="649"/>
+        </scene>
+        <!--Message Mode View Controller-->
+        <scene sceneID="TYF-wo-cUW">
+            <objects>
+                <viewController id="W7R-iD-WKc" customClass="MessageModeViewController" customModule="POVSphere" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5AI-mf-d9b"/>
+                        <viewControllerLayoutGuide type="bottom" id="Lbt-LH-xAf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="m2k-7l-Vmh">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GreenGradientBackground" translatesAutoresizingMaskIntoConstraints="NO" id="iCy-KD-M35">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f3h-gB-XNv">
+                                <rect key="frame" x="10" y="10" width="39" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="aVk-TR-wlY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="CooperHewitt-Light" family="Cooper Hewitt" pointSize="18"/>
+                                <state key="normal" title="done">
+                                    <color key="titleColor" red="0.3372839822" green="0.88273278060000004" blue="0.58235739659999997" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="doneButtonPressed:" destination="W7R-iD-WKc" eventType="touchUpInside" id="P7V-gb-S32"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iCy-KD-M35" firstAttribute="top" secondItem="5AI-mf-d9b" secondAttribute="bottom" constant="-20" id="F84-6I-K0W"/>
+                            <constraint firstItem="Lbt-LH-xAf" firstAttribute="top" secondItem="iCy-KD-M35" secondAttribute="bottom" id="LlV-IR-tI5"/>
+                            <constraint firstItem="f3h-gB-XNv" firstAttribute="top" secondItem="5AI-mf-d9b" secondAttribute="bottom" constant="-10" id="LtO-we-W7A"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="iCy-KD-M35" secondAttribute="trailing" constant="-20" id="Pjj-RZ-uzE"/>
+                            <constraint firstItem="f3h-gB-XNv" firstAttribute="leading" secondItem="m2k-7l-Vmh" secondAttribute="leadingMargin" constant="-10" id="TH1-3h-Kqw"/>
+                            <constraint firstItem="iCy-KD-M35" firstAttribute="leading" secondItem="m2k-7l-Vmh" secondAttribute="leadingMargin" constant="-20" id="jRk-tH-mdb"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rFR-li-79T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2927" y="649"/>
         </scene>
         <!--Static Modes-->
         <scene sceneID="Kdo-Gy-WhV">
@@ -624,6 +686,16 @@
                                     <outletCollection property="gestureRecognizers" destination="OsY-YU-cnH" appends="YES" id="4oK-dg-z4l"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hm6-l7-bbP">
+                                <rect key="frame" x="20" y="79" width="86" height="30"/>
+                                <fontDescription key="fontDescription" name="CooperHewitt-Light" family="Cooper Hewitt" pointSize="18"/>
+                                <state key="normal" title="disconnect">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="disconnectButtonPressed:" destination="WvN-Rk-Ex4" eventType="touchUpInside" id="R1W-vj-cvg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -631,6 +703,8 @@
                             <constraint firstItem="Yne-mm-A7v" firstAttribute="top" secondItem="2Pm-zc-pTq" secondAttribute="bottom" constant="15" id="3fW-SQ-6L5"/>
                             <constraint firstItem="Yne-mm-A7v" firstAttribute="centerX" secondItem="GQP-hF-qR8" secondAttribute="centerX" id="3vp-II-2iy"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Dut-QX-cOj" secondAttribute="trailing" constant="-20" id="9pM-xK-aeg"/>
+                            <constraint firstItem="hm6-l7-bbP" firstAttribute="top" secondItem="2Pm-zc-pTq" secondAttribute="bottom" constant="15" id="FxE-lY-Is6"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="hm6-l7-bbP" secondAttribute="leading" id="QLg-Ir-aea"/>
                             <constraint firstItem="GQP-hF-qR8" firstAttribute="top" secondItem="2Pm-zc-pTq" secondAttribute="bottom" constant="-64" id="aXU-vv-msK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GQP-hF-qR8" secondAttribute="trailing" constant="-20" id="b8i-il-XXm"/>
                             <constraint firstItem="GQP-hF-qR8" firstAttribute="leading" secondItem="nIb-iD-6GB" secondAttribute="leadingMargin" constant="-20" id="fZX-XO-2s9"/>

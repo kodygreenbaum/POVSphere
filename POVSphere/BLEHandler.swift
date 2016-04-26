@@ -14,6 +14,7 @@ var service: CBService!
 var writeChar: CBCharacteristic!
 var rpmChar: CBCharacteristic!
 var modeChar: CBCharacteristic!
+var speedChar: CBCharacteristic!
 
 class BLEHandler: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     override init () {
@@ -102,6 +103,9 @@ class BLEHandler: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
                 case "00000000-0000-1000-8000-00805F9B34F2":
                     modeChar = characteristic
                     print("Found Mode Characteristic")
+                case "00000000-0000-1000-8000-00805F9B34FC":
+                    speedChar = characteristic
+                    print("Found Speed Characteristic")
                 default:
                     print("Characteristic not found")
                     

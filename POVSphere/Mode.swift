@@ -17,6 +17,7 @@ class Mode: NSObject {
     
     init(name : String, modeByte : UInt8) {
         self._name = name
+        self._modeByte = modeByte
     }
     
     var name : String {
