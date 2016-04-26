@@ -21,6 +21,10 @@
             <string>CooperHewitt-Light</string>
             <string>CooperHewitt-Light</string>
             <string>CooperHewitt-Light</string>
+            <string>CooperHewitt-Light</string>
+            <string>CooperHewitt-Light</string>
+            <string>CooperHewitt-Light</string>
+            <string>CooperHewitt-Light</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -521,7 +525,7 @@
                     <connections>
                         <outlet property="collectionView" destination="TI3-EG-Obo" id="aL1-x9-imS"/>
                         <segue destination="Y9b-vb-Xni" kind="presentation" identifier="paint" id="MvI-xQ-vOy"/>
-                        <segue destination="W7R-iD-WKc" kind="presentation" identifier="messageMode" id="Fdo-Nx-5v2"/>
+                        <segue destination="W7R-iD-WKc" kind="presentation" identifier="message" id="Fdo-Nx-5v2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y2U-7l-1hS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -555,23 +559,61 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="CooperHewitt-Light" family="Cooper Hewitt" pointSize="18"/>
                                 <state key="normal" title="done">
-                                    <color key="titleColor" red="0.3372839822" green="0.88273278060000004" blue="0.58235739659999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="doneButtonPressed:" destination="W7R-iD-WKc" eventType="touchUpInside" id="P7V-gb-S32"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="FIRST LINE" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dYR-kn-Nmt">
+                                <rect key="frame" x="20" y="67" width="560" height="30"/>
+                                <fontDescription key="fontDescription" name="CooperHewitt-Light" family="Cooper Hewitt" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="SECOND LINE" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sqQ-3m-kRL">
+                                <rect key="frame" x="20" y="117" width="560" height="30"/>
+                                <fontDescription key="fontDescription" name="CooperHewitt-Light" family="Cooper Hewitt" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="THIRD LINE" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5E9-e4-Mhn">
+                                <rect key="frame" x="20" y="167" width="560" height="30"/>
+                                <fontDescription key="fontDescription" name="CooperHewitt-Light" family="Cooper Hewitt" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="FOURTH LINE" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t2w-EK-D4O">
+                                <rect key="frame" x="20" y="217" width="560" height="30"/>
+                                <fontDescription key="fontDescription" name="CooperHewitt-Light" family="Cooper Hewitt" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="dYR-kn-Nmt" firstAttribute="top" secondItem="5AI-mf-d9b" secondAttribute="bottom" constant="47" id="2uj-6T-UjF"/>
+                            <constraint firstItem="t2w-EK-D4O" firstAttribute="top" secondItem="5E9-e4-Mhn" secondAttribute="bottom" constant="20" id="B3o-Tg-6ev"/>
                             <constraint firstItem="iCy-KD-M35" firstAttribute="top" secondItem="5AI-mf-d9b" secondAttribute="bottom" constant="-20" id="F84-6I-K0W"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5E9-e4-Mhn" secondAttribute="trailing" id="IWu-g9-gcJ"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="sqQ-3m-kRL" secondAttribute="leading" id="JMU-A4-PT3"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="t2w-EK-D4O" secondAttribute="leading" id="LVu-iO-QcH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sqQ-3m-kRL" secondAttribute="trailing" id="LbX-y0-OTh"/>
                             <constraint firstItem="Lbt-LH-xAf" firstAttribute="top" secondItem="iCy-KD-M35" secondAttribute="bottom" id="LlV-IR-tI5"/>
                             <constraint firstItem="f3h-gB-XNv" firstAttribute="top" secondItem="5AI-mf-d9b" secondAttribute="bottom" constant="-10" id="LtO-we-W7A"/>
                             <constraint firstAttribute="trailingMargin" secondItem="iCy-KD-M35" secondAttribute="trailing" constant="-20" id="Pjj-RZ-uzE"/>
                             <constraint firstItem="f3h-gB-XNv" firstAttribute="leading" secondItem="m2k-7l-Vmh" secondAttribute="leadingMargin" constant="-10" id="TH1-3h-Kqw"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="5E9-e4-Mhn" secondAttribute="leading" id="fQW-s0-V4L"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="dYR-kn-Nmt" secondAttribute="leading" id="fd9-eY-ndN"/>
+                            <constraint firstItem="5E9-e4-Mhn" firstAttribute="top" secondItem="sqQ-3m-kRL" secondAttribute="bottom" constant="20" id="fiU-TS-N8H"/>
+                            <constraint firstItem="sqQ-3m-kRL" firstAttribute="top" secondItem="dYR-kn-Nmt" secondAttribute="bottom" constant="20" id="gz7-dD-5zU"/>
                             <constraint firstItem="iCy-KD-M35" firstAttribute="leading" secondItem="m2k-7l-Vmh" secondAttribute="leadingMargin" constant="-20" id="jRk-tH-mdb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dYR-kn-Nmt" secondAttribute="trailing" id="nSj-nw-FBz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="t2w-EK-D4O" secondAttribute="trailing" id="o4o-Od-EEN"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="firstTextField" destination="dYR-kn-Nmt" id="DN9-zv-qCu"/>
+                        <outlet property="fourthTextField" destination="t2w-EK-D4O" id="sRv-Nk-q15"/>
+                        <outlet property="secondTextField" destination="sqQ-3m-kRL" id="JId-2c-rQy"/>
+                        <outlet property="thirdTextField" destination="5E9-e4-Mhn" id="Zod-Yr-Dly"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rFR-li-79T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -15,6 +15,11 @@ var writeChar: CBCharacteristic!
 var rpmChar: CBCharacteristic!
 var modeChar: CBCharacteristic!
 var speedChar: CBCharacteristic!
+var textOneChar: CBCharacteristic!
+var textTwoChar: CBCharacteristic!
+var textThreeChar: CBCharacteristic!
+var textFourChar: CBCharacteristic!
+
 
 class BLEHandler: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     override init () {
@@ -106,6 +111,18 @@ class BLEHandler: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
                 case "00000000-0000-1000-8000-00805F9B34FC":
                     speedChar = characteristic
                     print("Found Speed Characteristic")
+                case "00000000-0000-1000-8000-00805F9B34F4":
+                    textOneChar = characteristic
+                    print("Found TextOne Characteristic")
+                case "00000000-0000-1000-8000-00805F9B34F5":
+                    textTwoChar = characteristic
+                    print("Found TextTwo Characteristic")
+                case "00000000-0000-1000-8000-00805F9B34F6":
+                    textThreeChar = characteristic
+                    print("Found TextThree Characteristic")
+                case "00000000-0000-1000-8000-00805F9B34F7":
+                    textFourChar = characteristic
+                    print("Found TextFour Characteristic")
                 default:
                     print("Characteristic not found")
                     

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreBluetooth
 
 private let reuseIdentifier = "DynamicCell"
 
@@ -81,6 +82,9 @@ class DynamicModeSelectViewController: UIViewController, UICollectionViewDelegat
             case "paint":
                 self.performSegueWithIdentifier("paint", sender: self)
             break;
+            case "message":
+                self.performSegueWithIdentifier("message", sender: self)
+            break;
 
             default:
             break;
@@ -129,6 +133,7 @@ class DynamicModeSelectViewController: UIViewController, UICollectionViewDelegat
         // remember to set one of the modes as the default
         
         dynamicModes.append(Mode(name: "paint", modeByte: 1))
+        dynamicModes.append(Mode(name: "message", modeByte: 3))
         
     }
     
@@ -156,8 +161,15 @@ class DynamicModeSelectViewController: UIViewController, UICollectionViewDelegat
     // MARK: - Navigation
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "art") {
-            //let destination : ArtModeViewController = segue.destinationViewController as! ArtModeViewController
+        if (segue.identifier == "message") {
+            let destination : MessageModeViewController = segue.destinationViewController as! MessageModeViewController
+            // Write to Globe to start mode
+            var modeNum = 3
+            if let data: NSData? = NSData(bytes: &modeNum, length: 1) {
+                if(modeChar != nil) {
+                    periph.writeValue(data!, forCharacteristic: modeChar, type: CBCharacteristicWriteType.WithResponse)
+                }
+            }
         }
     }
     

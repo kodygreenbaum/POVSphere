@@ -247,6 +247,7 @@
 			children = (
 				4FFBDDC31C90BA3B00EADF3B /* DynamicModeSelectViewController */,
 				4FF96E861C8780BE00165FCD /* ArtModeViewController.swift */,
+				4FE58D231CCEAC160000E8D0 /* MessageModeViewController.swift */,
 			);
 			name = DynamicMode;
 			sourceTree = "<group>";
@@ -266,7 +267,6 @@
 			children = (
 				4F2303AA1C8E3F66009C5F71 /* DynamicModeSelectViewController.swift */,
 				4FFBDDC01C90BA0B00EADF3B /* DynamicModeCollectionViewCell.swift */,
-				4FE58D231CCEAC160000E8D0 /* MessageModeViewController.swift */,
 			);
 			name = DynamicModeSelectViewController;
 			sourceTree = "<group>";
