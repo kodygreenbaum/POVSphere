@@ -23,8 +23,15 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
     var swiped = false
     var textfieldEditing = false
     
-    let xpix = 333
-    let ypix = 130
+    private let xpix : CGFloat = 150.0
+    private let ypix : CGFloat = 66.0
+    private var xratio : CGFloat = 0.0
+    private var yratio : CGFloat = 0.0
+    
+    private var lastX : UInt8 = 0
+    private var lastY : UInt8 = 0
+    private var curX : UInt8 = 0
+    private var curY : UInt8 = 0
     
     @IBOutlet var containerView: UIView!
     @IBOutlet weak var saveStaticButton: UIButton!
@@ -126,8 +133,8 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
     
   
     @IBAction func nabDatDataPressed(sender: AnyObject) {
-        var globeArray = [[UInt32]](count: xpix, repeatedValue: [UInt32](count: ypix, repeatedValue: 0))
-        globeArray = mapPixelsToGlobe(xpix, yPixels: ypix)
+        var globeArray = [[UInt32]](count: Int(xpix), repeatedValue: [UInt32](count: Int(ypix), repeatedValue: 0))
+        globeArray = mapPixelsToGlobe(Int(xpix), yPixels: Int(ypix))
         // Send Array as bitmap over bluetooth
     }
     
@@ -154,6 +161,13 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
         self.selectedColorview.layer.borderWidth = 1
         //self.selectedColorview.layer.borderColor = UIColor.blackColor().CGColor
         
+        if(view.frame.size.width > view.frame.size.height) {
+            self.xratio = view.frame.size.width / xpix
+            self.yratio = view.frame.size.height / ypix
+        } else {
+            self.xratio = view.frame.size.height / xpix
+            self.yratio = view.frame.size.width / ypix
+        }
         
     }
 
@@ -260,6 +274,22 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
         UIGraphicsEndImageContext()
         
         undoButton.hidden = false
+        
+        curX = UInt8(Int(floor(fromPoint.x / xratio)))
+        curY = UInt8(Int(floor(fromPoint.y / yratio)))
+    
+        if ((curX != lastX) && (curY != lastY)) {
+            
+        }
+        lastX = curX
+        lastY = curY
+        
+        print("x: ", terminator:"")
+        print(UInt8(Int(ceil(fromPoint.x / xratio))))
+        print()
+        print("y: ", terminator:"")
+        print(UInt8(Int(ceil(fromPoint.y / yratio))))
+        print()
     }
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {

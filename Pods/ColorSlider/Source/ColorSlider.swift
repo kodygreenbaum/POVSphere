@@ -35,6 +35,8 @@ import CoreGraphics
 	public var color: UIColor {
 		return colorForHue(hue)
 	}
+    
+    public var colorMapped: UInt8 = 0
 	
 	// MARK: Customization
 	public enum Orientation {
@@ -282,39 +284,55 @@ import CoreGraphics
     private func colorForHue (hue : CGFloat) -> UIColor {
         
         if(white) {
+            colorMapped = 14
             return UIColor.whiteColor()
         } else if(black) {
+            colorMapped = 15
             return UIColor.blackColor()
         }
         
         switch (hue) {
         case 0...hueRange:
+            colorMapped = 0
             return UIColor.init(hue: 0, saturation: 1, brightness: 1, alpha: 1)
         case hueRange...(hueRange * 2):
+            colorMapped = 1
             return UIColor.init(hue: hueRange, saturation: 1, brightness: 1, alpha: 1)
         case (hueRange * 2)...(hueRange * 3):
+            colorMapped = 2
             return UIColor.init(hue: (hueRange * 2), saturation: 1, brightness: 1, alpha: 1)
         case (hueRange * 3)...(hueRange * 4):
+            colorMapped = 3
             return UIColor.init(hue: (hueRange * 3), saturation: 1, brightness: 1, alpha: 1)
         case (hueRange * 4)...(hueRange * 5):
+            colorMapped = 4
             return UIColor.init(hue: (hueRange * 4), saturation: 1, brightness: 1, alpha: 1)
         case (hueRange * 5)...(hueRange * 6):
+            colorMapped = 5
             return UIColor.init(hue: (hueRange * 5), saturation: 1, brightness: 1, alpha: 1)
         case (hueRange * 6)...(hueRange * 7):
+            colorMapped = 6
             return UIColor.init(hue: (hueRange * 6), saturation: 1, brightness: 1, alpha: 1)
         case (hueRange * 7)...(hueRange * 8):
+            colorMapped = 7
             return UIColor.init(hue: (hueRange * 7), saturation: 1, brightness: 1, alpha: 1)
         case (hueRange * 8)...(hueRange * 9):
+            colorMapped = 8
             return UIColor.init(hue: (hueRange * 8), saturation: 1, brightness: 1, alpha: 1)
         case (hueRange * 9)...(hueRange * 10):
+            colorMapped = 9
             return UIColor.init(hue: (hueRange * 9), saturation: 1, brightness: 1, alpha: 1)
         case (hueRange * 10)...(hueRange * 11):
+            colorMapped = 10
             return UIColor.init(hue: (hueRange * 10), saturation: 1, brightness: 1, alpha: 1)
         case (hueRange * 11)...(hueRange * 12):
+            colorMapped = 11
             return UIColor.init(hue: (hueRange * 11), saturation: 1, brightness: 1, alpha: 1)
         case (hueRange * 12)...(hueRange * 13):
+            colorMapped = 12
             return UIColor.init(hue: (hueRange * 12), saturation: 1, brightness: 1, alpha: 1)
         case (hueRange * 13)...(hueRange * 14):
+            colorMapped = 13
             return UIColor.init(hue: (hueRange * 13), saturation: 1, brightness: 1, alpha: 1)
             
         default:

@@ -421,7 +421,89 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="71v-96-crR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2927" y="1426"/>
+            <point key="canvasLocation" x="2236" y="1504"/>
+        </scene>
+        <!--Paint Mode View Controller-->
+        <scene sceneID="WQf-UG-ebH">
+            <objects>
+                <viewController id="kh4-tK-UyQ" customClass="PaintModeViewController" customModule="POVSphere" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sfp-PQ-RwE"/>
+                        <viewControllerLayoutGuide type="bottom" id="jJg-hi-y8N"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ioH-L0-9Z2">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="S0T-bF-aTg">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="DrA-hQ-Dmd">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Art" id="c0p-Hr-YLb" customClass="ArtModeCollectionViewCell" customModule="POVSphere" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xrK-yR-49D">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <connections>
+                                                        <action selector="buttonDraggedInto:" destination="c0p-Hr-YLb" eventType="primaryActionTriggered" id="AQh-NU-FtX"/>
+                                                        <action selector="buttonDraggedInto:" destination="c0p-Hr-YLb" eventType="touchDragEnter" id="Bid-8R-yz0"/>
+                                                        <action selector="buttonDraggedInto:" destination="c0p-Hr-YLb" eventType="editingDidBegin" id="E0V-nx-eti"/>
+                                                        <action selector="buttonDraggedInto:" destination="c0p-Hr-YLb" eventType="touchDownRepeat" id="Np6-6Z-cth"/>
+                                                        <action selector="buttonDraggedInto:" destination="c0p-Hr-YLb" eventType="touchDragExit" id="Y3g-RW-HZS"/>
+                                                        <action selector="buttonDraggedInto:" destination="c0p-Hr-YLb" eventType="valueChanged" id="Yvg-aF-rmL"/>
+                                                        <action selector="buttonDraggedInto:" destination="c0p-Hr-YLb" eventType="touchUpOutside" id="csO-Ja-wEo"/>
+                                                        <action selector="buttonDraggedInto:" destination="c0p-Hr-YLb" eventType="touchDragInside" id="dJm-iY-SOa"/>
+                                                        <action selector="buttonDraggedInto:" destination="c0p-Hr-YLb" eventType="touchDragOutside" id="nY6-xD-YDy"/>
+                                                        <action selector="buttonTapped:" destination="c0p-Hr-YLb" eventType="touchUpInside" id="b0U-76-LgY"/>
+                                                        <action selector="buttonTouchedDown:" destination="c0p-Hr-YLb" eventType="touchDown" id="2xd-B4-o8p"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" red="0.3372839822" green="0.88273278060000004" blue="0.58235739659999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="xrK-yR-49D" firstAttribute="leading" secondItem="c0p-Hr-YLb" secondAttribute="leadingMargin" constant="-8" id="bov-VF-4pb"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="xrK-yR-49D" secondAttribute="trailing" constant="-8" id="hwU-v5-Lsh"/>
+                                            <constraint firstItem="xrK-yR-49D" firstAttribute="top" secondItem="c0p-Hr-YLb" secondAttribute="topMargin" constant="-8" id="qYn-FO-xPf"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="xrK-yR-49D" secondAttribute="bottom" constant="-8" id="tOb-Hb-04x"/>
+                                        </constraints>
+                                        <size key="customSize" width="50" height="50"/>
+                                        <connections>
+                                            <outlet property="button" destination="xrK-yR-49D" id="f8h-7Z-yid"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="kh4-tK-UyQ" id="LxT-3T-TIu"/>
+                                    <outlet property="delegate" destination="kh4-tK-UyQ" id="KUv-Mh-gI5"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="S0T-bF-aTg" secondAttribute="trailing" constant="-20" id="A5n-f7-fJy"/>
+                            <constraint firstItem="S0T-bF-aTg" firstAttribute="leading" secondItem="ioH-L0-9Z2" secondAttribute="leadingMargin" constant="-20" id="I1D-hz-XFe"/>
+                            <constraint firstItem="jJg-hi-y8N" firstAttribute="top" secondItem="S0T-bF-aTg" secondAttribute="bottom" id="aFk-sg-yti"/>
+                            <constraint firstItem="S0T-bF-aTg" firstAttribute="top" secondItem="sfp-PQ-RwE" secondAttribute="bottom" constant="-20" id="vrv-m8-8zB"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="S0T-bF-aTg" id="fNR-lT-ul1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xxl-bU-bsS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2927" y="1504"/>
         </scene>
         <!--Dynamic Modes-->
         <scene sceneID="iN1-IC-t6g">
@@ -526,6 +608,7 @@
                         <outlet property="collectionView" destination="TI3-EG-Obo" id="aL1-x9-imS"/>
                         <segue destination="Y9b-vb-Xni" kind="presentation" identifier="paint" id="MvI-xQ-vOy"/>
                         <segue destination="W7R-iD-WKc" kind="presentation" identifier="message" id="Fdo-Nx-5v2"/>
+                        <segue destination="kh4-tK-UyQ" kind="presentation" identifier="art" id="PAD-Gl-znL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y2U-7l-1hS" userLabel="First Responder" sceneMemberID="firstResponder"/>

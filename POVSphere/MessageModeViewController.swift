@@ -70,7 +70,7 @@ class MessageModeViewController: UIViewController, UITextFieldDelegate {
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         let newLength = textField.text!.utf16.count + string.utf16.count - range.length
-        return newLength <= 24
+        return newLength <= 20
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
