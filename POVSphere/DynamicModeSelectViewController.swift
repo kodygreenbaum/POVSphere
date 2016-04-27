@@ -171,6 +171,16 @@ class DynamicModeSelectViewController: UIViewController, UICollectionViewDelegat
                 }
             }
         }
+        if (segue.identifier == "paint") {
+            let destination : ArtModeViewController = segue.destinationViewController as! ArtModeViewController
+            // Write to Globe to start mode
+            var modeNum = 1
+            if let data: NSData? = NSData(bytes: &modeNum, length: 1) {
+                if(modeChar != nil) {
+                    periph.writeValue(data!, forCharacteristic: modeChar, type: CBCharacteristicWriteType.WithResponse)
+                }
+            }
+        }
     }
     
 

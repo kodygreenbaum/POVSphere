@@ -287,13 +287,13 @@ import CoreGraphics
             colorMapped = 14
             return UIColor.whiteColor()
         } else if(black) {
-            colorMapped = 15
+            colorMapped = 0
             return UIColor.blackColor()
         }
         
         switch (hue) {
         case 0...hueRange:
-            colorMapped = 0
+            colorMapped = 15
             return UIColor.init(hue: 0, saturation: 1, brightness: 1, alpha: 1)
         case hueRange...(hueRange * 2):
             colorMapped = 1

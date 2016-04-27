@@ -52,10 +52,14 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var saveStaticVerticalConstraint: NSLayoutConstraint!
     
     @IBAction func clearButtonPressed(sender: AnyObject) {
+        var x = 1
+        if let data: NSData? = NSData(bytes: &x, length: 1) {
+            if(clearGlobeChar != nil) {
+                periph.writeValue(data!, forCharacteristic: clearGlobeChar, type: CBCharacteristicWriteType.WithResponse)
+            }
+        }
         self.mainImageView.image = nil
         self.tempImageView.image = nil
-        undoButton.hidden = true
-        //charValueLabel.text = String(periph.readValueForCharacteristic(rpmChar))
     }
     
     @IBAction func doneButtonPressed(sender: AnyObject) {
@@ -212,6 +216,15 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
             greenLabel.text = String(green)
             blueLabel.text = String(blue)
             selectedColorview.backgroundColor = slider.color
+            
+            //For Finding Actual Colors In For Slider
+//            print()
+//            print("Mapped Int: " + String(colorSlider.colorMapped))
+//            print("red: " + String(red * 255))
+//            print("green: " + String(green * 255))
+//            print("blue: " + String(blue * 255))
+//            print()
+            
         }
         
         // var color = slider.color
@@ -279,17 +292,23 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
         curY = UInt8(Int(floor(fromPoint.y / yratio)))
     
         if ((curX != lastX) && (curY != lastY)) {
-            
+            let bytes : [UInt8] = [curX, curY, colorSlider.colorMapped]
+            if let data: NSData? = NSData(bytes: bytes, length: 3) {
+                if(writeChar != nil) {
+                    periph.writeValue(data!, forCharacteristic: writeChar, type: CBCharacteristicWriteType.WithResponse)
+                    
+                    // For Printing Coordinate and Color Value
+//                    print("x: ", terminator:"")
+//                    print(curX)
+//                    print("y: ", terminator:"")
+//                    print(curY)
+//                    print("color: ", terminator:"")
+//                    print(colorSlider.colorMapped)
+                }
+            }
         }
         lastX = curX
         lastY = curY
-        
-        print("x: ", terminator:"")
-        print(UInt8(Int(ceil(fromPoint.x / xratio))))
-        print()
-        print("y: ", terminator:"")
-        print(UInt8(Int(ceil(fromPoint.y / yratio))))
-        print()
     }
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {

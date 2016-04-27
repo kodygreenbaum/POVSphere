@@ -25,20 +25,20 @@ class ConnectViewController: UIViewController {
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var connectButton: UIButton!
     @IBAction func connectButtonPressed(sender: AnyObject) {
-        self.performSegueWithIdentifier("modeselect", sender: self)
-//        if (blueToothOn) {
-//            if (!searching && !connecting) {
-//                searchForDevice()
-//            }
-//        } else {
-//            let alert =  UIAlertController(title: NSLocalizedString("Bluetooth Disabled", comment: "Bluetooth Disabled"), message:NSLocalizedString("Turn on bluetooth and try again!", comment: "Bluetooth must be enabled to locate the Sphere.") , preferredStyle: .Alert)
-//            
-//            let okAction =  UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
-//                self.navigationController?.popViewControllerAnimated(true)
-//            })
-//            alert.addAction(okAction)
-//            self.presentViewController(alert, animated: true, completion: nil)
-//        }
+        //self.performSegueWithIdentifier("modeselect", sender: self)
+        if (blueToothOn) {
+            if (!searching && !connecting) {
+                searchForDevice()
+            }
+        } else {
+            let alert =  UIAlertController(title: NSLocalizedString("Bluetooth Disabled", comment: "Bluetooth Disabled"), message:NSLocalizedString("Turn on bluetooth and try again!", comment: "Bluetooth must be enabled to locate the Sphere.") , preferredStyle: .Alert)
+            
+            let okAction =  UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
+                self.navigationController?.popViewControllerAnimated(true)
+            })
+            alert.addAction(okAction)
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
     }
     
     // MARK: View LifeCycle Methods
