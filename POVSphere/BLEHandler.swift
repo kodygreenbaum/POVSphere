@@ -135,14 +135,15 @@ class BLEHandler: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         }//else
     }
 
-   /*
-    * When we want to ensure writes went through. Perhaps we want to restart the
-    * Byte array transmission if it fails?
-    */
     func peripheral(peripheral: CBPeripheral, didWriteValueForCharacteristic characteristic: CBCharacteristic, error: NSError?) {
         
-        if ((error) != nil) {
+        if (characteristic == writeChar) {
             
+            var userDict = [String : Bool]()
+            
+            userDict["error"] = (error != nil)
+ 
+            NSNotificationCenter.defaultCenter().postNotificationName("globeWriteOccurred", object: self, userInfo: userDict)
         }
     }
     

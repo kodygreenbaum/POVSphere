@@ -33,6 +33,13 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
     private var curX : UInt8 = 0
     private var curY : UInt8 = 0
     
+    private var buffer = [[UInt8]](count: (9900), repeatedValue: [UInt8](count: 3, repeatedValue: 0))
+    private var buffStart = 0
+    private var buffEnd = 0
+    private var writing = false
+    
+    
+    
     @IBOutlet var containerView: UIView!
     @IBOutlet weak var saveStaticButton: UIButton!
     @IBOutlet weak var newModeNameLabel: UILabel!
@@ -153,6 +160,9 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "processBLE:", name: "processBLE", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "globeWriteOccurred:", name: "globeWriteOccurred", object: nil)
         
         // Force Landscape
         let value = UIInterfaceOrientation.LandscapeLeft.rawValue
@@ -292,19 +302,16 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
         curY = UInt8(Int(floor(fromPoint.y / yratio)))
     
         if ((curX != lastX) && (curY != lastY)) {
-            let bytes : [UInt8] = [curX, curY, colorSlider.colorMapped]
-            if let data: NSData? = NSData(bytes: bytes, length: 3) {
-                if(writeChar != nil) {
-                    periph.writeValue(data!, forCharacteristic: writeChar, type: CBCharacteristicWriteType.WithResponse)
-                    
-                    // For Printing Coordinate and Color Value
-//                    print("x: ", terminator:"")
-//                    print(curX)
-//                    print("y: ", terminator:"")
-//                    print(curY)
-//                    print("color: ", terminator:"")
-//                    print(colorSlider.colorMapped)
-                }
+            // Write To Buffer
+            buffer[buffEnd] = [curX, curY, colorSlider.colorMapped]
+            if (buffEnd == 9899) {
+                buffEnd = 0
+            } else {
+                buffEnd += 1
+            }
+            if(!writing) {
+                writing = true
+                //Kick off the buffer writing function
             }
         }
         lastX = curX
@@ -441,6 +448,68 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
             return 0
         }
     }
+    
+    func processBLE(notice:NSNotification) {
+        if let userDict = notice.userInfo{
+            let resp = userDict["status"] as! Int
+            if (resp == 2) {
+                let alert = UIAlertController(title: NSLocalizedString("Device Disconnected", comment: "Device Disconnected"), message:NSLocalizedString("Device connection was lost.", comment: "Device connection was lost.") , preferredStyle: .Alert)
+                
+                let okAction =  UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                    let welcomeVC = self.storyboard!.instantiateViewControllerWithIdentifier("normal")
+                    UIApplication.sharedApplication().keyWindow?.rootViewController = welcomeVC
+                })
+                
+                alert.addAction(okAction)
+                
+                presentViewController(alert, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    func globeWriteOccurred(notice:NSNotification) {
+        if let userDict = notice.userInfo{
+            let resp = userDict["error"] as! Bool
+            if (resp == true) {
+                // Do buffer stuff
+                
+                if let data: NSData? = NSData(bytes: bytes, length: 3) {
+                    if(writeChar != nil) {
+                        periph.writeValue(data!, forCharacteristic: writeChar, type: CBCharacteristicWriteType.WithResponse)
+                        
+                        // For Printing Coordinate and Color Value
+                        //                    print("x: ", terminator:"")
+                        //                    print(curX)
+                        //                    print("y: ", terminator:"")
+                        //                    print(curY)
+                        //                    print("color: ", terminator:"")
+                        //                    print(colorSlider.colorMapped)
+                    }
+                }
+                
+                print("Great Fail!")
+            } else {
+                // Do other buffer stuff
+                
+                if let data: NSData? = NSData(bytes: bytes, length: 3) {
+                    if(writeChar != nil) {
+                        periph.writeValue(data!, forCharacteristic: writeChar, type: CBCharacteristicWriteType.WithResponse)
+                        
+                        // For Printing Coordinate and Color Value
+                        //                    print("x: ", terminator:"")
+                        //                    print(curX)
+                        //                    print("y: ", terminator:"")
+                        //                    print(curY)
+                        //                    print("color: ", terminator:"")
+                        //                    print(colorSlider.colorMapped)
+                    }
+                }
+                print("Great Success!")
+            }
+        }
+    }
+    
     
     /*
     // MARK: - Navigation
