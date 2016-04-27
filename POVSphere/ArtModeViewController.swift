@@ -312,6 +312,11 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
             if(!writing) {
                 writing = true
                 //Kick off the buffer writing function
+                var not = NSNotification()
+                var userDict = [String : Bool]()
+                userDict["error"] = true
+                not = NSNotification.init(name: "not", object: nil, userInfo: userDict)
+                globeWriteOccurred(not)
             }
         }
         lastX = curX
@@ -474,38 +479,28 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
             if (resp == true) {
                 // Do buffer stuff
                 
-                if let data: NSData? = NSData(bytes: bytes, length: 3) {
+                if let data: NSData? = NSData(bytes: buffer[buffStart], length: 3) {
                     if(writeChar != nil) {
                         periph.writeValue(data!, forCharacteristic: writeChar, type: CBCharacteristicWriteType.WithResponse)
-                        
-                        // For Printing Coordinate and Color Value
-                        //                    print("x: ", terminator:"")
-                        //                    print(curX)
-                        //                    print("y: ", terminator:"")
-                        //                    print(curY)
-                        //                    print("color: ", terminator:"")
-                        //                    print(colorSlider.colorMapped)
                     }
                 }
                 
                 print("Great Fail!")
             } else {
                 // Do other buffer stuff
-                
-                if let data: NSData? = NSData(bytes: bytes, length: 3) {
-                    if(writeChar != nil) {
-                        periph.writeValue(data!, forCharacteristic: writeChar, type: CBCharacteristicWriteType.WithResponse)
-                        
-                        // For Printing Coordinate and Color Value
-                        //                    print("x: ", terminator:"")
-                        //                    print(curX)
-                        //                    print("y: ", terminator:"")
-                        //                    print(curY)
-                        //                    print("color: ", terminator:"")
-                        //                    print(colorSlider.colorMapped)
-                    }
+                if (buffStart == 9899) {
+                    buffStart = 0
+                } else {
+                    buffStart += 1
                 }
-                print("Great Success!")
+                if(buffStart != buffEnd) {
+                    if let data: NSData? = NSData(bytes: buffer[buffStart], length: 3) {
+                        if(writeChar != nil) {
+                            periph.writeValue(data!, forCharacteristic: writeChar, type: CBCharacteristicWriteType.WithResponse)
+                        }
+                    }
+                    print("Great Success!")
+                }
             }
         }
     }
