@@ -312,11 +312,9 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
             if(!writing) {
                 writing = true
                 //Kick off the buffer writing function
-                var not = NSNotification()
                 var userDict = [String : Bool]()
                 userDict["error"] = true
-                not = NSNotification.init(name: "not", object: nil, userInfo: userDict)
-                globeWriteOccurred(not)
+                NSNotificationCenter.defaultCenter().postNotificationName("globeWriteOccurred", object: self, userInfo: userDict)
             }
         }
         lastX = curX
@@ -500,6 +498,8 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
                         }
                     }
                     print("Great Success!")
+                } else {
+                    writing = false
                 }
             }
         }
