@@ -56,7 +56,7 @@ class StaticModeRunningViewController: UIViewController {
         self.nameLabel.text = self.mode
         .name
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "processBLE:", name: "processBLE", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(StaticModeRunningViewController.processBLE(_:)), name: "processBLE", object: nil)
     }
     
 

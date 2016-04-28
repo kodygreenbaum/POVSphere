@@ -51,8 +51,8 @@ class ConnectViewController: UIViewController {
         
         bleManager = BLEManager()
         bleManager.bleHandler.centralManagerDidUpdateState(bleManager.centralManager)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "processBLE:", name: "processBLE", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "blueToothStatusChanged:", name: "blueToothStatusChanged", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ConnectViewController.processBLE(_:)), name: "processBLE", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ConnectViewController.blueToothStatusChanged(_:)), name: "blueToothStatusChanged", object: nil)
         loadingIndicator.alpha = 0.0
         
     }

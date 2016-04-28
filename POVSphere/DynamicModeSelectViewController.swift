@@ -25,7 +25,7 @@ class DynamicModeSelectViewController: UIViewController, UICollectionViewDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.backgroundColor = UIColor.clearColor()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "processBLE:", name: "processBLE", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(DynamicModeSelectViewController.processBLE(_:)), name: "processBLE", object: nil)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -162,7 +162,6 @@ class DynamicModeSelectViewController: UIViewController, UICollectionViewDelegat
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "message") {
-            let destination : MessageModeViewController = segue.destinationViewController as! MessageModeViewController
             // Write to Globe to start mode
             var modeNum = 3
             if let data: NSData? = NSData(bytes: &modeNum, length: 1) {
@@ -172,7 +171,6 @@ class DynamicModeSelectViewController: UIViewController, UICollectionViewDelegat
             }
         }
         if (segue.identifier == "paint") {
-            let destination : ArtModeViewController = segue.destinationViewController as! ArtModeViewController
             // Write to Globe to start mode
             var modeNum = 1
             if let data: NSData? = NSData(bytes: &modeNum, length: 1) {

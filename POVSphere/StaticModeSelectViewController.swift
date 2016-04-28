@@ -60,7 +60,7 @@ class StaticModeSelectViewController: UIViewController, UICollectionViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.backgroundColor = UIColor.clearColor()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "processBLE:", name: "processBLE", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(StaticModeSelectViewController.processBLE(_:)), name: "processBLE", object: nil)
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

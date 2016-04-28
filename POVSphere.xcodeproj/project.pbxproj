@@ -27,6 +27,7 @@
 		4F8250071C80E22A0090D3F5 /* POVSphereTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8250061C80E22A0090D3F5 /* POVSphereTests.swift */; };
 		4F8250121C80E22A0090D3F5 /* POVSphereUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8250111C80E22A0090D3F5 /* POVSphereUITests.swift */; };
 		4FD586ED1CA9CC90002979B0 /* StaticModeNoIconCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD586EC1CA9CC90002979B0 /* StaticModeNoIconCollectionViewCell.swift */; };
+		4FD694AB1CD1B6FE0091EF35 /* ArtModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF96E861C8780BE00165FCD /* ArtModeViewController.swift */; };
 		4FE58D241CCEAC170000E8D0 /* MessageModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE58D231CCEAC160000E8D0 /* MessageModeViewController.swift */; };
 		4FE58D251CCEAC170000E8D0 /* MessageModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE58D231CCEAC160000E8D0 /* MessageModeViewController.swift */; };
 		4FF96E811C87801100165FCD /* ConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF96E801C87801100165FCD /* ConnectViewController.swift */; };
@@ -494,6 +495,7 @@
 				4F8250071C80E22A0090D3F5 /* POVSphereTests.swift in Sources */,
 				4F1BDADB1CD034FB00EF554C /* ArtModeCollectionViewCell.swift in Sources */,
 				4F1BDADC1CD044E200EF554C /* BLEHandler.swift in Sources */,
+				4FD694AB1CD1B6FE0091EF35 /* ArtModeViewController.swift in Sources */,
 				4F1BDAD81CD034D400EF554C /* PaintModeViewController.swift in Sources */,
 				4FE58D251CCEAC170000E8D0 /* MessageModeViewController.swift in Sources */,
 			);

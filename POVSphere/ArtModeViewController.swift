@@ -161,8 +161,8 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "processBLE:", name: "processBLE", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "globeWriteOccurred:", name: "globeWriteOccurred", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ArtModeViewController.processBLE(_:)), name: "processBLE", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ArtModeViewController.globeWriteOccurred(_:)), name: "globeWriteOccurred", object: nil)
         
         // Force Landscape
         let value = UIInterfaceOrientation.LandscapeLeft.rawValue
@@ -170,7 +170,7 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
         colorSlider.frame = CGRectMake(0, 0, 20, 150)
         sliderContainerView.addSubview(colorSlider)
         colorSlider.previewEnabled = true
-        colorSlider.addTarget(self, action: "changedColor:", forControlEvents: .ValueChanged)
+        colorSlider.addTarget(self, action: #selector(ArtModeViewController.changedColor(_:)), forControlEvents: .ValueChanged)
         selectedColorview.backgroundColor = colorSlider.color
         self.selectedColorview.layer.borderWidth = 1
         //self.selectedColorview.layer.borderColor = UIColor.blackColor().CGColor
@@ -380,8 +380,8 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
         // Populate 2-D Array of image's pixels
         //backgroundThread(0.0,
         //    background: {
-            for (var b = 0; b < height; b++) {
-                for (var a = 0; a < width; a++) {
+            for (var b = 0; b < height; b += 1) {
+                for (var a = 0; a < width; a += 1) {
                     let color : UInt32 = currentPixel.memory
                     imagePixelArray[a][b] = color
                     currentPixel++;
@@ -397,8 +397,8 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
                 for (var i = 0; i < width; i+=xRatio) {
                     if(globeXIndex < xPixels && globeYIndex < yPixels) {
                         var s = [UInt32: Int]()
-                        for (var jj = 0; jj < xRatio; jj++) {
-                            for (var ii = 0; ii < yRatio; ii++) {
+                        for (var jj = 0; jj < xRatio; jj += 1) {
+                            for (var ii = 0; ii < yRatio; ii += 1) {
                                 let clr : UInt32 = imagePixelArray[i + ii][j + jj]
                                 if let val = s[clr] {
                                     s[clr] = val + 1
@@ -415,11 +415,11 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
                                 globeArray[globeXIndex][globeYIndex] = color
                             }
                         }
-                        globeXIndex++
+                        globeXIndex += 1
                     }
                 }
                 globeXIndex = 0
-                globeYIndex++
+                globeYIndex += 1
             }
                 
        //     }, completion: { })
