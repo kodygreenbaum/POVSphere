@@ -11,10 +11,6 @@
 		4F01858D1C878772008E710E /* ModeSelectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01858C1C878772008E710E /* ModeSelectTableViewCell.swift */; };
 		4F01858F1C878AB9008E710E /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01858E1C878AB9008E710E /* Mode.swift */; };
 		4F0185911C878D0A008E710E /* UtilityGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0185901C878D0A008E710E /* UtilityGlobal.swift */; };
-		4F1BDAD71CD034D400EF554C /* PaintModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1BDAD61CD034D400EF554C /* PaintModeViewController.swift */; };
-		4F1BDAD81CD034D400EF554C /* PaintModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1BDAD61CD034D400EF554C /* PaintModeViewController.swift */; };
-		4F1BDADA1CD034FB00EF554C /* ArtModeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1BDAD91CD034FB00EF554C /* ArtModeCollectionViewCell.swift */; };
-		4F1BDADB1CD034FB00EF554C /* ArtModeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1BDAD91CD034FB00EF554C /* ArtModeCollectionViewCell.swift */; };
 		4F1BDADC1CD044E200EF554C /* BLEHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF96E8E1C8781D900165FCD /* BLEHandler.swift */; };
 		4F2303A71C8E1068009C5F71 /* ModeSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2303A61C8E1068009C5F71 /* ModeSelectViewController.swift */; };
 		4F2303A91C8E3F5A009C5F71 /* StaticModeSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2303A81C8E3F5A009C5F71 /* StaticModeSelectViewController.swift */; };
@@ -62,8 +58,6 @@
 		4F01858C1C878772008E710E /* ModeSelectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModeSelectTableViewCell.swift; sourceTree = "<group>"; };
 		4F01858E1C878AB9008E710E /* Mode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mode.swift; sourceTree = "<group>"; };
 		4F0185901C878D0A008E710E /* UtilityGlobal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilityGlobal.swift; sourceTree = "<group>"; };
-		4F1BDAD61CD034D400EF554C /* PaintModeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintModeViewController.swift; sourceTree = "<group>"; };
-		4F1BDAD91CD034FB00EF554C /* ArtModeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtModeCollectionViewCell.swift; sourceTree = "<group>"; };
 		4F2303A61C8E1068009C5F71 /* ModeSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModeSelectViewController.swift; sourceTree = "<group>"; };
 		4F2303A81C8E3F5A009C5F71 /* StaticModeSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticModeSelectViewController.swift; sourceTree = "<group>"; };
 		4F2303AA1C8E3F66009C5F71 /* DynamicModeSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicModeSelectViewController.swift; sourceTree = "<group>"; };
@@ -256,8 +250,6 @@
 				4FFBDDC31C90BA3B00EADF3B /* DynamicModeSelectViewController */,
 				4FF96E861C8780BE00165FCD /* ArtModeViewController.swift */,
 				4FE58D231CCEAC160000E8D0 /* MessageModeViewController.swift */,
-				4F1BDAD61CD034D400EF554C /* PaintModeViewController.swift */,
-				4F1BDAD91CD034FB00EF554C /* ArtModeCollectionViewCell.swift */,
 			);
 			name = DynamicMode;
 			sourceTree = "<group>";
@@ -467,7 +459,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F1BDAD71CD034D400EF554C /* PaintModeViewController.swift in Sources */,
 				4F01858D1C878772008E710E /* ModeSelectTableViewCell.swift in Sources */,
 				4FFBDDBF1C90BA0100EADF3B /* StaticModeCollectionViewCell.swift in Sources */,
 				4F824FF21C80E2290090D3F5 /* AppDelegate.swift in Sources */,
@@ -476,7 +467,6 @@
 				4FF96E8D1C8781B600165FCD /* BLEManager.swift in Sources */,
 				4FF96E851C87805E00165FCD /* StaticModeRunningViewController.swift in Sources */,
 				4FD586ED1CA9CC90002979B0 /* StaticModeNoIconCollectionViewCell.swift in Sources */,
-				4F1BDADA1CD034FB00EF554C /* ArtModeCollectionViewCell.swift in Sources */,
 				4FF96E8F1C8781D900165FCD /* BLEHandler.swift in Sources */,
 				4FF96E811C87801100165FCD /* ConnectViewController.swift in Sources */,
 				4F0185911C878D0A008E710E /* UtilityGlobal.swift in Sources */,
@@ -493,10 +483,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F8250071C80E22A0090D3F5 /* POVSphereTests.swift in Sources */,
-				4F1BDADB1CD034FB00EF554C /* ArtModeCollectionViewCell.swift in Sources */,
 				4F1BDADC1CD044E200EF554C /* BLEHandler.swift in Sources */,
 				4FD694AB1CD1B6FE0091EF35 /* ArtModeViewController.swift in Sources */,
-				4F1BDAD81CD034D400EF554C /* PaintModeViewController.swift in Sources */,
 				4FE58D251CCEAC170000E8D0 /* MessageModeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
