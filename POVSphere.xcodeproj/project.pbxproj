@@ -8,11 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0051F1E6FF918D3950C692FB /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC64D020E9AC02CE674BDB8B /* Pods.framework */; };
-		4F01858D1C878772008E710E /* ModeSelectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01858C1C878772008E710E /* ModeSelectTableViewCell.swift */; };
 		4F01858F1C878AB9008E710E /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01858E1C878AB9008E710E /* Mode.swift */; };
 		4F0185911C878D0A008E710E /* UtilityGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0185901C878D0A008E710E /* UtilityGlobal.swift */; };
 		4F1BDADC1CD044E200EF554C /* BLEHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF96E8E1C8781D900165FCD /* BLEHandler.swift */; };
-		4F2303A71C8E1068009C5F71 /* ModeSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2303A61C8E1068009C5F71 /* ModeSelectViewController.swift */; };
 		4F2303A91C8E3F5A009C5F71 /* StaticModeSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2303A81C8E3F5A009C5F71 /* StaticModeSelectViewController.swift */; };
 		4F2303AB1C8E3F66009C5F71 /* DynamicModeSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2303AA1C8E3F66009C5F71 /* DynamicModeSelectViewController.swift */; };
 		4F4712451CA5FF200076D68A /* CooperHewitt-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4F4712441CA5FECD0076D68A /* CooperHewitt-Light.otf */; };
@@ -55,10 +53,8 @@
 
 /* Begin PBXFileReference section */
 		1D369FE48AE7B0669CA94596 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		4F01858C1C878772008E710E /* ModeSelectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModeSelectTableViewCell.swift; sourceTree = "<group>"; };
 		4F01858E1C878AB9008E710E /* Mode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mode.swift; sourceTree = "<group>"; };
 		4F0185901C878D0A008E710E /* UtilityGlobal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilityGlobal.swift; sourceTree = "<group>"; };
-		4F2303A61C8E1068009C5F71 /* ModeSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModeSelectViewController.swift; sourceTree = "<group>"; };
 		4F2303A81C8E3F5A009C5F71 /* StaticModeSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticModeSelectViewController.swift; sourceTree = "<group>"; };
 		4F2303AA1C8E3F66009C5F71 /* DynamicModeSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicModeSelectViewController.swift; sourceTree = "<group>"; };
 		4F4712441CA5FECD0076D68A /* CooperHewitt-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CooperHewitt-Light.otf"; sourceTree = "<group>"; };
@@ -122,15 +118,6 @@
 				92199B5ABF526CD396DA82C3 /* Pods.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		4F01858B1C87874E008E710E /* ModeSelectTableViewController */ = {
-			isa = PBXGroup;
-			children = (
-				4F2303A61C8E1068009C5F71 /* ModeSelectViewController.swift */,
-				4F01858C1C878772008E710E /* ModeSelectTableViewCell.swift */,
-			);
-			name = ModeSelectTableViewController;
 			sourceTree = "<group>";
 		};
 		4F824FE51C80E2290090D3F5 = {
@@ -202,7 +189,6 @@
 			isa = PBXGroup;
 			children = (
 				4FF96E801C87801100165FCD /* ConnectViewController.swift */,
-				4F01858B1C87874E008E710E /* ModeSelectTableViewController */,
 				4FFBDDBC1C90B67300EADF3B /* StaticMode */,
 				4FFBDDBD1C90B68C00EADF3B /* DynamicMode */,
 			);
@@ -459,7 +445,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F01858D1C878772008E710E /* ModeSelectTableViewCell.swift in Sources */,
 				4FFBDDBF1C90BA0100EADF3B /* StaticModeCollectionViewCell.swift in Sources */,
 				4F824FF21C80E2290090D3F5 /* AppDelegate.swift in Sources */,
 				4FE58D241CCEAC170000E8D0 /* MessageModeViewController.swift in Sources */,
@@ -471,7 +456,6 @@
 				4FF96E811C87801100165FCD /* ConnectViewController.swift in Sources */,
 				4F0185911C878D0A008E710E /* UtilityGlobal.swift in Sources */,
 				4FFBDDC11C90BA0B00EADF3B /* DynamicModeCollectionViewCell.swift in Sources */,
-				4F2303A71C8E1068009C5F71 /* ModeSelectViewController.swift in Sources */,
 				4F2303AB1C8E3F66009C5F71 /* DynamicModeSelectViewController.swift in Sources */,
 				4FF96E871C8780BE00165FCD /* ArtModeViewController.swift in Sources */,
 				4F01858F1C878AB9008E710E /* Mode.swift in Sources */,

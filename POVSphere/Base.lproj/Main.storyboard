@@ -229,12 +229,53 @@
                                     <action selector="clearButtonPressed:" destination="Y9b-vb-Xni" eventType="touchUpInside" id="UAH-aA-J4v"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IHx-w5-ngD">
+                                <rect key="frame" x="500" y="44" width="30" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="IHx-w5-ngD" secondAttribute="height" multiplier="4:5" id="WXR-Si-XGG"/>
+                                    <constraint firstAttribute="width" secondItem="IHx-w5-ngD" secondAttribute="height" multiplier="10:7" id="WvL-h3-pLj"/>
+                                    <constraint firstAttribute="width" secondItem="IHx-w5-ngD" secondAttribute="height" multiplier="1195:976" id="pGJ-tb-Inf"/>
+                                    <constraint firstAttribute="height" constant="21" id="q4T-lm-sg6"/>
+                                </constraints>
+                                <state key="normal" title="ArrowLeft" image="ArrowLeft"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="WXR-Si-XGG"/>
+                                        <exclude reference="pGJ-tb-Inf"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="leftButtonPressed:" destination="Y9b-vb-Xni" eventType="touchUpInside" id="KnW-n1-p3z"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="opS-Zi-1gz">
+                                <rect key="frame" x="550" y="44" width="30" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="2gp-hD-P6j"/>
+                                    <constraint firstAttribute="width" secondItem="opS-Zi-1gz" secondAttribute="height" multiplier="4:5" id="2pP-EM-w7w"/>
+                                    <constraint firstAttribute="width" secondItem="opS-Zi-1gz" secondAttribute="height" multiplier="10:7" id="J7k-ip-IBK"/>
+                                    <constraint firstAttribute="width" secondItem="opS-Zi-1gz" secondAttribute="height" multiplier="1195:976" id="LBI-Xd-Lgv"/>
+                                </constraints>
+                                <state key="normal" title="ArrowRight" image="ArrowRight"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="2pP-EM-w7w"/>
+                                        <exclude reference="LBI-Xd-Lgv"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="rightButtonPressed:" destination="Y9b-vb-Xni" eventType="touchUpInside" id="61G-eF-8gW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="AFa-P8-OlX" firstAttribute="bottom" secondItem="quw-oD-SEz" secondAttribute="bottom" id="0eb-40-VZM"/>
+                            <constraint firstItem="IHx-w5-ngD" firstAttribute="leading" secondItem="AFa-P8-OlX" secondAttribute="trailing" constant="-85" id="1Qm-cv-U3D"/>
                             <constraint firstItem="jR3-Uu-4GB" firstAttribute="leading" secondItem="ULk-82-CJP" secondAttribute="leadingMargin" constant="-20" id="4Jc-FU-YeK"/>
+                            <constraint firstItem="opS-Zi-1gz" firstAttribute="centerY" secondItem="IHx-w5-ngD" secondAttribute="centerY" id="4i6-5J-J1n"/>
                             <constraint firstItem="AFa-P8-OlX" firstAttribute="leading" secondItem="quw-oD-SEz" secondAttribute="leading" id="6R6-7g-Voz"/>
+                            <constraint firstItem="IHx-w5-ngD" firstAttribute="centerY" secondItem="ym9-On-H63" secondAttribute="centerY" id="6zV-sL-WSm"/>
                             <constraint firstItem="gRX-lj-iGa" firstAttribute="top" secondItem="quw-oD-SEz" secondAttribute="bottom" id="HB7-19-lyh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="quw-oD-SEz" secondAttribute="trailing" constant="24" id="HVD-xb-an0"/>
                             <constraint firstItem="jR3-Uu-4GB" firstAttribute="top" secondItem="Llo-fu-CI0" secondAttribute="bottom" constant="-20" id="J3r-tW-D9r"/>
@@ -245,16 +286,22 @@
                             <constraint firstItem="uey-Hl-QAW" firstAttribute="centerX" secondItem="ijc-gO-EHY" secondAttribute="centerX" id="OH6-cg-oJ2"/>
                             <constraint firstItem="QeE-Qt-ujQ" firstAttribute="top" secondItem="quw-oD-SEz" secondAttribute="top" id="ShC-l0-qAE"/>
                             <constraint firstAttribute="leadingMargin" secondItem="quw-oD-SEz" secondAttribute="leading" constant="20" id="SmL-K4-jk3"/>
+                            <constraint firstItem="IHx-w5-ngD" firstAttribute="leading" secondItem="ULk-82-CJP" secondAttribute="leadingMargin" constant="-10" id="U4h-h4-Wtw"/>
                             <constraint firstItem="AFa-P8-OlX" firstAttribute="trailing" secondItem="quw-oD-SEz" secondAttribute="trailing" id="Vjb-Vl-zmx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jR3-Uu-4GB" secondAttribute="trailing" constant="-20" id="Vvl-C8-qkD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="quw-oD-SEz" secondAttribute="trailing" constant="-20" id="WXR-fH-Fsg"/>
                             <constraint firstItem="QeE-Qt-ujQ" firstAttribute="bottom" secondItem="quw-oD-SEz" secondAttribute="bottom" id="YX3-J2-Ci8"/>
                             <constraint firstItem="QeE-Qt-ujQ" firstAttribute="leading" secondItem="quw-oD-SEz" secondAttribute="leading" id="ZFD-dZ-sXI"/>
+                            <constraint firstItem="AFa-P8-OlX" firstAttribute="top" secondItem="IHx-w5-ngD" secondAttribute="bottom" constant="-633" id="aUd-a7-I3i"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="opS-Zi-1gz" secondAttribute="trailing" id="e9R-Um-8bi"/>
                             <constraint firstItem="gRX-lj-iGa" firstAttribute="top" secondItem="jR3-Uu-4GB" secondAttribute="bottom" id="eev-54-0xl"/>
+                            <constraint firstItem="opS-Zi-1gz" firstAttribute="width" secondItem="opS-Zi-1gz" secondAttribute="height" multiplier="10:7" id="hM4-SW-fFj"/>
                             <constraint firstItem="uey-Hl-QAW" firstAttribute="centerY" secondItem="quw-oD-SEz" secondAttribute="centerY" constant="-20" id="j9i-ks-zMH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="uey-Hl-QAW" secondAttribute="trailing" constant="-8" id="jLW-cw-jKO"/>
                             <constraint firstItem="ijc-gO-EHY" firstAttribute="top" secondItem="uey-Hl-QAW" secondAttribute="bottom" constant="15" id="k3T-uX-Jnz"/>
+                            <constraint firstItem="opS-Zi-1gz" firstAttribute="leading" secondItem="IHx-w5-ngD" secondAttribute="trailing" constant="20" id="kAk-XB-zCJ"/>
                             <constraint firstItem="quw-oD-SEz" firstAttribute="top" secondItem="Llo-fu-CI0" secondAttribute="bottom" constant="-20" id="kWM-ar-XEB"/>
+                            <constraint firstItem="gRX-lj-iGa" firstAttribute="top" secondItem="IHx-w5-ngD" secondAttribute="bottom" constant="580" id="m6b-h8-SYC"/>
                             <constraint firstItem="uey-Hl-QAW" firstAttribute="leading" secondItem="quw-oD-SEz" secondAttribute="trailing" constant="-26" id="o5n-tj-MEA"/>
                             <constraint firstItem="quw-oD-SEz" firstAttribute="centerY" secondItem="jR3-Uu-4GB" secondAttribute="centerY" id="oZR-KZ-xji"/>
                             <constraint firstItem="gRX-lj-iGa" firstAttribute="top" secondItem="0tb-DB-gRC" secondAttribute="bottom" constant="20" id="wY0-DL-pnd"/>
@@ -262,8 +309,13 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="aUd-a7-I3i"/>
                                 <exclude reference="HVD-xb-an0"/>
                                 <exclude reference="oZR-KZ-xji"/>
+                                <exclude reference="1Qm-cv-U3D"/>
+                                <exclude reference="U4h-h4-Wtw"/>
+                                <exclude reference="hM4-SW-fFj"/>
+                                <exclude reference="m6b-h8-SYC"/>
                                 <exclude reference="o5n-tj-MEA"/>
                             </mask>
                         </variation>
@@ -686,6 +738,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ArrowLeft" width="1195" height="976"/>
+        <image name="ArrowRight" width="1195" height="976"/>
         <image name="BlankSquareRounded" width="200" height="200"/>
         <image name="GlobeSmall" width="30" height="30"/>
         <image name="GreenGradientBackground" width="2592" height="1728"/>

@@ -26,6 +26,7 @@ class ArtModeViewController: UIViewController {
     private let ypix : CGFloat = 66.0
     private var xratio : CGFloat = 0.0
     private var yratio : CGFloat = 0.0
+    private var _rotation : Int8 = 0
     
     private var lastX : UInt8 = 0
     private var lastY : UInt8 = 0
@@ -57,6 +58,29 @@ class ArtModeViewController: UIViewController {
     
     @IBAction func doneButtonPressed(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func rightButtonPressed(sender: AnyObject) {
+        if(_rotation >= -5) {
+            _rotation = _rotation - 1
+            if let data: NSData? = NSData(bytes: &_rotation, length: 1) {
+                if(speedChar != nil) {
+                    periph.writeValue(data!, forCharacteristic: speedChar, type: CBCharacteristicWriteType.WithResponse)
+                }
+            }
+        }
+    }
+    
+    @IBAction func leftButtonPressed(sender: AnyObject) {
+        if(_rotation <= 5) {
+            _rotation = _rotation + 1
+            if let data: NSData? = NSData(bytes: &_rotation, length: 1) {
+                if(speedChar != nil) {
+                    periph.writeValue(data!, forCharacteristic: speedChar, type: CBCharacteristicWriteType.WithResponse)
+                }
+            }
+        }
+
     }
     
     override func viewDidLoad() {
