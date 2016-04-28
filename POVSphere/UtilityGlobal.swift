@@ -59,6 +59,20 @@ func backgroundThread(delay: Double = 0.0, background: (() -> Void)? = nil, comp
 }
 
 
+/**
+ Mutex Helper Function
+ usage: 
+ synced(self){
+    //Critical Section Here
+ }
+ */
+func synced(lock: AnyObject, closure: () -> ()) {
+    objc_sync_enter(lock)
+    closure()
+    objc_sync_exit(lock)
+}
+
+
 extension UIColor {
     var coreImageColor: CoreImage.CIColor? {
         return CoreImage.CIColor(color: self)  // The resulting Core Image color, or nil

@@ -303,14 +303,19 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
     
         if ((curX != lastX) && (curY != lastY)) {
             // Write To Buffer
-            buffer[buffEnd] = [curX, curY, colorSlider.colorMapped]
-            if (buffEnd == 9899) {
-                buffEnd = 0
-            } else {
-                buffEnd += 1
-            }
+            synced(self, closure: {
+                self.buffer[self.buffEnd] = [self.curX, self.curY, self.colorSlider.colorMapped]
+                if (self.buffEnd == 9899) {
+                    self.buffEnd = 0
+                } else {
+                    self.buffEnd += 1
+                }
+            })
+            
             if(!writing) {
-                writing = true
+                synced(self, closure: {
+                    self.writing = true
+                })
                 //Kick off the buffer writing function
                 var userDict = [String : Bool]()
                 userDict["error"] = true
@@ -485,12 +490,14 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
                 
                 print("Great Fail!")
             } else {
-                // Do other buffer stuff
-                if (buffStart == 9899) {
-                    buffStart = 0
-                } else {
-                    buffStart += 1
-                }
+                synced(self, closure: {
+                    // Do other buffer stuff
+                    if (self.buffStart == 9899) {
+                        self.buffStart = 0
+                    } else {
+                        self.buffStart += 1
+                    }
+                })
                 if(buffStart != buffEnd) {
                     if let data: NSData? = NSData(bytes: buffer[buffStart], length: 3) {
                         if(writeChar != nil) {
@@ -499,7 +506,9 @@ class ArtModeViewController: UIViewController, UITextFieldDelegate {
                     }
                     print("Great Success!")
                 } else {
-                    writing = false
+                    synced(self, closure: {
+                        self.writing = false
+                    })
                 }
             }
         }
