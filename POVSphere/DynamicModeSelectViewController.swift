@@ -132,8 +132,8 @@ class DynamicModeSelectViewController: UIViewController, UICollectionViewDelegat
         // if UserDefaults empty, hardcode fill arrays here
         // remember to set one of the modes as the default
         
-        dynamicModes.append(Mode(name: "paint", modeByte: 1))
-        dynamicModes.append(Mode(name: "message", modeByte: 3))
+        dynamicModes.append(Mode(name: "Paint", modeByte: 1))
+        dynamicModes.append(Mode(name: "Message", modeByte: 3))
         
     }
     

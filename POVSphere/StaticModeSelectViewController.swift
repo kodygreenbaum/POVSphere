@@ -165,10 +165,10 @@ class StaticModeSelectViewController: UIViewController, UICollectionViewDelegate
         
         // if UserDefaults empty, hardcode fill arrays here
         // remember to set one of the modes as the default
-        staticModes.append(Mode(name: "globe", modeByte: 2))
-        staticModes.append(Mode(name: "wisco", modeByte: 4))
-        staticModes.append(Mode(name: "weather", modeByte: 5))
-        staticModes.append(Mode(name: "alarm clock", modeByte: 6))
+        staticModes.append(Mode(name: "Globe", modeByte: 2))
+        staticModes.append(Mode(name: "Wisco", modeByte: 4))
+        staticModes.append(Mode(name: "Weather", modeByte: 5))
+        staticModes.append(Mode(name: "Clock", modeByte: 6))
     }
     
     

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kbn-qQ-VCi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kbn-qQ-VCi">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -51,7 +51,7 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="4eQ-Cb-65W">
                                 <rect key="frame" x="290" y="340.5" width="20" height="20"/>
                             </activityIndicatorView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sphere" translatesAutoresizingMaskIntoConstraints="NO" id="Pzd-QJ-oII">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sphere" translatesAutoresizingMaskIntoConstraints="NO" id="Pzd-QJ-oII">
                                 <rect key="frame" x="159.5" y="170" width="282" height="96.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="282" id="BCs-hN-So0"/>
@@ -392,7 +392,7 @@
                                     <outlet property="delegate" destination="ecm-6x-PDX" id="qQJ-o6-2wY"/>
                                 </connections>
                             </collectionView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sphere" translatesAutoresizingMaskIntoConstraints="NO" id="FZ1-n3-fVu">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sphere" translatesAutoresizingMaskIntoConstraints="NO" id="FZ1-n3-fVu">
                                 <rect key="frame" x="159.5" y="79" width="282" height="96"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="FZ1-n3-fVu" secondAttribute="height" multiplier="797:243" id="Pbn-9H-VgT"/>
@@ -557,7 +557,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GreenGradientBackground" translatesAutoresizingMaskIntoConstraints="NO" id="GQP-hF-qR8">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sphere" translatesAutoresizingMaskIntoConstraints="NO" id="Yne-mm-A7v">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sphere" translatesAutoresizingMaskIntoConstraints="NO" id="Yne-mm-A7v">
                                 <rect key="frame" x="159.5" y="79" width="282" height="96"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="282" id="bK7-mQ-M6Y"/>
@@ -744,6 +744,6 @@
         <image name="GlobeSmall" width="30" height="30"/>
         <image name="GreenGradientBackground" width="2592" height="1728"/>
         <image name="PaintSmall" width="30" height="30"/>
-        <image name="sphere" width="667" height="227"/>
+        <image name="Sphere" width="667" height="227"/>
     </resources>
 </document>

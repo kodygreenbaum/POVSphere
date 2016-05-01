@@ -150,19 +150,6 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>13653AA65BFAAB3A273642E8F55A6062</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>ColorSlider.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>1499BB590F1D4C5C8FC9CDB4E0F0F799</key>
 		<dict>
 			<key>buildConfigurationList</key>
@@ -203,19 +190,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>155C038D1FF4F041B60B7EB8B9405C3A</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>ColorSlider-umbrella.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>15775FADDBE283F14E990510319B3083</key>
 		<dict>
 			<key>children</key>
@@ -230,34 +204,6 @@
 			<string>PBXGroup</string>
 			<key>name</key>
 			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>15AEF6D148E673063FDC22855D7D92D5</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>EF3B5A73AA6532214ECE795E3F09C36C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Source</string>
-			<key>path</key>
-			<string>Source</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>1845158F23DB4815E885C6DD1A7F7A91</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>ColorSlider-dummy.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -368,17 +314,6 @@
 			<string>PBXGroup</string>
 			<key>name</key>
 			<string>Targets Support Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>29054FEE26A2B7D0445137DDE8AEF0FD</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>ColorSlider.modulemap</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -508,22 +443,6 @@
 			<key>remoteInfo</key>
 			<string>ColorSlider</string>
 		</dict>
-		<key>3397378278D755F357B7675BF0235B93</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>15AEF6D148E673063FDC22855D7D92D5</string>
-				<string>44C1D2DE140238623C82983D003B5160</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>ColorSlider</string>
-			<key>path</key>
-			<string>/Users/KodyGreenbaum/Desktop/POVSphere/Pods/ColorSlider</string>
-			<key>sourceTree</key>
-			<string>&lt;absolute&gt;</string>
-		</dict>
 		<key>390A4BDD847E0990B1E225DB052EDFA5</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -579,6 +498,19 @@
 			<string>Pods.framework</string>
 			<key>sourceTree</key>
 			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>3FFA708EBF4D6E9C33DE10A0C55ED4DF</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>ColorSlider-umbrella.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>420FE761B60D934D1002609ED202DE46</key>
 		<dict>
@@ -639,26 +571,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>44C1D2DE140238623C82983D003B5160</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>29054FEE26A2B7D0445137DDE8AEF0FD</string>
-				<string>13653AA65BFAAB3A273642E8F55A6062</string>
-				<string>1845158F23DB4815E885C6DD1A7F7A91</string>
-				<string>D32309235CB3C801C62FF1398E2D6553</string>
-				<string>155C038D1FF4F041B60B7EB8B9405C3A</string>
-				<string>D217204EACC52F39237454606C5D1AE8</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Support Files</string>
-			<key>path</key>
-			<string>../Target Support Files/ColorSlider</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>44E7B9FBDAAD1A176DF8BB5DD22F23B5</key>
 		<dict>
 			<key>containerPortal</key>
@@ -698,6 +610,19 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>4FDD93928E0C89272B70FAFF35C05236</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>ColorSlider-dummy.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>527242212B1D6BF70FA71A9B0032A5F0</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -721,6 +646,19 @@
 			<string>text.plist.xml</string>
 			<key>path</key>
 			<string>Pods-POVSphere-acknowledgements.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5660BF5642045B308BE6859591C534B6</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>ColorSlider.xcconfig</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -1239,7 +1177,7 @@
 		<key>78AF98BDF2AA6D9DDD7E7ADD66DD7E11</key>
 		<dict>
 			<key>baseConfigurationReference</key>
-			<string>13653AA65BFAAB3A273642E8F55A6062</string>
+			<string>5660BF5642045B308BE6859591C534B6</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
@@ -1297,7 +1235,7 @@
 			<key>children</key>
 			<array>
 				<string>BA6428E9F66FD5A23C0A2E06ED26CD2F</string>
-				<string>A95D2F45CB883BD7CA71E1D22C877D6D</string>
+				<string>EB4AE7579F28C6D31A95D18E56D17A7D</string>
 				<string>14B8B9B15ECBE87983FF987239AB2D7B</string>
 				<string>15775FADDBE283F14E990510319B3083</string>
 				<string>26051F3FAC6E9188E3CE99BB6972FFF4</string>
@@ -1509,6 +1447,19 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>95F76FCD73DA46B4F3B77EE428E5DCE1</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>ColorSlider.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>98C0C4372E3D0882422731A4655AD1F6</key>
 		<dict>
 			<key>fileRef</key>
@@ -1635,19 +1586,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>A95D2F45CB883BD7CA71E1D22C877D6D</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>3397378278D755F357B7675BF0235B93</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Development Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>ABB83F43E307A391F10B3E7EE3BA4DB7</key>
 		<dict>
 			<key>buildConfigurationList</key>
@@ -1696,14 +1634,14 @@
 		<key>B25F40F955D9A0A712821CA616CD144F</key>
 		<dict>
 			<key>fileRef</key>
-			<string>EF3B5A73AA6532214ECE795E3F09C36C</string>
+			<string>95F76FCD73DA46B4F3B77EE428E5DCE1</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
 		<key>B4A524FF2DE1410E9D216A4E9158E179</key>
 		<dict>
 			<key>fileRef</key>
-			<string>155C038D1FF4F041B60B7EB8B9405C3A</string>
+			<string>3FFA708EBF4D6E9C33DE10A0C55ED4DF</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -1724,6 +1662,17 @@
 			<string>text.plist.xml</string>
 			<key>path</key>
 			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B63912673379CEA6407DEB7D0AE793ED</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>ColorSlider.modulemap</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -1782,6 +1731,26 @@
 			<string>sourcecode.c.objc</string>
 			<key>path</key>
 			<string>Pods-dummy.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>C1A92F02481C782AFFBB3989DFDF2470</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>B63912673379CEA6407DEB7D0AE793ED</string>
+				<string>5660BF5642045B308BE6859591C534B6</string>
+				<string>4FDD93928E0C89272B70FAFF35C05236</string>
+				<string>F6408A6E8DC8AE4434EBF547BED04778</string>
+				<string>3FFA708EBF4D6E9C33DE10A0C55ED4DF</string>
+				<string>F64596F1C29F63B5153CA8F5CAD68CE0</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Support Files</string>
+			<key>path</key>
+			<string>../Target Support Files/ColorSlider</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -2018,38 +1987,27 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>D1C247B153720EF167618E03F2D37EB6</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>95F76FCD73DA46B4F3B77EE428E5DCE1</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Source</string>
+			<key>path</key>
+			<string>Source</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>D1F44D1DE2C9699791AC304021518DCD</key>
 		<dict>
 			<key>fileRef</key>
 			<string>0DD25CA4A497622D5ABF4C433D79E4DE</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-		</dict>
-		<key>D217204EACC52F39237454606C5D1AE8</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D32309235CB3C801C62FF1398E2D6553</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>ColorSlider-prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>D41D8CD98F00B204E9800998ECF8427E</key>
 		<dict>
@@ -2193,7 +2151,7 @@
 		<key>E23C1371938EE56C5B76FB41DCE568CF</key>
 		<dict>
 			<key>baseConfigurationReference</key>
-			<string>13653AA65BFAAB3A273642E8F55A6062</string>
+			<string>5660BF5642045B308BE6859591C534B6</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
@@ -2266,7 +2224,7 @@
 		<key>E4005594FA2D852B05C1276AFCEED9F1</key>
 		<dict>
 			<key>fileRef</key>
-			<string>1845158F23DB4815E885C6DD1A7F7A91</string>
+			<string>4FDD93928E0C89272B70FAFF35C05236</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
@@ -2310,6 +2268,19 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
+		<key>EB4AE7579F28C6D31A95D18E56D17A7D</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>EE775D92874FFB0C9C9A25174208BA92</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Development Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>ED04AE2201316F6590E7AD9952706C7B</key>
 		<dict>
 			<key>isa</key>
@@ -2323,18 +2294,21 @@
 			<key>sourceTree</key>
 			<string>DEVELOPER_DIR</string>
 		</dict>
-		<key>EF3B5A73AA6532214ECE795E3F09C36C</key>
+		<key>EE775D92874FFB0C9C9A25174208BA92</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>children</key>
+			<array>
+				<string>D1C247B153720EF167618E03F2D37EB6</string>
+				<string>C1A92F02481C782AFFBB3989DFDF2470</string>
+			</array>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>ColorSlider</string>
 			<key>path</key>
-			<string>ColorSlider.swift</string>
+			<string>/Users/dannylerner/Desktop/POVSphere/Pods/ColorSlider</string>
 			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>&lt;absolute&gt;</string>
 		</dict>
 		<key>F34CDFCE273F77F00CE9F35EC56A61CE</key>
 		<dict>
@@ -2432,6 +2406,32 @@
 			<string>XCBuildConfiguration</string>
 			<key>name</key>
 			<string>Release</string>
+		</dict>
+		<key>F6408A6E8DC8AE4434EBF547BED04778</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>ColorSlider-prefix.pch</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F64596F1C29F63B5153CA8F5CAD68CE0</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>F79A2FF5B818E3EA84C7069214BAB0EB</key>
 		<dict>
