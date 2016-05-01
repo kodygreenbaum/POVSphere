@@ -1,7 +1,7 @@
 platform :ios, '9.0'
 use_frameworks!
 
-pod ‘ColorSlider’, :path => ‘/Users/KodyGreenbaum/Desktop/POVSphere/Pods/ColorSlider'
+pod ‘ColorSlider’, :path => ‘~/Desktop/POVSphere/Pods/ColorSlider'
 
 
 target 'POVSphere' do

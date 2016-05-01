@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '89B3142B7A93EA57E834E915'
+               BlueprintIdentifier = 'FEA9A2492FF9A16394F6AD7F'
                BlueprintName = 'ColorSlider'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'ColorSlider.framework'>
