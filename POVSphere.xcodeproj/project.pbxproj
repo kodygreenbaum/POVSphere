@@ -32,6 +32,8 @@
 		4FF96E8F1C8781D900165FCD /* BLEHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF96E8E1C8781D900165FCD /* BLEHandler.swift */; };
 		4FFBDDBF1C90BA0100EADF3B /* StaticModeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFBDDBE1C90BA0100EADF3B /* StaticModeCollectionViewCell.swift */; };
 		4FFBDDC11C90BA0B00EADF3B /* DynamicModeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFBDDC01C90BA0B00EADF3B /* DynamicModeCollectionViewCell.swift */; };
+		669725CA1CD6A1A70017E717 /* UtilityGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0185901C878D0A008E710E /* UtilityGlobal.swift */; };
+		669725CB1CD6A1AC0017E717 /* ConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF96E801C87801100165FCD /* ConnectViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -468,6 +470,8 @@
 			files = (
 				4F8250071C80E22A0090D3F5 /* POVSphereTests.swift in Sources */,
 				4F1BDADC1CD044E200EF554C /* BLEHandler.swift in Sources */,
+				669725CA1CD6A1A70017E717 /* UtilityGlobal.swift in Sources */,
+				669725CB1CD6A1AC0017E717 /* ConnectViewController.swift in Sources */,
 				4FD694AB1CD1B6FE0091EF35 /* ArtModeViewController.swift in Sources */,
 				4FE58D251CCEAC170000E8D0 /* MessageModeViewController.swift in Sources */,
 			);
