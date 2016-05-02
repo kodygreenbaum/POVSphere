@@ -154,7 +154,7 @@ class DynamicModeSelectViewController: UIViewController, UICollectionViewDelegat
         
         dynamicModes.append(Mode(name: "Paint", modeByte: 1))
         dynamicModes.append(Mode(name: "Message", modeByte: 3))
-        dynamicModes.append(Mode(name: "Fireworks", modeByte: 8))
+        dynamicModes.append(Mode(name: "Fireworks", modeByte: 7))
         
     }
     
@@ -201,7 +201,7 @@ class DynamicModeSelectViewController: UIViewController, UICollectionViewDelegat
         }
         if (segue.identifier == "fireworks") {
             // Write to Globe to start mode
-            var modeNum = 8
+            var modeNum = 7
             if let data: NSData? = NSData(bytes: &modeNum, length: 1) {
                 if(modeChar != nil) {
                     periph.writeValue(data!, forCharacteristic: modeChar, type: CBCharacteristicWriteType.WithResponse)
