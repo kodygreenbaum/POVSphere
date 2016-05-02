@@ -79,10 +79,10 @@ class DynamicModeSelectViewController: UIViewController, UICollectionViewDelegat
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         self.selectedMode = dynamicModes[indexPath.item]
         switch (self.selectedMode.name) {
-            case "paint":
+            case "Paint":
                 self.performSegueWithIdentifier("paint", sender: self)
             break;
-            case "message":
+            case "Message":
                 self.performSegueWithIdentifier("message", sender: self)
             break;
 

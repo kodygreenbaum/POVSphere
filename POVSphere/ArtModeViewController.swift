@@ -27,6 +27,8 @@ class ArtModeViewController: UIViewController {
     private var xratio : CGFloat = 0.0
     private var yratio : CGFloat = 0.0
     private var _rotation : Int8 = 0
+    private var valuesInBuffer : Int = 0
+    private var lastWriteSize : UInt8 = 0
     
     private var lastX : UInt8 = 0
     private var lastY : UInt8 = 0
@@ -37,7 +39,7 @@ class ArtModeViewController: UIViewController {
     private var buffStart = 0
     private var buffEnd = 0
     private var writing = false
-
+    
     
     @IBOutlet var containerView: UIView!
     @IBOutlet weak var sliderContainerView: UIView!
@@ -80,7 +82,7 @@ class ArtModeViewController: UIViewController {
                 }
             }
         }
-
+        
     }
     
     override func viewDidLoad() {
@@ -109,7 +111,7 @@ class ArtModeViewController: UIViewController {
         }
         
     }
-
+    
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         return UIInterfaceOrientationMask.LandscapeLeft
     }
@@ -128,12 +130,12 @@ class ArtModeViewController: UIViewController {
             selectedColorview.backgroundColor = slider.color
             
             //For Finding Actual Colors In For Slider
-//            print()
-//            print("Mapped Int: " + String(colorSlider.colorMapped))
-//            print("red: " + String(red * 255))
-//            print("green: " + String(green * 255))
-//            print("blue: " + String(blue * 255))
-//            print()
+            //            print()
+            //            print("Mapped Int: " + String(colorSlider.colorMapped))
+            //            print("red: " + String(red * 255))
+            //            print("green: " + String(green * 255))
+            //            print("blue: " + String(blue * 255))
+            //            print()
             
         }
         
@@ -143,8 +145,8 @@ class ArtModeViewController: UIViewController {
     // MARK: Methods For Drawing
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
-       // For Drawing
-       if let touch = touches.first {
+        // For Drawing
+        if let touch = touches.first {
             //Make tap falls within canvas
             let point = touch.locationInView(self.view)
             if(CGRectContainsPoint(self.mainImageView.bounds, point)) {
@@ -155,9 +157,9 @@ class ArtModeViewController: UIViewController {
                 tempImageView.image?.drawInRect(CGRect(x: 0, y: 0, width: mainImageView.frame.size.width, height: mainImageView.frame.size.height), blendMode: CGBlendMode.Normal, alpha: opacity)
                 mainImageView.image = UIGraphicsGetImageFromCurrentImageContext()
                 UIGraphicsEndImageContext()
-            
+                
                 tempImageView.image = nil
-            
+                
                 swiped = false
             }
         }
@@ -208,19 +210,17 @@ class ArtModeViewController: UIViewController {
         
         if ((curX != lastX) || (curY != lastY)) {
             // Write To Buffer
-            synced(self, closure: {
-                self.buffer[self.buffEnd] = [self.curX, self.curY, self.colorSlider.colorMapped]
-                if (self.buffEnd == 9899) {
-                    self.buffEnd = 0
-                } else {
-                    self.buffEnd += 1
-                }
-            })
+            self.buffer[self.buffEnd] = [self.curX, self.curY, self.colorSlider.colorMapped]
+            if (self.buffEnd == 9899) {
+                self.buffEnd = 0
+            } else {
+                self.buffEnd += 1
+            }
+            
+            self.valuesInBuffer += 1
             
             if(!writing) {
-                synced(self, closure: {
-                    self.writing = true
-                })
+                self.writing = true
                 //Kick off the buffer writing function
                 var userDict = [String : Bool]()
                 userDict["error"] = true
@@ -234,36 +234,47 @@ class ArtModeViewController: UIViewController {
     func globeWriteOccurred(notice:NSNotification) {
         if let userDict = notice.userInfo{
             let resp = userDict["error"] as! Bool
-            if (resp == true) {
-                // Do buffer stuff
+            if (resp == false) {
                 
-                if let data: NSData? = NSData(bytes: buffer[buffStart], length: 3) {
+                print("Write Success")
+                if(lastWriteSize != 0) {
+                    for _ in 1 ... lastWriteSize {
+                        if (self.buffStart == 9899) {
+                            self.buffStart = 0
+                        } else {
+                            self.buffStart += 1
+                        }
+                        self.valuesInBuffer -= 1
+                    }
+                }
+            } else {
+                print("Write Fail")
+            }
+            // Check how many values to send
+            
+            // Construct array of points
+            var currentWrite = [UInt8]()
+            
+            if(valuesInBuffer > 6) {
+                lastWriteSize = 6
+            } else {
+                lastWriteSize = UInt8(valuesInBuffer)
+                writing = false
+            }
+            if(lastWriteSize != 0) {
+                // Set Last Write Size
+                currentWrite.append(lastWriteSize)
+                
+                for index in 0 ... lastWriteSize - 1 {
+                    currentWrite.append(buffer[buffStart + Int(index)][0])
+                    currentWrite.append(buffer[buffStart + Int(index)][1])
+                    currentWrite.append(buffer[buffStart + Int(index)][2])
+                }
+                
+                if let data: NSData? = NSData(bytes: currentWrite, length: (3 * Int(lastWriteSize)) + 1 ) {
                     if(writeChar != nil) {
                         periph.writeValue(data!, forCharacteristic: writeChar, type: CBCharacteristicWriteType.WithResponse)
                     }
-                }
-                
-                print("Great Fail!")
-            } else {
-                synced(self, closure: {
-                    // Do other buffer stuff
-                    if (self.buffStart == 9899) {
-                        self.buffStart = 0
-                    } else {
-                        self.buffStart += 1
-                    }
-                })
-                if(buffStart != buffEnd) {
-                    if let data: NSData? = NSData(bytes: buffer[buffStart], length: 3) {
-                        if(writeChar != nil) {
-                            periph.writeValue(data!, forCharacteristic: writeChar, type: CBCharacteristicWriteType.WithResponse)
-                        }
-                    }
-                    print("Great Success!")
-                } else {
-                    synced(self, closure: {
-                        self.writing = false
-                    })
                 }
             }
         }
