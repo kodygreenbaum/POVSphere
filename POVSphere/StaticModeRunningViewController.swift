@@ -14,6 +14,7 @@ class StaticModeRunningViewController: UIViewController {
     var mode : Mode!
     private var _index : Int = 0
     private var _rotation : Int8 = 0
+    private var isAnalog = true
     
     var index : Int {
         get {return _index}
@@ -21,12 +22,36 @@ class StaticModeRunningViewController: UIViewController {
     }
 
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var clockSelectButton: UIButton!
     
     @IBAction func finishButtonPressed(sender: AnyObject) {
     
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    @IBAction func clockSelectButtonPressed(sender: AnyObject) {
+        if(isAnalog) {
+            isAnalog = false
+            clockSelectButton.setImage(UIImage(named: "DigitalClock"), forState: UIControlState.Normal)
+            var mode = UInt8(11)
+            if let data: NSData? = NSData(bytes: &mode, length: 1) {
+                if(modeChar != nil) {
+                    periph.writeValue(data!, forCharacteristic: modeChar, type: CBCharacteristicWriteType.WithResponse)
+                }
+            }
+        } else {
+            isAnalog = true
+            clockSelectButton.setImage(UIImage(named: "Clock"), forState: UIControlState.Normal)
+            var mode = UInt8(5)
+            if let data: NSData? = NSData(bytes: &mode, length: 1) {
+                if(modeChar != nil) {
+                    periph.writeValue(data!, forCharacteristic: modeChar, type: CBCharacteristicWriteType.WithResponse)
+                }
+            }
+        }
+        
+        
+    }
     
     @IBAction func swipeRight(sender: AnyObject) {
         if(_rotation >= -5) {
@@ -55,6 +80,12 @@ class StaticModeRunningViewController: UIViewController {
         super.viewDidLoad()
         self.nameLabel.text = self.mode
         .name
+        
+        if(self.mode.name != "Clock"){
+            clockSelectButton.hidden = true
+        } else {
+            clockSelectButton.hidden = false
+        }
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(StaticModeRunningViewController.processBLE(_:)), name: "processBLE", object: nil)
     }

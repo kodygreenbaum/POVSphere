@@ -166,6 +166,17 @@
                                     <constraint firstAttribute="width" constant="100" id="ogz-ZB-G0p"/>
                                 </constraints>
                             </imageView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Jh-YO-Urg">
+                                <rect key="frame" x="532" y="532" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="48" id="MMF-v3-oEi"/>
+                                    <constraint firstAttribute="width" secondItem="8Jh-YO-Urg" secondAttribute="height" multiplier="1:1" id="p5x-FR-afQ"/>
+                                </constraints>
+                                <state key="normal" title="ClockSelect" image="Clock"/>
+                                <connections>
+                                    <action selector="clockSelectButtonPressed:" destination="bsh-bX-l8L" eventType="touchUpInside" id="elR-DI-pzC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -176,6 +187,7 @@
                             <constraint firstItem="cUh-47-baC" firstAttribute="top" secondItem="hci-Zv-k42" secondAttribute="bottom" constant="-20" id="IKA-Ox-aeQ"/>
                             <constraint firstItem="qSw-Gx-SYh" firstAttribute="top" secondItem="hl1-Gz-eIc" secondAttribute="bottom" constant="150" id="Ly5-Ga-WDi"/>
                             <constraint firstItem="qSw-Gx-SYh" firstAttribute="centerX" secondItem="cUh-47-baC" secondAttribute="centerX" id="PVs-73-u8w"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8Jh-YO-Urg" secondAttribute="trailing" id="YqG-mx-Izv"/>
                             <constraint firstItem="YV4-qH-bnu" firstAttribute="width" secondItem="YV4-qH-bnu" secondAttribute="height" multiplier="10:7" id="aUO-7Y-zpY"/>
                             <constraint firstItem="cUh-47-baC" firstAttribute="leading" secondItem="e55-XK-7nk" secondAttribute="leadingMargin" constant="-20" id="bmN-u2-pBG"/>
                             <constraint firstItem="Fvw-lb-5Tw" firstAttribute="top" secondItem="YV4-qH-bnu" secondAttribute="top" id="ciH-zP-rnf"/>
@@ -183,6 +195,7 @@
                             <constraint firstItem="hl1-Gz-eIc" firstAttribute="top" secondItem="hci-Zv-k42" secondAttribute="bottom" constant="49.5" id="oRU-Ot-47n"/>
                             <constraint firstItem="hl1-Gz-eIc" firstAttribute="centerX" secondItem="cUh-47-baC" secondAttribute="centerX" id="roU-56-mTS"/>
                             <constraint firstItem="Fvw-lb-5Tw" firstAttribute="leading" secondItem="qSw-Gx-SYh" secondAttribute="leading" constant="-5" id="t5e-Nj-GxL"/>
+                            <constraint firstItem="It7-QI-8bW" firstAttribute="top" secondItem="8Jh-YO-Urg" secondAttribute="bottom" constant="20" id="yFJ-qq-bJ3"/>
                             <constraint firstAttribute="leadingMargin" secondItem="iMo-qD-heU" secondAttribute="leading" id="zUn-Te-Thw"/>
                         </constraints>
                         <connections>
@@ -191,6 +204,7 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="clockSelectButton" destination="8Jh-YO-Urg" id="SWj-Du-21r"/>
                         <outlet property="nameLabel" destination="hl1-Gz-eIc" id="pSb-zn-bfZ"/>
                     </connections>
                 </viewController>
@@ -883,8 +897,8 @@
                                 <state key="normal" title="ArrowLeft" image="ArrowLeft"/>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="RMN-rx-r6l"/>
                                         <exclude reference="98q-PC-x5j"/>
+                                        <exclude reference="RMN-rx-r6l"/>
                                     </mask>
                                 </variation>
                                 <connections>
@@ -983,6 +997,7 @@
         <image name="ArrowRight" width="1195" height="976"/>
         <image name="ArrowRightBlack" width="864" height="714"/>
         <image name="BlankSquareRounded" width="200" height="200"/>
+        <image name="Clock" width="512" height="512"/>
         <image name="GlobeSmall" width="30" height="30"/>
         <image name="GreenGradientBackground" width="2592" height="1728"/>
         <image name="PaintSmall" width="30" height="30"/>
