@@ -15,6 +15,7 @@ class DynamicModeSelectViewController: UIViewController, UICollectionViewDelegat
 
     var dynamicModes : [Mode] = [Mode]()
     var selectedMode : Mode!
+    var disconnectPressed = false
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -24,6 +25,18 @@ class DynamicModeSelectViewController: UIViewController, UICollectionViewDelegat
     
     @IBAction func disconnectButtonPressed(sender: AnyObject) {
         bleManager.centralManager.cancelPeripheralConnection(periph)
+        disconnectPressed = true
+        
+        let alert = UIAlertController(title: NSLocalizedString("Device Disconnected", comment: "Device Disconnected"), message:NSLocalizedString("Device was disconnected successfully.", comment: "Device connection was lost.") , preferredStyle: .Alert)
+        
+        let okAction =  UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
+            let welcomeVC = self.storyboard!.instantiateViewControllerWithIdentifier("normal")
+            UIApplication.sharedApplication().keyWindow?.rootViewController = welcomeVC
+        })
+        
+        alert.addAction(okAction)
+        
+        presentViewController(alert, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
@@ -145,11 +158,10 @@ class DynamicModeSelectViewController: UIViewController, UICollectionViewDelegat
     func processBLE(notice:NSNotification) {
         if let userDict = notice.userInfo{
             let resp = userDict["status"] as! Int
-            if (resp == 2) {
+            if (resp == 2 && !disconnectPressed) {
                 let alert = UIAlertController(title: NSLocalizedString("Device Disconnected", comment: "Device Disconnected"), message:NSLocalizedString("Device connection was lost.", comment: "Device connection was lost.") , preferredStyle: .Alert)
                 
                 let okAction =  UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
-                    self.dismissViewControllerAnimated(true, completion: nil)
                     let welcomeVC = self.storyboard!.instantiateViewControllerWithIdentifier("normal")
                     UIApplication.sharedApplication().keyWindow?.rootViewController = welcomeVC
                 })

@@ -287,7 +287,6 @@ class ArtModeViewController: UIViewController {
                 let alert = UIAlertController(title: NSLocalizedString("Device Disconnected", comment: "Device Disconnected"), message:NSLocalizedString("Device connection was lost.", comment: "Device connection was lost.") , preferredStyle: .Alert)
                 
                 let okAction =  UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
-                    self.dismissViewControllerAnimated(true, completion: nil)
                     let welcomeVC = self.storyboard!.instantiateViewControllerWithIdentifier("normal")
                     UIApplication.sharedApplication().keyWindow?.rootViewController = welcomeVC
                 })

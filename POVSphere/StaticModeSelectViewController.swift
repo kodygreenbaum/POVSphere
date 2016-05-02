@@ -17,6 +17,7 @@ class StaticModeSelectViewController: UIViewController, UICollectionViewDelegate
     var staticModes : [Mode] = [Mode]()
     var selectedMode : Mode!
     var selectedIndex : Int!
+    var disconnectPressed = false
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -28,6 +29,18 @@ class StaticModeSelectViewController: UIViewController, UICollectionViewDelegate
     
     @IBAction func disconnectButtonPressed(sender: AnyObject) {
         bleManager.centralManager.cancelPeripheralConnection(periph)
+        disconnectPressed = true
+        
+        let alert = UIAlertController(title: NSLocalizedString("Device Disconnected", comment: "Device Disconnected"), message:NSLocalizedString("Device connection was lost.", comment: "Device connection was lost.") , preferredStyle: .Alert)
+        
+        let okAction =  UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
+            let welcomeVC = self.storyboard!.instantiateViewControllerWithIdentifier("normal")
+            UIApplication.sharedApplication().keyWindow?.rootViewController = welcomeVC
+        })
+        
+        alert.addAction(okAction)
+        
+        presentViewController(alert, animated: true, completion: nil)
     }
     
     @IBAction func handleLongPress(sender: AnyObject) {
@@ -175,11 +188,11 @@ class StaticModeSelectViewController: UIViewController, UICollectionViewDelegate
     func processBLE(notice:NSNotification) {
         if let userDict = notice.userInfo{
             let resp = userDict["status"] as! Int
-            if (resp == 2) {
-                let alert = UIAlertController(title: NSLocalizedString("Device Disconnected", comment: "Device Disconnected"), message:NSLocalizedString("Device connection was lost.", comment: "Device connection was lost.") , preferredStyle: .Alert)
+            if (resp == 2 && !disconnectPressed) {
+                
+                let alert = UIAlertController(title: NSLocalizedString("Device Disconnected", comment: "Device Disconnected"), message:NSLocalizedString("Device was disconnected successfully.", comment: "Device connection was lost.") , preferredStyle: .Alert)
                 
                 let okAction =  UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
-                    self.dismissViewControllerAnimated(true, completion: nil)
                     let welcomeVC = self.storyboard!.instantiateViewControllerWithIdentifier("normal")
                     UIApplication.sharedApplication().keyWindow?.rootViewController = welcomeVC
                 })
