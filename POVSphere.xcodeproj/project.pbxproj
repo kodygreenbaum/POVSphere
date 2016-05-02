@@ -32,6 +32,8 @@
 		4FF96E8F1C8781D900165FCD /* BLEHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF96E8E1C8781D900165FCD /* BLEHandler.swift */; };
 		4FFBDDBF1C90BA0100EADF3B /* StaticModeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFBDDBE1C90BA0100EADF3B /* StaticModeCollectionViewCell.swift */; };
 		4FFBDDC11C90BA0B00EADF3B /* DynamicModeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFBDDC01C90BA0B00EADF3B /* DynamicModeCollectionViewCell.swift */; };
+		661AB4261CD7E7D600BA4394 /* FireworksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661AB4251CD7E7D600BA4394 /* FireworksViewController.swift */; };
+		661AB4271CD7E7D600BA4394 /* FireworksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661AB4251CD7E7D600BA4394 /* FireworksViewController.swift */; };
 		669725CA1CD6A1A70017E717 /* UtilityGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0185901C878D0A008E710E /* UtilityGlobal.swift */; };
 		669725CB1CD6A1AC0017E717 /* ConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF96E801C87801100165FCD /* ConnectViewController.swift */; };
 		669725CC1CD6A3840017E717 /* BLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF96E8C1C8781B600165FCD /* BLEManager.swift */; };
@@ -83,6 +85,7 @@
 		4FF96E8E1C8781D900165FCD /* BLEHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEHandler.swift; sourceTree = "<group>"; };
 		4FFBDDBE1C90BA0100EADF3B /* StaticModeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticModeCollectionViewCell.swift; sourceTree = "<group>"; };
 		4FFBDDC01C90BA0B00EADF3B /* DynamicModeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicModeCollectionViewCell.swift; sourceTree = "<group>"; };
+		661AB4251CD7E7D600BA4394 /* FireworksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireworksViewController.swift; sourceTree = "<group>"; };
 		92199B5ABF526CD396DA82C3 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		EC64D020E9AC02CE674BDB8B /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -239,6 +242,7 @@
 				4FFBDDC31C90BA3B00EADF3B /* DynamicModeSelectViewController */,
 				4FF96E861C8780BE00165FCD /* ArtModeViewController.swift */,
 				4FE58D231CCEAC160000E8D0 /* MessageModeViewController.swift */,
+				661AB4251CD7E7D600BA4394 /* FireworksViewController.swift */,
 			);
 			name = DynamicMode;
 			sourceTree = "<group>";
@@ -456,6 +460,7 @@
 				4FF96E851C87805E00165FCD /* StaticModeRunningViewController.swift in Sources */,
 				4FD586ED1CA9CC90002979B0 /* StaticModeNoIconCollectionViewCell.swift in Sources */,
 				4FF96E8F1C8781D900165FCD /* BLEHandler.swift in Sources */,
+				661AB4261CD7E7D600BA4394 /* FireworksViewController.swift in Sources */,
 				4FF96E811C87801100165FCD /* ConnectViewController.swift in Sources */,
 				4F0185911C878D0A008E710E /* UtilityGlobal.swift in Sources */,
 				4FFBDDC11C90BA0B00EADF3B /* DynamicModeCollectionViewCell.swift in Sources */,
@@ -472,6 +477,7 @@
 				4F8250071C80E22A0090D3F5 /* POVSphereTests.swift in Sources */,
 				4F1BDADC1CD044E200EF554C /* BLEHandler.swift in Sources */,
 				669725CC1CD6A3840017E717 /* BLEManager.swift in Sources */,
+				661AB4271CD7E7D600BA4394 /* FireworksViewController.swift in Sources */,
 				669725CA1CD6A1A70017E717 /* UtilityGlobal.swift in Sources */,
 				669725CB1CD6A1AC0017E717 /* ConnectViewController.swift in Sources */,
 				4FD694AB1CD1B6FE0091EF35 /* ArtModeViewController.swift in Sources */,

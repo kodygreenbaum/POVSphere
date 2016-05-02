@@ -20,6 +20,7 @@ var textTwoChar: CBCharacteristic!
 var textThreeChar: CBCharacteristic!
 var textFourChar: CBCharacteristic!
 var clearGlobeChar: CBCharacteristic!
+var fireWorkWriteChar: CBCharacteristic!
 
 
 class BLEHandler: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
@@ -127,6 +128,9 @@ class BLEHandler: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
                 case "00000000-0000-1000-8000-00805F9B34F8":
                     clearGlobeChar = characteristic
                     print("Found ClearGlobe Characteristic")
+                case "00000000-0000-1000-8000-00805F9B34F9":
+                    fireWorkWriteChar = characteristic
+                    print("Found FireWorkWrite Characteristic")
                 default:
                     print("Characteristic not found")
                     
