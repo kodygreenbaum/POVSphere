@@ -26,6 +26,8 @@
             <string>CooperHewitt-Light</string>
             <string>CooperHewitt-Light</string>
             <string>CooperHewitt-Light</string>
+            <string>CooperHewitt-Light</string>
+            <string>CooperHewitt-Light</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -177,25 +179,88 @@
                                     <action selector="clockSelectButtonPressed:" destination="bsh-bX-l8L" eventType="touchUpInside" id="elR-DI-pzC"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bNy-l0-lei">
+                                <rect key="frame" x="556" y="301" width="24" height="24"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="qeC-RU-r6o"/>
+                                    <constraint firstAttribute="height" constant="24" id="rew-tW-1rG"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dd0-KZ-oJO">
+                                <rect key="frame" x="558" y="136" width="20" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="axC-LC-3u3"/>
+                                    <constraint firstAttribute="width" constant="20" id="gTd-WR-5mQ"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ohR-EH-LnD">
+                                <rect key="frame" x="204" y="117" width="67" height="27"/>
+                                <fontDescription key="fontDescription" name="CooperHewitt-Light" family="Cooper Hewitt" pointSize="15"/>
+                                <state key="normal" title="Land Color">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="leftColorButtonPressed:" destination="bsh-bX-l8L" eventType="touchUpInside" id="9MD-Q9-gju"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sg8-yv-Obc">
+                                <rect key="frame" x="225" y="143" width="24" height="24"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="O6R-aX-w79"/>
+                                    <constraint firstAttribute="width" constant="24" id="RtQ-ue-3a1"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRy-ot-Geo">
+                                <rect key="frame" x="326" y="117" width="75" height="27"/>
+                                <fontDescription key="fontDescription" name="CooperHewitt-Light" family="Cooper Hewitt" pointSize="15"/>
+                                <state key="normal" title="Water Color">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="rightColorButtonPressed:" destination="bsh-bX-l8L" eventType="touchUpInside" id="YlB-BR-2b9"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Io2-Fy-FbX">
+                                <rect key="frame" x="352" y="143" width="24" height="24"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="m7P-lZ-O4K"/>
+                                    <constraint firstAttribute="width" constant="24" id="v1Q-MR-1oq"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="ohR-EH-LnD" firstAttribute="centerX" secondItem="Fvw-lb-5Tw" secondAttribute="centerX" id="1O6-Ww-63L"/>
+                            <constraint firstItem="Dd0-KZ-oJO" firstAttribute="centerX" secondItem="bNy-l0-lei" secondAttribute="centerX" id="2iH-Kl-Wom"/>
                             <constraint firstItem="YV4-qH-bnu" firstAttribute="trailing" secondItem="qSw-Gx-SYh" secondAttribute="trailing" constant="5" id="5uM-hU-rWR"/>
+                            <constraint firstItem="ohR-EH-LnD" firstAttribute="top" secondItem="hl1-Gz-eIc" secondAttribute="bottom" constant="3" id="71Z-XN-UsK"/>
                             <constraint firstItem="It7-QI-8bW" firstAttribute="top" secondItem="cUh-47-baC" secondAttribute="bottom" id="85q-qh-XW0"/>
                             <constraint firstItem="iMo-qD-heU" firstAttribute="top" secondItem="hci-Zv-k42" secondAttribute="bottom" constant="2" id="CWc-vF-a5w"/>
+                            <constraint firstItem="hRy-ot-Geo" firstAttribute="top" secondItem="hl1-Gz-eIc" secondAttribute="bottom" constant="3" id="EIk-Vl-euj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cUh-47-baC" secondAttribute="trailing" constant="-20" id="G9j-S7-7Ol"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bNy-l0-lei" secondAttribute="trailing" id="GIf-Kd-1g8"/>
                             <constraint firstItem="cUh-47-baC" firstAttribute="top" secondItem="hci-Zv-k42" secondAttribute="bottom" constant="-20" id="IKA-Ox-aeQ"/>
+                            <constraint firstItem="hRy-ot-Geo" firstAttribute="centerX" secondItem="YV4-qH-bnu" secondAttribute="centerX" id="Oid-je-G5y"/>
                             <constraint firstItem="qSw-Gx-SYh" firstAttribute="centerX" secondItem="cUh-47-baC" secondAttribute="centerX" id="PVs-73-u8w"/>
+                            <constraint firstItem="Dd0-KZ-oJO" firstAttribute="top" secondItem="hl1-Gz-eIc" secondAttribute="bottom" constant="22" id="PgM-At-GYk"/>
+                            <constraint firstItem="Io2-Fy-FbX" firstAttribute="top" secondItem="hRy-ot-Geo" secondAttribute="bottom" constant="-1" id="QB2-9F-vzE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8Jh-YO-Urg" secondAttribute="trailing" id="YqG-mx-Izv"/>
                             <constraint firstItem="YV4-qH-bnu" firstAttribute="width" secondItem="YV4-qH-bnu" secondAttribute="height" multiplier="10:7" id="aUO-7Y-zpY"/>
                             <constraint firstItem="cUh-47-baC" firstAttribute="leading" secondItem="e55-XK-7nk" secondAttribute="leadingMargin" constant="-20" id="bmN-u2-pBG"/>
                             <constraint firstItem="Fvw-lb-5Tw" firstAttribute="top" secondItem="YV4-qH-bnu" secondAttribute="top" id="ciH-zP-rnf"/>
+                            <constraint firstItem="Sg8-yv-Obc" firstAttribute="top" secondItem="ohR-EH-LnD" secondAttribute="bottom" constant="-1" id="d1u-1z-BYQ"/>
                             <constraint firstItem="Fvw-lb-5Tw" firstAttribute="top" secondItem="qSw-Gx-SYh" secondAttribute="bottom" constant="22" id="jj3-s8-Tp1"/>
                             <constraint firstItem="It7-QI-8bW" firstAttribute="top" secondItem="Fvw-lb-5Tw" secondAttribute="bottom" constant="83" id="mGx-f1-CsO"/>
+                            <constraint firstItem="bNy-l0-lei" firstAttribute="top" secondItem="Dd0-KZ-oJO" secondAttribute="bottom" constant="15" id="mrD-en-r9U"/>
                             <constraint firstItem="hl1-Gz-eIc" firstAttribute="top" secondItem="hci-Zv-k42" secondAttribute="bottom" constant="49.5" id="oRU-Ot-47n"/>
+                            <constraint firstItem="Sg8-yv-Obc" firstAttribute="centerX" secondItem="ohR-EH-LnD" secondAttribute="centerX" id="pjy-0C-RfM"/>
                             <constraint firstItem="hl1-Gz-eIc" firstAttribute="centerX" secondItem="cUh-47-baC" secondAttribute="centerX" id="roU-56-mTS"/>
                             <constraint firstItem="Fvw-lb-5Tw" firstAttribute="leading" secondItem="qSw-Gx-SYh" secondAttribute="leading" constant="-5" id="t5e-Nj-GxL"/>
                             <constraint firstItem="It7-QI-8bW" firstAttribute="top" secondItem="8Jh-YO-Urg" secondAttribute="bottom" constant="20" id="yFJ-qq-bJ3"/>
+                            <constraint firstItem="Io2-Fy-FbX" firstAttribute="centerX" secondItem="hRy-ot-Geo" secondAttribute="centerX" id="z6F-m4-x5R"/>
                             <constraint firstAttribute="leadingMargin" secondItem="iMo-qD-heU" secondAttribute="leading" id="zUn-Te-Thw"/>
                         </constraints>
                         <connections>
@@ -205,7 +270,13 @@
                     </view>
                     <connections>
                         <outlet property="clockSelectButton" destination="8Jh-YO-Urg" id="SWj-Du-21r"/>
+                        <outlet property="colorButtonLeft" destination="ohR-EH-LnD" id="0O0-5p-c1j"/>
+                        <outlet property="colorButtonRight" destination="hRy-ot-Geo" id="yYT-9l-cZo"/>
+                        <outlet property="colorPreviewLeft" destination="Sg8-yv-Obc" id="1aX-Y1-VoZ"/>
+                        <outlet property="colorPreviewRight" destination="Io2-Fy-FbX" id="8Bd-Qr-r4i"/>
                         <outlet property="nameLabel" destination="hl1-Gz-eIc" id="pSb-zn-bfZ"/>
+                        <outlet property="selectedColorView" destination="bNy-l0-lei" id="BTR-aF-SC1"/>
+                        <outlet property="sliderContainerView" destination="Dd0-KZ-oJO" id="J2L-th-9hN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q0d-Y0-KRX" userLabel="First Responder" sceneMemberID="firstResponder"/>

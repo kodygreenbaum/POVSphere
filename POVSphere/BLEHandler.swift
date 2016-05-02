@@ -22,6 +22,7 @@ var textFourChar: CBCharacteristic!
 var clearGlobeChar: CBCharacteristic!
 var fireWorkWriteChar: CBCharacteristic!
 var timeChar: CBCharacteristic!
+var colorChar: CBCharacteristic!
 
 
 class BLEHandler: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
@@ -135,6 +136,9 @@ class BLEHandler: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
                 case "00000000-0000-1000-8000-00805F9B34FA":
                     timeChar = characteristic
                     print("Found Time Characteristic")
+                case "00000000-0000-1000-8000-00805F9B34F3":
+                    colorChar = characteristic
+                    print("Found Color Characteristic")
                 default:
                     print("Characteristic not found")
                     

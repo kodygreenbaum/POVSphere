@@ -7,11 +7,18 @@
 //
 
 import UIKit
+import ColorSlider
 import CoreBluetooth
 
 class StaticModeRunningViewController: UIViewController {
 
     var mode : Mode!
+    let colorSlider = ColorSlider()
+    var hue: CGFloat = 1.0
+    var red: CGFloat = 1.0
+    var green: CGFloat = 0.0
+    var blue: CGFloat = 0.0
+    
     private var _index : Int = 0
     private var _rotation : Int8 = 0
     private var isAnalog = true
@@ -23,6 +30,34 @@ class StaticModeRunningViewController: UIViewController {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var clockSelectButton: UIButton!
+    @IBOutlet weak var selectedColorView: UIView!
+    @IBOutlet weak var sliderContainerView: UIView!
+    @IBOutlet weak var colorButtonLeft: UIButton!
+    @IBOutlet weak var colorButtonRight: UIButton!
+    @IBOutlet weak var colorPreviewLeft: UIView!
+    @IBOutlet weak var colorPreviewRight: UIView!
+    
+    @IBAction func leftColorButtonPressed(sender: AnyObject) {
+        colorPreviewLeft.backgroundColor = colorSlider.color
+        let colorWrite : [UInt8] = [0, colorSlider.colorMapped]
+        if let data: NSData? = NSData(bytes: colorWrite, length: 2 ) {
+            if(colorChar != nil) {
+                periph.writeValue(data!, forCharacteristic: colorChar, type: CBCharacteristicWriteType.WithResponse)
+            }
+        }
+    }
+
+    @IBAction func rightColorButtonPressed(sender: AnyObject) {
+        colorPreviewRight.backgroundColor = colorSlider.color
+        let colorWrite : [UInt8] = [1, colorSlider.colorMapped]
+        if let data: NSData? = NSData(bytes: colorWrite, length: 2 ){
+            if(colorChar != nil) {
+                periph.writeValue(data!, forCharacteristic: colorChar, type: CBCharacteristicWriteType.WithResponse)
+            }
+        }
+    }
+    
+    
     
     @IBAction func finishButtonPressed(sender: AnyObject) {
     
@@ -81,15 +116,64 @@ class StaticModeRunningViewController: UIViewController {
         self.nameLabel.text = self.mode
         .name
         
+        // Clock Select Button
         if(self.mode.name != "Clock"){
             clockSelectButton.hidden = true
         } else {
             clockSelectButton.hidden = false
         }
         
+        // Color Buttons/Preview Views
+        if(self.mode.name == "Globe"){
+            self.colorButtonLeft.hidden = false
+            self.colorPreviewLeft.hidden = false
+            self.colorButtonRight.hidden = false
+            self.colorPreviewLeft.hidden = false
+            self.colorButtonLeft.setTitle("Water Color", forState: UIControlState.Normal)
+            self.colorPreviewLeft.backgroundColor = UIColor.blueColor()
+            self.colorButtonRight.setTitle("Land Color", forState: UIControlState.Normal)
+            self.colorPreviewRight.backgroundColor = UIColor.greenColor()
+        } else if(self.mode.name == "Wisco") {
+            self.colorButtonLeft.hidden = false
+            self.colorPreviewLeft.hidden = false
+            self.colorButtonRight.hidden = false
+            self.colorPreviewLeft.hidden = false
+            self.colorButtonLeft.setTitle("Background", forState: UIControlState.Normal)
+            self.colorPreviewLeft.backgroundColor = UIColor.blackColor()
+            self.colorButtonRight.setTitle("W Color", forState: UIControlState.Normal)
+            self.colorPreviewLeft.backgroundColor = UIColor.redColor()
+        } else {
+            self.colorButtonLeft.hidden = true
+            self.colorPreviewLeft.hidden = true
+            self.colorButtonRight.hidden = true
+            self.colorPreviewLeft.hidden = true
+        }
+        
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(StaticModeRunningViewController.processBLE(_:)), name: "processBLE", object: nil)
+        
+        //ColorSlider
+        colorSlider.frame = CGRectMake(0, 0, 20, 150)
+        sliderContainerView.addSubview(colorSlider)
+        colorSlider.previewEnabled = true
+        colorSlider.addTarget(self, action: #selector(StaticModeRunningViewController.changedColor(_:)), forControlEvents: .ValueChanged)
+        selectedColorView.backgroundColor = colorSlider.color
+        self.selectedColorView.layer.borderWidth = 1
+        
     }
     
+    
+    
+    // MARK: - Color Slider Functions
+    func changedColor(slider: ColorSlider) {
+        if let myCIColor = slider.color.coreImageColor {
+            red = myCIColor.red
+            green = myCIColor.green
+            blue = myCIColor.blue
+            selectedColorView.backgroundColor = slider.color
+        }
+        
+    }
 
     func processBLE(notice:NSNotification) {
         if let userDict = notice.userInfo{
