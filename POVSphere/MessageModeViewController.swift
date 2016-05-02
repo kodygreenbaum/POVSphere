@@ -21,6 +21,8 @@ class MessageModeViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MessageModeViewController.processBLE(_:)), name: "processBLE", object: nil)
+        
         firstTextField.delegate = self
         secondTextField.delegate = self
         thirdTextField.delegate = self
@@ -119,14 +121,23 @@ class MessageModeViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    func processBLE(notice:NSNotification) {
+        if let userDict = notice.userInfo{
+            let resp = userDict["status"] as! Int
+            if (resp == 2) {
+                let alert = UIAlertController(title: NSLocalizedString("Device Disconnected", comment: "Device Disconnected"), message:NSLocalizedString("Device connection was lost.", comment: "Device connection was lost.") , preferredStyle: .Alert)
+                
+                let okAction =  UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                    let welcomeVC = self.storyboard!.instantiateViewControllerWithIdentifier("normal")
+                    UIApplication.sharedApplication().keyWindow?.rootViewController = welcomeVC
+                })
+                
+                alert.addAction(okAction)
+                
+                presentViewController(alert, animated: true, completion: nil)
+            }
+        }
+    }
     
 }
