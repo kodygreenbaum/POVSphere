@@ -19,6 +19,8 @@ class FireworksViewController: UIViewController {
     var brushWidth: CGFloat = 12.0
     var opacity: CGFloat = 1.0
     
+    var fireworkCount = 0
+    
     @IBOutlet var containerView: UIView!
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var tempImageView: UIImageView!
@@ -83,41 +85,48 @@ class FireworksViewController: UIViewController {
     // MARK: Methods For Drawing
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
-        // For Drawing
-        if let touch = touches.first {
-            //Make tap falls within canvas
-            let point = touch.locationInView(self.view)
-            if(CGRectContainsPoint(self.mainImageView.bounds, point)) {
-                drawLineFrom(touch.locationInView(self.view), toPoint: touch.locationInView(self.view), erase: false)
-                
-                let curX = UInt8(Int(floor(point.x / xratio)))
-                let curY = UInt8(Int(floor(point.y / yratio)))
-                
-                
-                // Construct array of points
-                var currentWrite = [UInt8]()
-                
-                currentWrite.append(curX)
-                currentWrite.append(curY)
-                
-                
-                if let data: NSData? = NSData(bytes: currentWrite, length: 2) {
-                    if(fireWorkWriteChar != nil) {
-                        periph.writeValue(data!, forCharacteristic: fireWorkWriteChar, type: CBCharacteristicWriteType.WithResponse)
+        if(fireworkCount <= 3) {
+            // For Drawing
+            if let touch = touches.first {
+                //Make tap falls within canvas
+                let point = touch.locationInView(self.view)
+                if(CGRectContainsPoint(self.mainImageView.bounds, point)) {
+                    drawLineFrom(touch.locationInView(self.view), toPoint: touch.locationInView(self.view), erase: false)
+                    
+                    let curX = UInt8(Int(floor(point.x / xratio)))
+                    let curY = UInt8(Int(floor(point.y / yratio)))
+                    
+                    
+                    // Construct array of points
+                    var currentWrite = [UInt8]()
+                    
+                    currentWrite.append(curX)
+                    currentWrite.append(curY)
+                    
+                    
+                    if let data: NSData? = NSData(bytes: currentWrite, length: 2) {
+                        if(fireWorkWriteChar != nil) {
+                            self.fireworkCount += 1
+                            periph.writeValue(data!, forCharacteristic: fireWorkWriteChar, type: CBCharacteristicWriteType.WithResponse)
+                        }
                     }
+                    
+                    
+                    delay(1.6, closure:
+                    {
+                        self.drawLineFrom(point, toPoint: point, erase: true)
+                        self.fireworkCount -= 1
+                    })
+                    // Merge tempImageView into mainImageView
+                    UIGraphicsBeginImageContext(mainImageView.frame.size)
+                    mainImageView.image?.drawInRect(CGRect(x: 0, y: 0, width: mainImageView.frame.size.width, height: mainImageView.frame.size.height), blendMode: CGBlendMode.Normal, alpha: 1.0)
+                    tempImageView.image?.drawInRect(CGRect(x: 0, y: 0, width: mainImageView.frame.size.width, height: mainImageView.frame.size.height), blendMode: CGBlendMode.Normal, alpha: opacity)
+                    mainImageView.image = UIGraphicsGetImageFromCurrentImageContext()
+                    UIGraphicsEndImageContext()
+                    
+                    tempImageView.image = nil
+                    
                 }
-                
-                
-                delay(1.0, closure: {self.drawLineFrom(point, toPoint: point, erase: true)})
-                // Merge tempImageView into mainImageView
-                UIGraphicsBeginImageContext(mainImageView.frame.size)
-                mainImageView.image?.drawInRect(CGRect(x: 0, y: 0, width: mainImageView.frame.size.width, height: mainImageView.frame.size.height), blendMode: CGBlendMode.Normal, alpha: 1.0)
-                tempImageView.image?.drawInRect(CGRect(x: 0, y: 0, width: mainImageView.frame.size.width, height: mainImageView.frame.size.height), blendMode: CGBlendMode.Normal, alpha: opacity)
-                mainImageView.image = UIGraphicsGetImageFromCurrentImageContext()
-                UIGraphicsEndImageContext()
-                
-                tempImageView.image = nil
-                
             }
         }
     }

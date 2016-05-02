@@ -213,6 +213,22 @@ class StaticModeSelectViewController: UIViewController, UICollectionViewDelegate
             let destination : StaticModeRunningViewController = segue.destinationViewController as! StaticModeRunningViewController
                 destination.mode = self.selectedMode
                 destination.index = self.selectedIndex
+            if(self.selectedMode.name == "Clock") {
+                
+                let date = NSDate()
+                let calendar = NSCalendar.currentCalendar()
+                let components = calendar.components([ .Hour, .Minute, .Second], fromDate: date)
+                let hour = UInt8(components.hour)
+                let minutes = UInt8(components.minute)
+                let seconds = UInt8(components.second)
+                let timeArr : [UInt8] = [hour, minutes, seconds]
+                
+                if let data: NSData? = NSData(bytes: timeArr, length: 3) {
+                    if(timeChar != nil) {
+                        periph.writeValue(data!, forCharacteristic: timeChar, type: CBCharacteristicWriteType.WithResponse)
+                    }
+                }
+            }
             // Write to Globe to start mode
             if let data: NSData? = NSData(bytes: &self.selectedMode.modeByte, length: 1) {
                 if(modeChar != nil) {
