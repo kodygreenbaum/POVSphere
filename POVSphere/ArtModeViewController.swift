@@ -211,124 +211,26 @@ class ArtModeViewController: UIViewController {
         
         if ((curX != lastX) || (curY != lastY)) {
             
-            let xDiff : Int = Int(curX) - Int(lastX)
-            let yDiff : Int = Int(curY) - Int(lastY)
-            
-            var conX : UInt8 = lastX
-            var conY : UInt8 = lastY
-            
-            if(xDiff == 0) {
-                if(yDiff > 0) {
-                    while(conX != curX && conY != curY) {
-                        conY += 1
-                        self.buffer[self.buffEnd] = [conX, conY, self.colorSlider.colorMapped]
-                        
-                        if (self.buffEnd == 9899) {
-                            self.buffEnd = 0
-                        } else {
-                            self.buffEnd += 1
-                        }
-                        
-                        self.valuesInBuffer += 1
-                    }
+            if(fromPoint == toPoint) {
+                self.buffer[self.buffEnd] = [curX, curY, self.colorSlider.colorMapped]
+                if (self.buffEnd == 9899) {
+                    self.buffEnd = 0
                 } else {
-                    while(conX != curX && conY != curY){
-                        conY -= 1
-                        self.buffer[self.buffEnd] = [conX, conY, self.colorSlider.colorMapped]
-                        
-                        if (self.buffEnd == 9899) {
-                            self.buffEnd = 0
-                        } else {
-                            self.buffEnd += 1
-                        }
-                        
-                        self.valuesInBuffer += 1
-                    }
+                    self.buffEnd += 1
                 }
-            } else if(yDiff == 0) {
-                if(xDiff > 0) {
-                    while(conX != curX && conY != curY){
-                        conX += 1
-                        self.buffer[self.buffEnd] = [conX, conY, self.colorSlider.colorMapped]
-                        
-                        if (self.buffEnd == 9899) {
-                            self.buffEnd = 0
-                        } else {
-                            self.buffEnd += 1
-                        }
-                        
-                        self.valuesInBuffer += 1
-                    }
-                } else {
-                    while(conX != curX && conY != curY){
-                        conX -= 1
-                        self.buffer[self.buffEnd] = [conX, conY, self.colorSlider.colorMapped]
-                        
-                        if (self.buffEnd == 9899) {
-                            self.buffEnd = 0
-                        } else {
-                            self.buffEnd += 1
-                        }
-                        
-                        self.valuesInBuffer += 1
-                    }
-                }
+                
+                self.valuesInBuffer += 1
             } else {
-                let xBigger = (abs(xDiff) >= abs(yDiff))
+                let xDiff : Int = Int(curX) - Int(lastX)
+                let yDiff : Int = Int(curY) - Int(lastY)
                 
-                var ratio = 0
-                if(xBigger) {
-                    ratio = (xDiff/yDiff) + 1
-                } else {
-                    ratio = (yDiff/xDiff) + 1
-                }
+                var conX : UInt8 = lastX
+                var conY : UInt8 = lastY
                 
-                if(yDiff > 0 && xDiff > 0) {
-                    if(xBigger) {
-                        while(conX != curX && conY != curY) { //May need to be <=
-                            conX += 1
-                            if (abs((Int(curX) - Int(conX))/(Int(curY) - Int(conY)) + 1) != ratio) {
-                                conY += 1
-                            }
-                            
-                            self.buffer[self.buffEnd] = [conX, conY, self.colorSlider.colorMapped]
-                            
-                            if (self.buffEnd == 9899) {
-                                self.buffEnd = 0
-                            } else {
-                                self.buffEnd += 1
-                            }
-                            
-                            self.valuesInBuffer += 1
-                        }
-                    } else {
-                        while(conX != curX && conY != curY) { //May need to be <=
+                if(xDiff == 0) {
+                    if(yDiff > 0) {
+                        while(conX != curX && conY != curY) {
                             conY += 1
-                            if (abs((Int(curY) - Int(conY))/(Int(curX) - Int(conX)) + 1) != ratio) {
-                                conX += 1
-                            }
-                            
-                            self.buffer[self.buffEnd] = [conX, conY, self.colorSlider.colorMapped]
-                            
-                            if (self.buffEnd == 9899) {
-                                self.buffEnd = 0
-                            } else {
-                                self.buffEnd += 1
-                            }
-                            
-                            self.valuesInBuffer += 1
-                        }
-                    }
-                    
-                } else if(yDiff < 0 && xDiff > 0) {
-                    
-                    if(xBigger) {
-                        while(conX != curX && conY != curY) { //May need to be <=
-                            conX += 1
-                            if (abs((Int(curX) - Int(conX))/(Int(curY) - Int(conY)) + 1) != ratio) {
-                                conY -= 1
-                            }
-                            
                             self.buffer[self.buffEnd] = [conX, conY, self.colorSlider.colorMapped]
                             
                             if (self.buffEnd == 9899) {
@@ -340,48 +242,8 @@ class ArtModeViewController: UIViewController {
                             self.valuesInBuffer += 1
                         }
                     } else {
-                        while(conX != curX && conY != curY) { //May need to be <=
+                        while(conX != curX && conY != curY){
                             conY -= 1
-                            if (abs((Int(curY) - Int(conY))/(Int(curX) - Int(conX)) + 1) != ratio) {
-                                conX += 1
-                            }
-                            
-                            self.buffer[self.buffEnd] = [conX, conY, self.colorSlider.colorMapped]
-                            
-                            if (self.buffEnd == 9899) {
-                                self.buffEnd = 0
-                            } else {
-                                self.buffEnd += 1
-                            }
-                            
-                            self.valuesInBuffer += 1
-                        }                }
-                } else if(yDiff > 0 && xDiff < 0) {
-                    
-                    if(xBigger) {
-                        while(conX != curX && conY != curY) { //May need to be <=
-                            conX -= 1
-                            if (abs((Int(curX) - Int(conX))/(Int(curY) - Int(conY)) + 1) != ratio) {
-                                conY += 1
-                            }
-                            
-                            self.buffer[self.buffEnd] = [conX, conY, self.colorSlider.colorMapped]
-                            
-                            if (self.buffEnd == 9899) {
-                                self.buffEnd = 0
-                            } else {
-                                self.buffEnd += 1
-                            }
-                            
-                            self.valuesInBuffer += 1
-                        }
-                    } else {
-                        while(conX != curX && conY != curY) { //May need to be <=
-                            conY += 1
-                            if (abs((Int(curY) - Int(conY))/(Int(curX) - Int(conX)) + 1) != ratio) {
-                                conX -= 1
-                            }
-                            
                             self.buffer[self.buffEnd] = [conX, conY, self.colorSlider.colorMapped]
                             
                             if (self.buffEnd == 9899) {
@@ -393,14 +255,10 @@ class ArtModeViewController: UIViewController {
                             self.valuesInBuffer += 1
                         }
                     }
-                } else{
-                    if(xBigger) {
-                        while(conX != curX && conY != curY) { //May need to be <=
-                            conX -= 1
-                            if (abs((Int(curX) - Int(conX))/(Int(curY) - Int(conY)) + 1) != ratio) {
-                                conY -= 1
-                            }
-                            
+                } else if(yDiff == 0) {
+                    if(xDiff > 0) {
+                        while(conX != curX && conY != curY){
+                            conX += 1
                             self.buffer[self.buffEnd] = [conX, conY, self.colorSlider.colorMapped]
                             
                             if (self.buffEnd == 9899) {
@@ -412,12 +270,8 @@ class ArtModeViewController: UIViewController {
                             self.valuesInBuffer += 1
                         }
                     } else {
-                        while(conX != curX && conY != curY) { //May need to be <=
-                            conY += 1
-                            if (abs((Int(curY) - Int(conY))/(Int(curX) - Int(conX)) + 1) != ratio) {
-                                conX -= 1
-                            }
-                            
+                        while(conX != curX && conY != curY){
+                            conX -= 1
                             self.buffer[self.buffEnd] = [conX, conY, self.colorSlider.colorMapped]
                             
                             if (self.buffEnd == 9899) {
@@ -427,15 +281,167 @@ class ArtModeViewController: UIViewController {
                             }
                             
                             self.valuesInBuffer += 1
+                        }
+                    }
+                } else {
+                    let xBigger = (abs(xDiff) >= abs(yDiff))
+                    
+                    var ratio = 0
+                    if(xBigger) {
+                        ratio = (xDiff/yDiff) + 1
+                    } else {
+                        ratio = (yDiff/xDiff) + 1
+                    }
+                    
+                    if(yDiff > 0 && xDiff > 0) {
+                        if(xBigger) {
+                            while(conX != curX && conY != curY) { //May need to be <=
+                                conX += 1
+                                if (abs((Int(curX) - Int(conX))/(Int(curY) - Int(conY)) + 1) != ratio) {
+                                    conY += 1
+                                }
+                                
+                                self.buffer[self.buffEnd] = [conX, conY, self.colorSlider.colorMapped]
+                                
+                                if (self.buffEnd == 9899) {
+                                    self.buffEnd = 0
+                                } else {
+                                    self.buffEnd += 1
+                                }
+                                
+                                self.valuesInBuffer += 1
+                            }
+                        } else {
+                            while(conX != curX && conY != curY) { //May need to be <=
+                                conY += 1
+                                if (abs((Int(curY) - Int(conY))/(Int(curX) - Int(conX)) + 1) != ratio) {
+                                    conX += 1
+                                }
+                                
+                                self.buffer[self.buffEnd] = [conX, conY, self.colorSlider.colorMapped]
+                                
+                                if (self.buffEnd == 9899) {
+                                    self.buffEnd = 0
+                                } else {
+                                    self.buffEnd += 1
+                                }
+                                
+                                self.valuesInBuffer += 1
+                            }
+                        }
+                        
+                    } else if(yDiff < 0 && xDiff > 0) {
+                        
+                        if(xBigger) {
+                            while(conX != curX && conY != curY) { //May need to be <=
+                                conX += 1
+                                if (abs((Int(curX) - Int(conX))/(Int(curY) - Int(conY)) + 1) != ratio) {
+                                    conY -= 1
+                                }
+                                
+                                self.buffer[self.buffEnd] = [conX, conY, self.colorSlider.colorMapped]
+                                
+                                if (self.buffEnd == 9899) {
+                                    self.buffEnd = 0
+                                } else {
+                                    self.buffEnd += 1
+                                }
+                                
+                                self.valuesInBuffer += 1
+                            }
+                        } else {
+                            while(conX != curX && conY != curY) { //May need to be <=
+                                conY -= 1
+                                if (abs((Int(curY) - Int(conY))/(Int(curX) - Int(conX)) + 1) != ratio) {
+                                    conX += 1
+                                }
+                                
+                                self.buffer[self.buffEnd] = [conX, conY, self.colorSlider.colorMapped]
+                                
+                                if (self.buffEnd == 9899) {
+                                    self.buffEnd = 0
+                                } else {
+                                    self.buffEnd += 1
+                                }
+                                
+                                self.valuesInBuffer += 1
+                            }                }
+                    } else if(yDiff > 0 && xDiff < 0) {
+                        
+                        if(xBigger) {
+                            while(conX != curX && conY != curY) { //May need to be <=
+                                conX -= 1
+                                if (abs((Int(curX) - Int(conX))/(Int(curY) - Int(conY)) + 1) != ratio) {
+                                    conY += 1
+                                }
+                                
+                                self.buffer[self.buffEnd] = [conX, conY, self.colorSlider.colorMapped]
+                                
+                                if (self.buffEnd == 9899) {
+                                    self.buffEnd = 0
+                                } else {
+                                    self.buffEnd += 1
+                                }
+                                
+                                self.valuesInBuffer += 1
+                            }
+                        } else {
+                            while(conX != curX && conY != curY) { //May need to be <=
+                                conY += 1
+                                if (abs((Int(curY) - Int(conY))/(Int(curX) - Int(conX)) + 1) != ratio) {
+                                    conX -= 1
+                                }
+                                
+                                self.buffer[self.buffEnd] = [conX, conY, self.colorSlider.colorMapped]
+                                
+                                if (self.buffEnd == 9899) {
+                                    self.buffEnd = 0
+                                } else {
+                                    self.buffEnd += 1
+                                }
+                                
+                                self.valuesInBuffer += 1
+                            }
+                        }
+                    } else{
+                        if(xBigger) {
+                            while(conX != curX && conY != curY) { //May need to be <=
+                                conX -= 1
+                                if (abs((Int(curX) - Int(conX))/(Int(curY) - Int(conY)) + 1) != ratio) {
+                                    conY -= 1
+                                }
+                                
+                                self.buffer[self.buffEnd] = [conX, conY, self.colorSlider.colorMapped]
+                                
+                                if (self.buffEnd == 9899) {
+                                    self.buffEnd = 0
+                                } else {
+                                    self.buffEnd += 1
+                                }
+                                
+                                self.valuesInBuffer += 1
+                            }
+                        } else {
+                            while(conX != curX && conY != curY) { //May need to be <=
+                                conY += 1
+                                if (abs((Int(curY) - Int(conY))/(Int(curX) - Int(conX)) + 1) != ratio) {
+                                    conX -= 1
+                                }
+                                
+                                self.buffer[self.buffEnd] = [conX, conY, self.colorSlider.colorMapped]
+                                
+                                if (self.buffEnd == 9899) {
+                                    self.buffEnd = 0
+                                } else {
+                                    self.buffEnd += 1
+                                }
+                                
+                                self.valuesInBuffer += 1
+                            }
                         }
                     }
                 }
             }
-            
-            
-            
-            
-            
             
             
             // Write To Buffer
