@@ -22,6 +22,10 @@ class DynamicModeSelectViewController: UIViewController, UICollectionViewDelegat
         self.tabBarController!.selectedIndex = 0
     }
     
+    @IBAction func disconnectButtonPressed(sender: AnyObject) {
+        bleManager.centralManager.cancelPeripheralConnection(periph)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.backgroundColor = UIColor.clearColor()

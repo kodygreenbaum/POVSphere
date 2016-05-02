@@ -167,8 +167,8 @@ class StaticModeSelectViewController: UIViewController, UICollectionViewDelegate
         // remember to set one of the modes as the default
         staticModes.append(Mode(name: "Globe", modeByte: 2))
         staticModes.append(Mode(name: "Wisco", modeByte: 4))
-        staticModes.append(Mode(name: "Weather", modeByte: 5))
-        staticModes.append(Mode(name: "Clock", modeByte: 6))
+        staticModes.append(Mode(name: "Fireworks", modeByte: 6))
+        staticModes.append(Mode(name: "Clock", modeByte: 5))
     }
     
     

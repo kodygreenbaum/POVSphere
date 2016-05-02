@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "WisconsinBlack-4.png",
+      "filename" : "Fireworks.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "WisconsinBlack-3.png",
+      "filename" : "Fireworks-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "WisconsinBlack-2.png",
+      "filename" : "Fireworks-2.png",
       "scale" : "3x"
     }
   ],
