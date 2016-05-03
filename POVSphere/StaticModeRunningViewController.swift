@@ -14,7 +14,6 @@ class StaticModeRunningViewController: UIViewController {
 
     var mode : Mode!
     let colorSlider = ColorSlider()
-    var hue: CGFloat = 1.0
     var red: CGFloat = 1.0
     var green: CGFloat = 0.0
     var blue: CGFloat = 0.0
@@ -126,6 +125,10 @@ class StaticModeRunningViewController: UIViewController {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(StaticModeRunningViewController.processBLE(_:)), name: "processBLE", object: nil)
         
+        // Force Portrait
+        let value = UIInterfaceOrientation.Portrait.rawValue
+        UIDevice.currentDevice().setValue(value, forKey: "orientation")
+        
         //ColorSlider
         colorSlider.frame = CGRectMake(0, 0, 20, 150)
         sliderContainerView.addSubview(colorSlider)
@@ -160,11 +163,22 @@ class StaticModeRunningViewController: UIViewController {
             self.colorButtonLeft.hidden = true
             self.colorPreviewLeft.hidden = true
             self.colorButtonRight.hidden = true
-            self.colorPreviewLeft.hidden = true
+            self.colorPreviewRight.hidden = true
+            self.sliderContainerView.hidden = true
+            self.selectedColorView.hidden = true
         }
 
     }
     
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
+    }
+    
+    // Rotate to Portrait
+    override func shouldAutorotate() -> Bool {
+        return true
+    }
     
     // MARK: - Color Slider Functions
     func changedColor(slider: ColorSlider) {
@@ -174,7 +188,6 @@ class StaticModeRunningViewController: UIViewController {
             blue = myCIColor.blue
             selectedColorView.backgroundColor = slider.color
         }
-        
     }
 
     func processBLE(notice:NSNotification) {

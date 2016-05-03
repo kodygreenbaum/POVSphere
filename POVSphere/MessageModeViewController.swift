@@ -7,28 +7,89 @@
 //
 
 import UIKit
+import ColorSlider
 import CoreBluetooth
 
 class MessageModeViewController: UIViewController, UITextFieldDelegate {
     
     private var _rotation : Int8 = 0
     
+    let colorSlider = ColorSlider()
+    var red: CGFloat = 1.0
+    var green: CGFloat = 0.0
+    var blue: CGFloat = 0.0
+    
     @IBOutlet weak var firstTextField: UITextField!
     @IBOutlet weak var secondTextField: UITextField!
     @IBOutlet weak var thirdTextField: UITextField!
     @IBOutlet weak var fourthTextField: UITextField!
+    @IBOutlet weak var sliderContainerView: UIView!
+    @IBOutlet weak var selectedColorView: UIView!
+    
+    
+    @IBAction func setColorOnePressed(sender: AnyObject) {
+        
+        let colorWrite : [UInt8] = [12, colorSlider.colorMapped]
+        if let data: NSData? = NSData(bytes: colorWrite, length: 2 ){
+            if(colorChar != nil) {
+                periph.writeValue(data!, forCharacteristic: colorChar, type: CBCharacteristicWriteType.WithResponse)
+            }
+        }
+        
+    }
+    
+    @IBAction func setColorTwoPressed(sender: AnyObject) {
+        
+        let colorWrite : [UInt8] = [13, colorSlider.colorMapped]
+        if let data: NSData? = NSData(bytes: colorWrite, length: 2 ){
+            if(colorChar != nil) {
+                periph.writeValue(data!, forCharacteristic: colorChar, type: CBCharacteristicWriteType.WithResponse)
+            }
+        }
+        
+    }
+    
+    @IBAction func setColorThreePressed(sender: AnyObject) {
+        
+        let colorWrite : [UInt8] = [14, colorSlider.colorMapped]
+        if let data: NSData? = NSData(bytes: colorWrite, length: 2 ){
+            if(colorChar != nil) {
+                periph.writeValue(data!, forCharacteristic: colorChar, type: CBCharacteristicWriteType.WithResponse)
+            }
+        }
+    }
+    
+    @IBAction func setColorFourPressed(sender: AnyObject) {
+       
+        let colorWrite : [UInt8] = [15, colorSlider.colorMapped]
+        if let data: NSData? = NSData(bytes: colorWrite, length: 2 ){
+            if(colorChar != nil) {
+                periph.writeValue(data!, forCharacteristic: colorChar, type: CBCharacteristicWriteType.WithResponse)
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MessageModeViewController.processBLE(_:)), name: "processBLE", object: nil)
         
+        // Force Portrait
+        let value = UIInterfaceOrientation.Portrait.rawValue
+        UIDevice.currentDevice().setValue(value, forKey: "orientation")
+        
         firstTextField.delegate = self
         secondTextField.delegate = self
         thirdTextField.delegate = self
         fourthTextField.delegate = self
         
-        // Do any additional setup after loading the view.
+        //ColorSlider
+        colorSlider.frame = CGRectMake(0, 0, 20, 150)
+        sliderContainerView.addSubview(colorSlider)
+        colorSlider.previewEnabled = true
+        colorSlider.addTarget(self, action: #selector(MessageModeViewController.changedColor(_:)), forControlEvents: .ValueChanged)
+        selectedColorView.backgroundColor = colorSlider.color
+        self.selectedColorView.layer.borderWidth = 1
     }
     
     override func didReceiveMemoryWarning() {
@@ -63,6 +124,15 @@ class MessageModeViewController: UIViewController, UITextFieldDelegate {
         
     }
 
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
+    }
+    
+    // Rotate to Portrait
+    override func shouldAutorotate() -> Bool {
+        return true
+    }
     
     // MARK: TextField Delegate Methods
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -120,6 +190,15 @@ class MessageModeViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    // MARK: - Color Slider Functions
+    func changedColor(slider: ColorSlider) {
+        if let myCIColor = slider.color.coreImageColor {
+            red = myCIColor.red
+            green = myCIColor.green
+            blue = myCIColor.blue
+            selectedColorView.backgroundColor = slider.color
+        }
+    }
     
     func processBLE(notice:NSNotification) {
         if let userDict = notice.userInfo{

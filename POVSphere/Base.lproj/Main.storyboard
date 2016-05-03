@@ -676,6 +676,9 @@
                                 <state key="normal" title="Set Color">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="setColorOnePressed:" destination="W7R-iD-WKc" eventType="touchUpInside" id="aYC-UF-XfN"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GDu-Mx-eSQ">
                                 <rect key="frame" x="468" y="206" width="59" height="27"/>
@@ -683,6 +686,9 @@
                                 <state key="normal" title="Set Color">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="setColorTwoPressed:" destination="W7R-iD-WKc" eventType="touchUpInside" id="rzT-Jv-qoa"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OSx-JA-jS1">
                                 <rect key="frame" x="468" y="266" width="59" height="27"/>
@@ -690,6 +696,9 @@
                                 <state key="normal" title="Set Color">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="setColorThreePressed:" destination="W7R-iD-WKc" eventType="touchUpInside" id="7Au-p2-33J"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="72A-Ed-Os6">
                                 <rect key="frame" x="468" y="326" width="59" height="27"/>
@@ -697,12 +706,31 @@
                                 <state key="normal" title="Set Color">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="setColorFourPressed:" destination="W7R-iD-WKc" eventType="touchUpInside" id="kjo-le-j8K"/>
+                                </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dbu-BB-rLA">
+                                <rect key="frame" x="556" y="310" width="24" height="24"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="cou-lc-KER"/>
+                                    <constraint firstAttribute="height" constant="24" id="t5k-hO-lmq"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uxl-9K-hhG">
+                                <rect key="frame" x="558" y="145" width="20" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="NS7-TF-ZEW"/>
+                                    <constraint firstAttribute="width" constant="20" id="OHK-rc-BIz"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="MOf-D9-40a" firstAttribute="width" secondItem="MOf-D9-40a" secondAttribute="height" multiplier="10:7" id="0GV-dd-IxV"/>
                             <constraint firstItem="72A-Ed-Os6" firstAttribute="centerY" secondItem="t2w-EK-D4O" secondAttribute="centerY" id="6VJ-7L-NGB"/>
+                            <constraint firstItem="uxl-9K-hhG" firstAttribute="top" secondItem="dYR-kn-Nmt" secondAttribute="top" id="8m1-N4-l85"/>
                             <constraint firstItem="MOf-D9-40a" firstAttribute="leading" secondItem="QdH-K0-baj" secondAttribute="leading" constant="-5" id="A1x-Ma-pPq"/>
                             <constraint firstItem="t2w-EK-D4O" firstAttribute="top" secondItem="5E9-e4-Mhn" secondAttribute="bottom" constant="30" id="B3o-Tg-6ev"/>
                             <constraint firstItem="8lG-7W-uqD" firstAttribute="top" secondItem="5AI-mf-d9b" secondAttribute="bottom" constant="50" id="BES-3b-lPv"/>
@@ -710,6 +738,7 @@
                             <constraint firstItem="iCy-KD-M35" firstAttribute="top" secondItem="5AI-mf-d9b" secondAttribute="bottom" constant="-20" id="F84-6I-K0W"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5E9-e4-Mhn" secondAttribute="trailing" id="IWu-g9-gcJ"/>
                             <constraint firstItem="GDu-Mx-eSQ" firstAttribute="centerY" secondItem="sqQ-3m-kRL" secondAttribute="centerY" id="IsV-V6-PSv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uxl-9K-hhG" secondAttribute="trailing" constant="2" id="JDj-9Y-d5I"/>
                             <constraint firstAttribute="leadingMargin" secondItem="sqQ-3m-kRL" secondAttribute="leading" id="JMU-A4-PT3"/>
                             <constraint firstAttribute="leadingMargin" secondItem="t2w-EK-D4O" secondAttribute="leading" id="LVu-iO-QcH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="sqQ-3m-kRL" secondAttribute="trailing" id="LbX-y0-OTh"/>
@@ -730,6 +759,7 @@
                             <constraint firstItem="5E9-e4-Mhn" firstAttribute="top" secondItem="sqQ-3m-kRL" secondAttribute="bottom" constant="30" id="fiU-TS-N8H"/>
                             <constraint firstItem="sqQ-3m-kRL" firstAttribute="top" secondItem="dYR-kn-Nmt" secondAttribute="bottom" constant="30" id="gz7-dD-5zU"/>
                             <constraint firstItem="hPE-nU-MR6" firstAttribute="width" secondItem="hPE-nU-MR6" secondAttribute="height" multiplier="10:7" id="hzu-eA-U7O"/>
+                            <constraint firstItem="dbu-BB-rLA" firstAttribute="top" secondItem="uxl-9K-hhG" secondAttribute="bottom" constant="15" id="iul-wM-cQG"/>
                             <constraint firstItem="iCy-KD-M35" firstAttribute="leading" secondItem="m2k-7l-Vmh" secondAttribute="leadingMargin" constant="-20" id="jRk-tH-mdb"/>
                             <constraint firstItem="Wrl-KM-RrP" firstAttribute="centerY" secondItem="dYR-kn-Nmt" secondAttribute="centerY" id="jtP-Sc-8ZC"/>
                             <constraint firstItem="MOf-D9-40a" firstAttribute="top" secondItem="hPE-nU-MR6" secondAttribute="top" id="mVw-Ud-gcZ"/>
@@ -741,6 +771,7 @@
                             <constraint firstItem="hPE-nU-MR6" firstAttribute="width" secondItem="hPE-nU-MR6" secondAttribute="height" multiplier="10:7" id="uDr-ip-WqR"/>
                             <constraint firstItem="Wrl-KM-RrP" firstAttribute="leading" secondItem="dYR-kn-Nmt" secondAttribute="trailing" constant="8" id="uy7-kT-Iez"/>
                             <constraint firstItem="sqQ-3m-kRL" firstAttribute="trailing" secondItem="5E9-e4-Mhn" secondAttribute="trailing" id="xGM-OU-jju"/>
+                            <constraint firstItem="uxl-9K-hhG" firstAttribute="centerX" secondItem="dbu-BB-rLA" secondAttribute="centerX" id="yWI-h0-tNt"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -758,6 +789,8 @@
                         <outlet property="firstTextField" destination="dYR-kn-Nmt" id="DN9-zv-qCu"/>
                         <outlet property="fourthTextField" destination="t2w-EK-D4O" id="sRv-Nk-q15"/>
                         <outlet property="secondTextField" destination="sqQ-3m-kRL" id="JId-2c-rQy"/>
+                        <outlet property="selectedColorView" destination="dbu-BB-rLA" id="EqQ-Xl-gca"/>
+                        <outlet property="sliderContainerView" destination="uxl-9K-hhG" id="6U9-by-bJi"/>
                         <outlet property="thirdTextField" destination="5E9-e4-Mhn" id="Zod-Yr-Dly"/>
                     </connections>
                 </viewController>
