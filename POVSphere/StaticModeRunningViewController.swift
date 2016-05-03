@@ -35,6 +35,18 @@ class StaticModeRunningViewController: UIViewController {
     @IBOutlet weak var colorButtonRight: UIButton!
     @IBOutlet weak var colorPreviewLeft: UIView!
     @IBOutlet weak var colorPreviewRight: UIView!
+    @IBOutlet weak var pokeBallButton: UIButton!
+    
+    
+    @IBAction func pokeBallButtonPressed(sender: AnyObject) {
+        let write : [UInt8] = [1]
+        if let data: NSData? = NSData(bytes: write, length: 1 ) {
+            if(pokeBallChar != nil) {
+                periph.writeValue(data!, forCharacteristic: pokeBallChar, type: CBCharacteristicWriteType.WithResponse)
+            }
+        }
+        
+    }
     
     @IBAction func leftColorButtonPressed(sender: AnyObject) {
         colorPreviewLeft.backgroundColor = colorSlider.color
@@ -166,6 +178,16 @@ class StaticModeRunningViewController: UIViewController {
             self.colorPreviewRight.hidden = true
             self.sliderContainerView.hidden = true
             self.selectedColorView.hidden = true
+        }
+        
+        // PokeBall Button Stuff
+        // Clock Select Button
+        if(self.mode.name == "PokeBall"){
+            pokeBallButton.hidden = false
+            nameLabel.hidden = true
+        } else {
+            pokeBallButton.hidden = true
+            nameLabel.hidden = false
         }
 
     }

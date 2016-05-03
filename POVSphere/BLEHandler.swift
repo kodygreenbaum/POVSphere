@@ -23,7 +23,7 @@ var clearGlobeChar: CBCharacteristic!
 var fireWorkWriteChar: CBCharacteristic!
 var timeChar: CBCharacteristic!
 var colorChar: CBCharacteristic!
-
+var pokeBallChar: CBCharacteristic!
 
 class BLEHandler: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     override init () {
@@ -139,6 +139,9 @@ class BLEHandler: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
                 case "00000000-0000-1000-8000-00805F9B34F3":
                     colorChar = characteristic
                     print("Found Color Characteristic")
+                case "00000000-0000-1000-8000-00805F9B34FD":
+                    pokeBallChar = characteristic
+                    print("Found PokeBall Characteristic")
                 default:
                     print("Characteristic not found")
                     

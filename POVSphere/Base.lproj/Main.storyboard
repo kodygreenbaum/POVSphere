@@ -234,6 +234,19 @@
                                     <constraint firstAttribute="width" constant="24" id="v1Q-MR-1oq"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="67P-bV-7aT">
+                                <rect key="frame" x="250" y="70" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Dsc-vH-Luz"/>
+                                    <constraint firstAttribute="width" secondItem="67P-bV-7aT" secondAttribute="height" multiplier="1:1" id="Xz8-TQ-bzd"/>
+                                </constraints>
+                                <state key="normal" title="PokeBall" image="PokeBall">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="pokeBallButtonPressed:" destination="bsh-bX-l8L" eventType="touchUpInside" id="D0l-bO-AoX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -244,6 +257,7 @@
                             <constraint firstItem="It7-QI-8bW" firstAttribute="top" secondItem="cUh-47-baC" secondAttribute="bottom" id="85q-qh-XW0"/>
                             <constraint firstItem="iMo-qD-heU" firstAttribute="top" secondItem="hci-Zv-k42" secondAttribute="bottom" constant="2" id="CWc-vF-a5w"/>
                             <constraint firstItem="hRy-ot-Geo" firstAttribute="top" secondItem="hl1-Gz-eIc" secondAttribute="bottom" constant="3" id="EIk-Vl-euj"/>
+                            <constraint firstItem="67P-bV-7aT" firstAttribute="centerX" secondItem="cUh-47-baC" secondAttribute="centerX" id="G8o-2m-Kki"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cUh-47-baC" secondAttribute="trailing" constant="-20" id="G9j-S7-7Ol"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bNy-l0-lei" secondAttribute="trailing" id="GIf-Kd-1g8"/>
                             <constraint firstItem="cUh-47-baC" firstAttribute="top" secondItem="hci-Zv-k42" secondAttribute="bottom" constant="-20" id="IKA-Ox-aeQ"/>
@@ -251,12 +265,14 @@
                             <constraint firstItem="qSw-Gx-SYh" firstAttribute="centerX" secondItem="cUh-47-baC" secondAttribute="centerX" id="PVs-73-u8w"/>
                             <constraint firstItem="Dd0-KZ-oJO" firstAttribute="top" secondItem="hl1-Gz-eIc" secondAttribute="bottom" constant="22" id="PgM-At-GYk"/>
                             <constraint firstItem="Io2-Fy-FbX" firstAttribute="top" secondItem="hRy-ot-Geo" secondAttribute="bottom" constant="-1" id="QB2-9F-vzE"/>
+                            <constraint firstItem="67P-bV-7aT" firstAttribute="top" secondItem="hci-Zv-k42" secondAttribute="bottom" constant="50" id="XoG-vs-VbS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8Jh-YO-Urg" secondAttribute="trailing" id="YqG-mx-Izv"/>
                             <constraint firstItem="YV4-qH-bnu" firstAttribute="width" secondItem="YV4-qH-bnu" secondAttribute="height" multiplier="10:7" id="aUO-7Y-zpY"/>
                             <constraint firstItem="cUh-47-baC" firstAttribute="leading" secondItem="e55-XK-7nk" secondAttribute="leadingMargin" constant="-20" id="bmN-u2-pBG"/>
                             <constraint firstItem="Fvw-lb-5Tw" firstAttribute="top" secondItem="YV4-qH-bnu" secondAttribute="top" id="ciH-zP-rnf"/>
                             <constraint firstItem="Sg8-yv-Obc" firstAttribute="top" secondItem="ohR-EH-LnD" secondAttribute="bottom" constant="-1" id="d1u-1z-BYQ"/>
                             <constraint firstItem="Fvw-lb-5Tw" firstAttribute="top" secondItem="qSw-Gx-SYh" secondAttribute="bottom" constant="22" id="jj3-s8-Tp1"/>
+                            <constraint firstItem="67P-bV-7aT" firstAttribute="top" secondItem="hl1-Gz-eIc" secondAttribute="top" id="m8V-3I-u6v"/>
                             <constraint firstItem="It7-QI-8bW" firstAttribute="top" secondItem="Fvw-lb-5Tw" secondAttribute="bottom" constant="83" id="mGx-f1-CsO"/>
                             <constraint firstItem="bNy-l0-lei" firstAttribute="top" secondItem="Dd0-KZ-oJO" secondAttribute="bottom" constant="15" id="mrD-en-r9U"/>
                             <constraint firstItem="hl1-Gz-eIc" firstAttribute="top" secondItem="hci-Zv-k42" secondAttribute="bottom" constant="49.5" id="oRU-Ot-47n"/>
@@ -267,6 +283,11 @@
                             <constraint firstItem="Io2-Fy-FbX" firstAttribute="centerX" secondItem="hRy-ot-Geo" secondAttribute="centerX" id="z6F-m4-x5R"/>
                             <constraint firstAttribute="leadingMargin" secondItem="iMo-qD-heU" secondAttribute="leading" id="zUn-Te-Thw"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="m8V-3I-u6v"/>
+                            </mask>
+                        </variation>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="UAp-Iq-zui" appends="YES" id="Y8x-4n-fGn"/>
                             <outletCollection property="gestureRecognizers" destination="LhM-5i-qUW" appends="YES" id="foP-Ra-Jhp"/>
@@ -279,6 +300,7 @@
                         <outlet property="colorPreviewLeft" destination="Sg8-yv-Obc" id="1aX-Y1-VoZ"/>
                         <outlet property="colorPreviewRight" destination="Io2-Fy-FbX" id="8Bd-Qr-r4i"/>
                         <outlet property="nameLabel" destination="hl1-Gz-eIc" id="pSb-zn-bfZ"/>
+                        <outlet property="pokeBallButton" destination="67P-bV-7aT" id="hL8-C3-9SC"/>
                         <outlet property="selectedColorView" destination="bNy-l0-lei" id="BTR-aF-SC1"/>
                         <outlet property="sliderContainerView" destination="Dd0-KZ-oJO" id="J2L-th-9hN"/>
                     </connections>
@@ -1155,6 +1177,7 @@
         <image name="GlobeSmall" width="30" height="30"/>
         <image name="GreenGradientBackground" width="2592" height="1728"/>
         <image name="PaintSmall" width="30" height="30"/>
+        <image name="PokeBall" width="200" height="200"/>
         <image name="Sphere" width="667" height="227"/>
     </resources>
 </document>

@@ -209,6 +209,18 @@ class ArtModeViewController: UIViewController {
         curY = UInt8(Int(floor(fromPoint.y / yratio)))
         
         if ((curX != lastX) || (curY != lastY)) {
+            
+//            if(fromPoint == toPoint) {
+//                self.buffer[self.buffEnd] = [curX, curY, self.colorSlider.colorMapped]
+//                if (self.buffEnd == 9899) {
+//                    self.buffEnd = 0
+//                } else {
+//            let xDiff : Int = Int(curX) - Int(lastX)
+//            let yDiff : Int = Int(curY) - Int(lastY)
+//        
+//            var conX : UInt8 = lastX
+//            var conY : UInt8 = lastY
+            
             // Write To Buffer
             self.buffer[self.buffEnd] = [self.curX, self.curY, self.colorSlider.colorMapped]
             if (self.buffEnd == 9899) {
