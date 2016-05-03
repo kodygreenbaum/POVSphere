@@ -123,6 +123,20 @@ class StaticModeRunningViewController: UIViewController {
             clockSelectButton.hidden = false
         }
         
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(StaticModeRunningViewController.processBLE(_:)), name: "processBLE", object: nil)
+        
+        //ColorSlider
+        colorSlider.frame = CGRectMake(0, 0, 20, 150)
+        sliderContainerView.addSubview(colorSlider)
+        colorSlider.previewEnabled = true
+        colorSlider.addTarget(self, action: #selector(StaticModeRunningViewController.changedColor(_:)), forControlEvents: .ValueChanged)
+        selectedColorView.backgroundColor = colorSlider.color
+        self.selectedColorView.layer.borderWidth = 1
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
         // Color Buttons/Preview Views
         if(self.mode.name == "Globe"){
             self.colorButtonLeft.hidden = false
@@ -141,27 +155,15 @@ class StaticModeRunningViewController: UIViewController {
             self.colorButtonLeft.setTitle("Background", forState: UIControlState.Normal)
             self.colorPreviewLeft.backgroundColor = UIColor.blackColor()
             self.colorButtonRight.setTitle("W Color", forState: UIControlState.Normal)
-            self.colorPreviewLeft.backgroundColor = UIColor.redColor()
+            self.colorPreviewRight.backgroundColor = UIColor.redColor()
         } else {
             self.colorButtonLeft.hidden = true
             self.colorPreviewLeft.hidden = true
             self.colorButtonRight.hidden = true
             self.colorPreviewLeft.hidden = true
         }
-        
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(StaticModeRunningViewController.processBLE(_:)), name: "processBLE", object: nil)
-        
-        //ColorSlider
-        colorSlider.frame = CGRectMake(0, 0, 20, 150)
-        sliderContainerView.addSubview(colorSlider)
-        colorSlider.previewEnabled = true
-        colorSlider.addTarget(self, action: #selector(StaticModeRunningViewController.changedColor(_:)), forControlEvents: .ValueChanged)
-        selectedColorView.backgroundColor = colorSlider.color
-        self.selectedColorView.layer.borderWidth = 1
-        
+
     }
-    
     
     
     // MARK: - Color Slider Functions
