@@ -34,6 +34,8 @@ class ArtModeViewController: UIViewController {
     private var lastY : UInt8 = 0
     private var curX : UInt8 = 0
     private var curY : UInt8 = 0
+    private var prevX : UInt8 = 0
+    private var prevY : UInt8 = 0
     
     private var buffer = [[UInt8]](count: (9900), repeatedValue: [UInt8](count: 3, repeatedValue: 0))
     private var buffStart = 0
@@ -186,7 +188,7 @@ class ArtModeViewController: UIViewController {
     }
     
     func drawLineFrom(fromPoint: CGPoint, toPoint: CGPoint) {
-        
+    
         UIGraphicsBeginImageContext(view.frame.size)
         let context = UIGraphicsGetCurrentContext()
         tempImageView.image?.drawInRect(CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
@@ -205,42 +207,275 @@ class ArtModeViewController: UIViewController {
         tempImageView.alpha = opacity
         UIGraphicsEndImageContext()
         
-        curX = UInt8(Int(floor(fromPoint.x / xratio)))
-        curY = UInt8(Int(floor(fromPoint.y / yratio)))
+        lastX = UInt8(Int(floor(fromPoint.x / xratio)))
+        lastY = UInt8(Int(floor(fromPoint.y / yratio)))
         
-        if ((curX != lastX) || (curY != lastY)) {
+        curX = UInt8(Int(floor(toPoint.x / xratio)))
+        curY = UInt8(Int(floor(toPoint.y / yratio)))
+        
+        //if ((curX != lastX) || (curY != lastY)) {
+        
+        // Write To Buffer
+        
+        if (fromPoint == toPoint) {
+            //if ((prevX != lastX) || (prevY != lastY)) {
+                self.buffer[self.buffEnd] = [self.curX, self.curY, self.colorSlider.colorMapped]
+                if (self.buffEnd == 9899) {
+                    self.buffEnd = 0
+                } else {
+                    self.buffEnd += 1
+                }
+                
+                self.valuesInBuffer += 1
+                
+            //}
+        } else {
+            let xDiff : Int = Int(curX) - Int(lastX)
+            let yDiff : Int = Int(curY) - Int(lastY)
             
-//            if(fromPoint == toPoint) {
-//                self.buffer[self.buffEnd] = [curX, curY, self.colorSlider.colorMapped]
-//                if (self.buffEnd == 9899) {
-//                    self.buffEnd = 0
-//                } else {
-//            let xDiff : Int = Int(curX) - Int(lastX)
-//            let yDiff : Int = Int(curY) - Int(lastY)
-//        
-//            var conX : UInt8 = lastX
-//            var conY : UInt8 = lastY
+            var conX : UInt8 = lastX
+            var conY : UInt8 = lastY
             
-            // Write To Buffer
-            self.buffer[self.buffEnd] = [self.curX, self.curY, self.colorSlider.colorMapped]
-            if (self.buffEnd == 9899) {
-                self.buffEnd = 0
+            if(xDiff == 0) {
+                if(yDiff > 0) {
+                    while(conX != curX && conY != curY) {
+                        self.buffer[self.buffEnd] = [conX, conY, self.colorSlider.colorMapped]
+                        
+                        if (self.buffEnd == 9899) {
+                            self.buffEnd = 0
+                        } else {
+                            self.buffEnd += 1
+                        }
+                        self.valuesInBuffer += 1
+                        
+                        conY += 1
+                    }
+                }
+                else {
+                    while(conX != curX && conY != curY){
+                        self.buffer[self.buffEnd] = [conX, conY, self.colorSlider.colorMapped]
+                        
+                        if (self.buffEnd == 9899) {
+                            self.buffEnd = 0
+                        } else {
+                            self.buffEnd += 1
+                        }
+                        
+                        self.valuesInBuffer += 1
+                        conY -= 1
+                    }
+                }
+            } else if(yDiff == 0) {
+                if(xDiff > 0) {
+                    while(conX != curX && conY != curY){
+                        self.buffer[self.buffEnd] = [conX, conY, self.colorSlider.colorMapped]
+                        
+                        if (self.buffEnd == 9899) {
+                            self.buffEnd = 0
+                        } else {
+                            self.buffEnd += 1
+                        }
+                        
+                        self.valuesInBuffer += 1
+                        
+                        conX += 1
+                    }
+                } else {
+                    while(conX != curX && conY != curY){
+                        self.buffer[self.buffEnd] = [conX, conY, self.colorSlider.colorMapped]
+                        
+                        if (self.buffEnd == 9899) {
+                            self.buffEnd = 0
+                        } else {
+                            self.buffEnd += 1
+                        }
+                        
+                        self.valuesInBuffer += 1
+                        conX -= 1
+                    }
+                }
             } else {
-                self.buffEnd += 1
-            }
-            
-            self.valuesInBuffer += 1
-            
-            if(!writing) {
-                self.writing = true
-                //Kick off the buffer writing function
-                var userDict = [String : Bool]()
-                userDict["error"] = true
-                NSNotificationCenter.defaultCenter().postNotificationName("globeWriteOccurred", object: self, userInfo: userDict)
+                let xBigger = (abs(xDiff) >= abs(yDiff))
+                var ratio : CGFloat = 0
+                var err : CGFloat = -1
+                if(xBigger) {
+                    ratio = CGFloat(yDiff)/CGFloat(xDiff)
+                } else {
+                    ratio = CGFloat(xDiff)/CGFloat(yDiff)
+                }
+                
+                if (yDiff > 0 && xDiff > 0) {
+                    if(xBigger) {
+                        while(conX != curX && conY != curY) {
+                            self.buffer[self.buffEnd] = [conX, conY, self.colorSlider.colorMapped]
+                            
+                            if (self.buffEnd == 9899) {
+                                self.buffEnd = 0
+                            } else {
+                                self.buffEnd += 1
+                            }
+                            self.valuesInBuffer += 1
+                            
+                            conX += 1
+                            err += ratio
+                            if (err > 0) {
+                                conY += 1
+                                err = -1
+                            }
+                        }
+                    } else {
+                        while(conX != curX && conY != curY) {
+                            self.buffer[self.buffEnd] = [conX, conY, self.colorSlider.colorMapped]
+                            
+                            if (self.buffEnd == 9899) {
+                                self.buffEnd = 0
+                            } else {
+                                self.buffEnd += 1
+                            }
+                            self.valuesInBuffer += 1
+                            
+                            conY += 1
+                            err += ratio
+                            if (err > 0) {
+                                conX += 1
+                                err = -1
+                            }
+                        }
+                    }
+                } else if (yDiff < 0 && xDiff > 0) {
+                    if(xBigger) {
+                        while(conX != curX && conY != curY) {
+                            self.buffer[self.buffEnd] = [conX, conY, self.colorSlider.colorMapped]
+                            
+                            if (self.buffEnd == 9899) {
+                                self.buffEnd = 0
+                            } else {
+                                self.buffEnd += 1
+                            }
+                            
+                            self.valuesInBuffer += 1
+                            
+                            conX += 1
+                            err += ratio
+                            if (err > 0) {
+                                conY -= 1
+                                err = -1;
+                            }
+                        }
+                    } else {
+                        while(conX != curX && conY != curY) {
+                            self.buffer[self.buffEnd] = [conX, conY, self.colorSlider.colorMapped]
+                            
+                            if (self.buffEnd == 9899) {
+                                self.buffEnd = 0
+                            } else {
+                                self.buffEnd += 1
+                            }
+                            
+                            self.valuesInBuffer += 1
+                            
+                            conY -= 1
+                            err += ratio
+                            if (err > 0) {
+                                conX += 1
+                                err = -1
+                            }
+                        }
+                    }
+                } else if (yDiff > 0 && xDiff < 0) {
+                    if(xBigger) {
+                        while(conX != curX && conY != curY) {
+                            self.buffer[self.buffEnd] = [conX, conY, self.colorSlider.colorMapped]
+                            
+                            if (self.buffEnd == 9899) {
+                                self.buffEnd = 0
+                            } else {
+                                self.buffEnd += 1
+                            }
+                            
+                            self.valuesInBuffer += 1
+                            
+                            conX -= 1
+                            err += ratio
+                            if (err > 0) {
+                                conY += 1
+                                err = -1
+                            }
+                        }
+                    } else {
+                        while(conX != curX && conY != curY) {
+                            self.buffer[self.buffEnd] = [conX, conY, self.colorSlider.colorMapped]
+                            
+                            if (self.buffEnd == 9899) {
+                                self.buffEnd = 0
+                            } else {
+                                self.buffEnd += 1
+                            }
+                            
+                            self.valuesInBuffer += 1
+                            
+                            conY += 1
+                            err += ratio
+                            if (err > 0) {
+                                conX -= 1
+                                err = -1
+                            }
+                        }
+                    }
+                } else {
+                    if(xBigger) {
+                        while(conX != curX && conY != curY) {
+                            self.buffer[self.buffEnd] = [conX, conY, self.colorSlider.colorMapped]
+                            
+                            if (self.buffEnd == 9899) {
+                                self.buffEnd = 0
+                            } else {
+                                self.buffEnd += 1
+                            }
+                            
+                            self.valuesInBuffer += 1
+                            
+                            conX -= 1
+                            err += ratio
+                            if (err > 0) {
+                                conY -= 1
+                                err = -1
+                            }
+                        }
+                    } else {
+                        while(conX != curX && conY != curY) {
+                            self.buffer[self.buffEnd] = [conX, conY, self.colorSlider.colorMapped]
+                            
+                            if (self.buffEnd == 9899) {
+                                self.buffEnd = 0
+                            } else {
+                                self.buffEnd += 1
+                            }
+                            
+                            self.valuesInBuffer += 1
+                            conY -= 1
+                            err += ratio
+                            if (err > 0) {
+                                conX -= 1
+                                err = -1
+                            }
+                        }
+                    }
+                }
             }
         }
-        lastX = curX
-        lastY = curY
+        
+        if(!writing) {
+            self.writing = true
+            //Kick off the buffer writing function
+            var userDict = [String : Bool]()
+            userDict["error"] = true
+            NSNotificationCenter.defaultCenter().postNotificationName("globeWriteOccurred", object: self, userInfo: userDict)
+        }
+        // }
+        /////last was here
+        prevX = lastX
+        prevY = lastY
     }
     
     func globeWriteOccurred(notice:NSNotification) {
